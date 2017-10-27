@@ -166,6 +166,12 @@ footer {
     margin: 0 auto;
     display: block;
 }
+.header_wrapper {
+    box-shadow: 0 3px 3px 1px hsla(0, 0%, 0%, 0.05);
+    margin-bottom: 5rem;
+    width: 100%;
+    height: auto;
+}
 
 /*   H E A D E R   */
 
@@ -481,6 +487,7 @@ header {
 /*    margin-top: 0;*/
     box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
 }
+
 .main_travel_price {
     position: absolute;
     right: 0;
@@ -510,6 +517,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
 
 }
 .travel_video_container img {
@@ -691,18 +699,20 @@ header {
     width: 22.5rem;
 }
 .show_more_reviews {
+    text-align: center;
     cursor: pointer;
     margin: 4rem auto 0 auto;
     display: block;
     width: 27rem;
     height: 6rem;
-    box-sizing: border-box;
-    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
-    border: 2px solid hsl(188, 100%, 25%);
-    text-align: center;
-    line-height: 6rem;
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight: 800;
     font-size: 1.6rem;
-    font-weight: 800; 
+    line-height: 6rem;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
 }
 .discount_wrapper {
     margin-top: 10rem;
@@ -1010,11 +1020,223 @@ footer {
 .copyright_wrapper div {
     margin-bottom: 1rem;
 }
-
-
-
-
-
+.sub_slider_viewer {
+    display: inline-block;
+    width: 17.5rem;
+    height: 43rem;
+    overflow: hidden;
+}
+.sub_slider_wrapper {
+    display: block;
+    width:100%;
+    height: 1200rem;
+    font-size: 0;
+}
+.sub_slide {
+    display: inline-block;
+    width: 100%;
+    height: 13.2rem;
+    margin-bottom: 2rem;
+    background-position: center;
+    background-size: cover;
+}
+.sub_slide img {
+    width: 100%;
+    height: auto;
+}
+.main_slider_viewer {
+    float: right;
+    width: 94.5rem;
+    height: 43rem;
+    display: inline-block;
+    overflow: hidden;
+}
+.main_slider_wrapper {
+    width: 1200rem;
+    height: 100%;
+    display: block;
+    font-size: 0;
+}
+.main_slide {
+    width: 94.5rem;
+    height: 100%;
+    display: inline-block;
+}
+.main_slide img {
+    width: 100%;
+    height: 100%;
+}
+.product_header {
+    width: 100%;
+    text-align: left;
+    clear: both;
+    margin-top: 5.5rem;
+}
+.all_product_header {
+    width: 100%;
+    margin-top: 3rem;
+}
+.product_container {
+    margin-top: 5rem;
+}
+.product_captain_block {
+    display: inline-block;
+    width: 37rem;
+    height: 34rem;
+    text-align: center;
+    box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
+    background-color: white;
+}
+.product_captain_img {
+    display: inline-block;
+    margin-top: 2rem;
+    width: 16rem;
+    height: 16rem;
+    overflow: hidden;
+    border-radius: 16rem;
+    border: 0.5px solid hsl(188, 100%, 25%);
+}
+.product_captain_img img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.product_captain_name {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+.product_captain_block .text {
+    display: inline-block;
+    text-align: left;
+    width: 33rem;
+}
+.product_captain_block .text span {
+    font-weight: 800;
+}
+.product_info {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 68.5rem;
+    text-align: left;
+    height: 34rem;
+}
+.product_info .text {
+    display: inline-block;
+    position: relative;
+    width: 15rem;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 7.5rem;
+    overflow: hidden;
+}
+.product_info .text:before {
+    display: block;
+    content: url(../img/Product/21x20.svg);
+    width: 2.1rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+.product_info .text:nth-child(2):before {
+    content: url(../img/Product/18x20.svg);
+    width: 1.8rem;
+    height: 2rem;
+}
+.product_info .text:nth-child(3):before {
+    content: url(../img/Product/%D0%9A%D0%BE%D0%BF%D0%B8%D1%8F%201.svg);
+    width: 2.2rem;
+    height: 1.6rem;
+}
+.product_calendar {
+    width: 100%;
+    height: 25rem;
+    position: absolute;
+    bottom: 0;
+}
+.product_calendar img {
+    width: 100%;
+    height: 100%;
+}
+.product_buttons_container {
+    display: block;
+    margin-top: 4rem;
+    width: 100%;
+    text-align: left;
+/*    line-height: 6rem;*/
+/*    height: 6rem;*/
+}
+.product_btn_buy {
+    display: inline-block;
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight: 800;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width:27rem;
+    height: 6rem;
+    line-height: 6rem;
+    margin-right: 2rem;
+    text-align: center;
+}
+.product_btn_wish {
+    cursor: pointer;
+    display: inline-block;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-right: 2rem;
+    vertical-align: middle;
+}
+.product_btn_wish img {
+    width: 100%;
+    height: 100%;
+}
+.product_btn_share {
+    cursor: pointer;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    vertical-align: middle;
+}
+.product_btn_share img {
+    width: 100%;
+    height: 100%;
+}
+.product_text {
+    width: 100%;
+    margin-top: 6rem;
+}
+.show_full_travel {
+    cursor: pointer;
+    margin: 4.5rem 0 0 0;
+    display: block;
+    width: 29rem;
+    height: 6.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    border: 2px solid hsl(188, 100%, 25%);
+    text-align: center;
+    line-height: 6.5rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+.same_products_header {
+    margin-top: 11rem;
+}
+.same_travels_container {
+    margin-top: 3.5rem;
+}
+.saw_products_header {
+    margin-top: 10rem;
+}
+.saw_travels_container {
+    margin-top: 3.5rem;
+}
+.saw_travels_container article {
+    width: 27.5rem;
+}
 
 
 
