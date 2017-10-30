@@ -98,12 +98,7 @@ p,a,div,section,article,h1,h2,h3,h4,h5,h6,nav,header,footer {
 a {
     text-decoration: none;
     color: inherit;
-}
-.aqua {
-    color: hsl(188, 100%, 25%);
-}
-.black {
-    color: hsl(0, 0%, 19%);
+    cursor: pointer;
 }
 .white {
     color: hsl(0, 0%, 0%);
@@ -114,6 +109,12 @@ a {
     font-weight: 400;
     font-style: normal;
     color: hsl(0, 0%, 19%);
+}
+.black {
+    color: hsl(0, 0%, 19%);
+}
+.aqua {
+    color: hsl(188, 100%, 25%);
 }
 .heavy {
     font-weight: 800;
@@ -154,7 +155,9 @@ h4.sub_header {
     font-weight: 400;
     line-height: 6rem;
 }
-h6.name_header {
+h6.name_header,
+a.name_header {
+    display: block;
     font-size: 1.8rem;
     line-height: 2.1rem;
     font-weight: 800;
@@ -167,16 +170,22 @@ footer {
     margin: 0 auto;
     display: block;
 }
+/*.wrapper {
+    min-height: 50vh;
+}*/
 .header_wrapper {
     box-shadow: 0 3px 3px 1px hsla(0, 0%, 0%, 0.05);
     margin-bottom: 5rem;
     width: 100%;
     height: auto;
+    position: relative;
+    z-index: 3;
 }
 
 /*   H E A D E R   */
 
 header {
+
     text-align: center;
     height: 6rem;
     line-height: 6rem;
@@ -205,6 +214,7 @@ header {
     width: 6.5rem;
     height:3.3rem;
     vertical-align: middle;
+    cursor: pointer;
 }
 .logo img {
     width:100%;
@@ -304,7 +314,7 @@ header {
     background-size: cover;
 }
 .my_account:hover ul {
-    height: 12rem;
+    height: 6.5rem;
     padding: 2.7rem 1rem 1rem 1rem;
 }
 .my_account ul {
@@ -1800,12 +1810,231 @@ footer .text {
     bottom: 3rem;
     margin: 0 auto;
 }
+.video_container {
+    width:58rem;
+    height: 36rem;
+    display: inline-block;
+    margin-right: 8rem;
+    position: relative;
+}
+.video_wrapper {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    height: 200%;
+    width: 200%;
+    text-align: center;
+    line-height: 72rem;
+    display: block;
+}
+.video_wrapper img {
+    width: auto;
+    height: 50%;
+    vertical-align: middle;
+    display: inline-block;
+}
+.adress_container   {
+    width: 38rem;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+}
+.contacts_header,
+.contacts_subheader {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0rem;
+}
+h4.contacts_subheader {
+    margin-bottom: 2rem;
+    line-height: 4rem;
+}
+.adress_wrapper {
+    margin-bottom: 6rem;
+}
+.adress_wrapper .text {
+    line-height: 2.2rem;
+}
+.wish_products_container {
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 3rem 0;
+}
+.wish_wrapper {
+    width: 76rem;
+    display: inline-block;
 
+}
+.wish_header {
+    display: inline-block;
+    width: auto;
+    float: left;
+}
+.profile_container {
+    width: 29rem;
+    float: right;
+    height: 62rem;
+    position: relative;
+}
+.profile_img {
+    width: 25rem;
+    height: 21rem;
+    position: relative;
+    overflow: hidden;
+}
+.profile_img_wrapper {
+    position: absolute;
+    display: inline-block;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    text-align: center;
+    line-height: 42rem;
+}
+.profile_img img {
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.profile_container .name_header {
+    margin-top: 4rem;
+}
+.profile_container .text {
+    margin-top: 1rem;
+}
+.edit_profile {
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.edit_profile:hover::after { 
+    content: attr(data-title);
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    font-size: 1.4rem;
+}
+.my_travels_header {
+    margin-top: 7rem;
+}
+.my_travels_map {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 53rem;
+    background-position: center;
+    background-size: cover;
+    margin-top: 2.5rem;
+    margin-bottom: 8rem;
 
+}
+.my_travels_map:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: hsla(0, 0%, 100%, 0.6);
+    z-index: 1;
+}
+.history_products_container {
+    float: left;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 3rem 0 12rem 0;
+}
+.history_travel {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    box-sizing: border-box;
+    width: 27rem;
+    height: 27rem;
+    margin-bottom: 2rem;
+/*    margin-top: 0.2rem;*/
+    box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
+    background-color: hsl(0, 0%, 100%);
+/*    transition: margin-top 0.4s;*/
+}
+.travel_video_container {
+    position: relative;
+    width: 200%;
+    left: -50%;
+    text-align: center;
+    height: 21rem;
+    overflow: hidden;
+}
+.travel_video_container:after {
+    content: "";
+    display: block;
+    background-color: hsla(200, 35%, 93%, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
+}
+.travel_video_container img {
+    cursor: pointer;
+    height: auto;
+    min-height: 100%;
+    width: auto;
+    min-width: 50%;
+    display: inline-block;
+}
+.history_travel .text {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    color: inherit;
+}
+.my_reviews_header {
+    clear: both;
+}
 
-
-
+.my_reviews_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.my_review {
+    width: 56rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+}
+.my_review .my_review_header {
+    display: inline-block;
+    margin: 3rem 2rem 2rem 0;
+    width: auto;
+}
+.my_review_date {
+    display: inline-block;
+    width: auto;
+}
 
 
 
