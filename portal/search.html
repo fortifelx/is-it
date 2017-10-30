@@ -10,7 +10,8 @@
 	</head>
 	<body>
 	<div class="main_wrapper">
-	<header>
+<div class="header_wrapper">
+    <header class="shadow">
         <ul class="header_menu">
             <li class="aqua"><a href="#">Путешествия</a></li>
             <li class="aqua"><a href="#">Капитаны</a></li>
@@ -23,44 +24,51 @@
         <div class="my_account">
             <p class="my_account_menu text aqua">Моя каюта</p>
             <ul>
-                <li class="aqua"><a href="#">Войти</a></li>
-                <li class="aqua"><a href="#">Ругистрация</a></li>
+                <li class="aqua"><a href="#">Регистрация</a></li>
+                <li class="aqua"><a href="#">Войти </a></li>
             </ul>
         </div>
         <div class="search_header"><input type="text" placeholder="Что вы ищете?"></div>
-	</header>
-	<div class="main_screen_wrapper">
-	    <div class="main_screen_video">
-	        <img src="assets/img/main/1.jpg" alt="">
-	    </div>
-	    <h2 class="sub_header aqua">
-	        Ваше незабываемое
-	    </h2>
-	    <h1 class="main_header aqua">
-	        путешествие на яхте
-	    </h1>
-	    <div class="play_video">
-	        <img src="assets/img/main/1.svg" alt="">
-	    </div>
-	    <div class="main_search">
-	        <select name="country" id="">
+    </header>
+</div>
+    <div class="search_screen_wrapper">
+        <h3 class="section_header aqua page_search_header">
+             Результаты поиска
+        </h3>
+        <div class="page_search">
+            <select name="country" id="">
                 <option value="" defaul>Выбирите страну</option>
-	            <option value="">Италия</option>
-	            <option value="">Испания</option>
-	            <option value="">Греция</option>
-	            <option value="">Турция</option>
-	            <option value="">Египет</option>
-	            <option value="">ОАЕ</option>
-	            <option value="">Кипр</option>
-	            <option value="">Болгария</option>
-	            <option value="">Хорватия</option>
-	            <option value="">Украина</option>
-	        </select>
-	        <input type="text" placeholder="Выбирите дату">
-	        <button class="btn">Найти путешествие</button>
-	     </div>
-	</div>
+                <option value="">Италия</option>
+                <option value="">Испания</option>
+                <option value="">Греция</option>
+                <option value="">Турция</option>
+                <option value="">Египет</option>
+                <option value="">ОАЕ</option>
+                <option value="">Кипр</option>
+                <option value="">Болгария</option>
+                <option value="">Хорватия</option>
+                <option value="">Украина</option>
+            </select>
+            <input type="text" placeholder="Выбирите дату">
+            <select name="people" id="">
+                <option value="" defaul>Количество человек </option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+         </div>
+    </div>
 	<div class="wrapper">
+        <h3 class="section_header aqua search_travel_header">
+             Путешествия
+        </h3>
         <div class="travels_container">
             <article class="main_travel aqua">
                 <p class="main_travel_price text">$1400</p>
@@ -135,122 +143,8 @@
                 <p class="main_travel_spots number_text">10</p>
             </article>
         </div>
-        <div class="show_more_travels aqua">Больше путешествий</div>
-        <h3 class="advantages_header section_header aqua">Вы можете довериться нам</h3>
-        <h4 class="advantages_subheader sub_header aqua">потому  что мы</h4>
-        <div class="advantages_container">
-            <div class="advantage_block">
-                <div class="advantage_img">
-                    <img src="assets/img/main/7.svg" alt="">
-                </div>
-                <p class="text black">Профессионально снимаем путешествия (фото и видео)</p>
-            </div>
-            <div class="advantage_block">
-                <div class="advantage_img">
-                    <img src="assets/img/main/8.svg" alt="">
-                </div>
-                <p class="text black">Сотрудничаем с опытными капитанами (от 5 лет)</p>
-            </div>
-            <div class="advantage_block">
-                <div class="advantage_img">
-                    <img src="assets/img/main/9.svg" alt="">
-                </div>
-                <p class="text black">Берем на себя страховой депозит</p>
-            </div>
-            <div class="advantage_block">
-                <div class="advantage_img">
-                    <img src="assets/img/main/10.svg" alt="">
-                </div>
-                <p class="text black">Кредитируем отдых</p>
-            </div>
-        </div>
-        <h3 class="reviews_header section_header aqua">Отзывы</h3>
-        <h4 class="reviews_subheader sub_header aqua">наших путешественников</h4>
-        <div class="reviews_container aqua">
-            <div class="review_block">
-                <div class="review_img">
-                    <img src="assets/img/main/5.png" alt="">
-                </div>
-                <h6 class="name_header review_header">Юлия Коваленко, </h6>
-                <h6 class="name_header review_object">5 дней в Греции</h6>
-                <p class="text black">Как все начиналось... Вообще, изначально планировался Тай и горящий тур. Буквально за 3 недели до отпуска планы кардинально поменялись в связи с финансовыми и сопутствующими. обстоятельствами. подробностей.</p>
-            </div>
-            <div class="review_block">
-                <div class="review_img">
-                    <img src="assets/img/main/6.png" alt="">
-                </div>
-                <h6 class="name_header review_header">Антон Мукачев,</h6>
-                <h6 class="name_header review_object">5 дней в Греции</h6>
-                <p class="text black">Как все начиналось... Вообще, изначально планировался Тай и горящий тур. Буквально за 3 недели до отпуска планы кардинально поменялись в связи с финансовыми и сопутствующими. обстоятельствами. подробностей.</p>
-            </div>
-            <div class="review_block">
-                <div class="review_img">
-                   <img src="assets/img/main/7.png" alt="">
-                </div>
-                <h6 class="name_header review_header">Аня Давидова, </h6>
-                <h6 class="name_header review_object">5 дней в Греции</h6>
-                <p class="text black">Как все начиналось... Вообще, изначально планировался Тай и горящий тур. Буквально за 3 недели до отпуска планы кардинально поменялись в связи с финансовыми и сопутствующими. обстоятельствами. подробностей.</p>
-            </div>
-            <div class="review_block">
-                <div class="review_img">
-                   <img src="assets/img/main/8.png" alt="">
-                </div>
-                <h6 class="name_header review_header">Аня Давидова,</h6>
-                <h6 class="name_header review_object">5 дней в Греции</h6>
-                <p class="text black">Как все начиналось... Вообще, изначально планировался Тай и горящий тур. Буквально за 3 недели до отпуска планы кардинально поменялись в связи с финансовыми и сопутствующими. обстоятельствами. подробностей.</p>
-            </div>
-        </div>
-        <div class="show_more_reviews aqua">Больше отзывов</div>
-	</div>
-	<div class="discount_wrapper">
-	    <h3 class="discount_header section_header aqua">Гарантированная скидка</h3>
-        <h4 class="discount_subheader sub_header aqua">для всех членов клуба Check in Sea</h4>
-        <div class="discount_form">
-            <form action="">
-                <input type="text" placeholder="Введите имя">
-                <input type="text" placeholder="Введите номер телефона">
-                <input type="text" placeholder="Введите e-mail">
-                <button>Стать членом клуба</button>
-            </form>
-        </div>
-	</div>
-	<div class="wrapper">
-	    <h3 class="captains_header section_header aqua">Наши капитаны</h3>
-        <h4 class="captains_subheader sub_header aqua">опытные, образованные профессионалы</h4>
-        <div class="captains_container">
-            <div class="captain_block">
-                <div class="captain_img">
-                    <img src="assets/img/main/9.png" alt="">
-                </div>
-                <h6 class="name_header captain_name aqua">Андрей Григорьев</h6>
-                <p class="text"><span>Языки: </span>английский, немецкий</p><br>
-                <p class="text"><span>Опыт: </span>10 лет</p><br>
-                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
-            </div>
-            <div class="captain_block">
-                <div class="captain_img">
-                    <img src="assets/img/main/10.png" alt="">
-                </div>
-                <h6 class="name_header captain_name aqua">Алексей Дмитриев</h6>
-                <p class="text"><span>Языки: </span>английский, итальянский</p><br>
-                <p class="text"><span>Опыт: </span>12 лет</p><br>
-                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
-            </div>
-            <div class="captain_block">
-                <div class="captain_img">
-                    <img src="assets/img/main/12.png" alt="">
-                </div>
-                <h6 class="name_header captain_name aqua">Максим Кириченко</h6>
-                <p class="text"><span>Языки: </span>английский, французкий</p><br>
-                <p class="text"><span>Опыт: </span>5 лет</p><br>
-                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
-            </div>
-        </div>
-        <div class="captains_btn_container">
-            <a href="" class="show_all_captains">Познакомиться со всеми капитанами</a>
-            <a href="" class="become_a_captain">Стать капитаном</a>
-        </div>
-       <h3 class="infos_header section_header aqua">Помощь</h3>
+        <div class="search_show_travels aqua">Показать все путешествия по запросу</div>
+        <h3 class="infos_header section_header aqua">Помощь</h3>
         <h4 class="infos_subheader sub_header aqua">все, что нужно знать о яхтенных путешествиях</h4>
         <div class="infos_container aqua">
             <div class="info_block">
@@ -282,7 +176,40 @@
                 <p class="text black">Как все начиналось... Вообще, изначально планировался Тай и горящий тур. Буквально за 3 недели до отпуска планы кардинально поменялись в связи с финансовыми и сопутствующими. обстоятельствами. подробностей.</p>
             </div>
         </div>
-        <div class="show_more_infos aqua">Больше статей</div>
+        <div class="search_more_infos aqua">Показать все результаты раздела «Помощь» </div>
+        <h3 class="captains_header section_header aqua">Наши капитаны</h3>
+        <h4 class="captains_subheader sub_header aqua">опытные, образованные профессионалы</h4>
+        <div class="captains_container">
+            <div class="captain_block">
+                <div class="captain_img">
+                    <img src="assets/img/main/9.png" alt="">
+                </div>
+                <h6 class="name_header captain_name aqua">Андрей Григорьев</h6>
+                <p class="text"><span>Языки: </span>английский, немецкий</p><br>
+                <p class="text"><span>Опыт: </span>10 лет</p><br>
+                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
+            </div>
+            <div class="captain_block">
+                <div class="captain_img">
+                    <img src="assets/img/main/10.png" alt="">
+                </div>
+                <h6 class="name_header captain_name aqua">Алексей Дмитриев</h6>
+                <p class="text"><span>Языки: </span>английский, итальянский</p><br>
+                <p class="text"><span>Опыт: </span>12 лет</p><br>
+                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
+            </div>
+            <div class="captain_block">
+                <div class="captain_img">
+                    <img src="assets/img/main/12.png" alt="">
+                </div>
+                <h6 class="name_header captain_name aqua">Максим Кириченко</h6>
+                <p class="text"><span>Языки: </span>английский, французкий</p><br>
+                <p class="text"><span>Опыт: </span>5 лет</p><br>
+                <p class="text"><span>Любимые акватории: </span> Каспийское море</p>
+            </div>
+        </div>
+        <div class="captains_btn_container">
+            <a href="" class="search_all_captains">Показать все результаты раздела «Наши капитаны»</a>
 	</div>
 	
 	<footer>

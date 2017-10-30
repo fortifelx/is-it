@@ -100,6 +100,9 @@ a {
     color: inherit;
     cursor: pointer;
 }
+a.name_header {
+        display: block;
+}
 .white {
     color: hsl(0, 0%, 0%);
 }
@@ -157,7 +160,6 @@ h4.sub_header {
 }
 h6.name_header,
 a.name_header {
-    display: block;
     font-size: 1.8rem;
     line-height: 2.1rem;
     font-weight: 800;
@@ -2035,7 +2037,84 @@ h4.contacts_subheader {
     display: inline-block;
     width: auto;
 }
+.page_search_header {
+    width: 100%;
+    text-align: center;
+}
+.page_search {
+    text-align: center;
+    margin-top: 2rem;
 
+}
+.page_search select,
+.page_search input {
+    box-sizing: border-box;
+    width: 27rem;
+    height: 6rem;
+    padding-left: 2rem;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    border: 1px solid hsl(188, 100%, 25%);
+    background-color: hsl(0, 0%, 100%);
+    margin-right: 2rem;
+    color: hsl(188, 100%, 25%);
+    font-family: Lato;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 2.1rem;
+}
+.search_travel_header {
+    width: 100%;
+    text-align: left;
+    margin-top: 8.5rem;
+}
+.search_show_travels {
+    display: block;
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight: 800;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 34rem;
+    height: 6rem;
+    line-height: 6rem;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    text-align: center;
+    margin: 4rem auto;
+}
+.search_more_infos {
+    display: block;
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight: 800;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 40rem;
+    height: 6rem;
+    line-height: 6rem;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    text-align: center;
+    margin: 4rem auto;
+}
+.search_all_captains {
+    display: block;
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight: 800;
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 44rem;
+    height: 6rem;
+    line-height: 6rem;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    text-align: center;
+    margin: 4rem auto;
+}
 
 
 
