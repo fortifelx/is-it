@@ -1768,7 +1768,7 @@ footer .text {
     height: auto;
     vertical-align: middle;
 }
-.help_header {
+a.help_header {
     width: 22.5rem;
     display: inline-block;
     text-align: left;
