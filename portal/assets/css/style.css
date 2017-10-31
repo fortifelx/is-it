@@ -2237,4 +2237,114 @@ div.save_article {
 .article_travels_container .main_travel {
     display: inline-block;
 }
+.cart_travels_container {
+    width: auto;
+    float: left;
+}
+.cart_container {
+    width: 73rem;
+    float: right;
+    margin-left: 2rem;
+    margin-bottom: 12rem;
+}
+.cart_header {
+    margin-bottom: 4rem;
+}
+.cart_container .text {
+    margin-bottom: 1rem;
+    display: block;
+    line-height: 6rem;
+}
+.cart_form select,
+.cart_form .btn {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 6rem;
+    padding-top: 0.7rem;
+    line-height: 5rem;
+    vertical-align: middle;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+}
+.cart_form .btn {
+    width: 29rem;
+    margin-top: 6rem;
+    height: 4.4rem;
+    line-height: 4.4rem;
+    padding: 0;
+}
+.cart_form select {
+    color: hsla(188, 100%, 25%, 1);
+    width: auto;
+    font-family: Lato;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 2.5rem;
+    padding-left: 2rem;
+    opacity: 1;
+    margin-left: 1rem;
+    outline: none;
+    border: none;
+}
+.cart_form input {
+    display: block;
+    box-sizing: border-box;
+    width: 29rem;
+    height: 4.4rem;
+    color: hsla(188, 100%, 25%, 0.3);
+    border: 0.2rem solid hsla(188, 100%, 25%, 1);
+    padding-left: 2rem;
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    margin-bottom: 0.5rem;
+}
+.cart_form input::-moz-placeholder {
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 0.3);
+   }
+.cart_form input::-webkit-input-placeholder {
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 0.3);
+}
+.cart_form input:-ms-input-placeholder {
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 0.3);
+
+}
+.cart_form input::-ms-input-placeholder { 
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 0.3);
+}
+.cart_form input::placeholder { 
+    font-size: 1.6rem;
+    line-height: 4.4rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 0.3);
+
+} 
+.cart_form input:focus {
+    color: hsla(188, 100%, 25%, 1);
+    border: 0.2rem solid hsla(188, 100%, 25%, 1);
+}
+.cart_form button {
+    background-color: hsla(188, 100%, 25%, 1); 
+    border: none;
+    color: white;
+    font-family: Lato;
+    font-weight:800;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
 /*some text*/
