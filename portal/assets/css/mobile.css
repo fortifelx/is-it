@@ -3,69 +3,220 @@
 		font-size: 10px;
 	}
 	header,
-	.wrapper  {
+	.wrapper,
+	footer  {
 		width: 24rem;
 		padding: 0 4rem;
 	}
+	h1.main_header {
+		font-size: 2.4rem;
+	}
+	h2.sub_header {
+		font-size: 3.6rem;
+		line-height: 3rem;
+	}
+	h3.section_header {
+		font-size: 2.4rem;
+	}
+	h4.sub_header {
+		line-height: 3rem;
+		font-size: 3.4rem;
+	}
+	.mobile_header {
+		display: block !important;
+	}
+	.text {
+		line-height: 2rem;
+	}
 	header {
-		position: relative;
-		overflow: visible;
+		position: fixed;
+		overflow: hidden;
 		z-index: 4;
+		top: 2rem;
+		height: 4rem;
+		background-color: hsla( 0, 0%, 100%, 0);
 	}
 	.header_menu {
 		overflow: hidden;
+		box-sizing: content-box;
 		position: absolute;
 		right: 4rem;
 		display: inline-block;
 		width: 5rem;
-		background-color: hsla(0, 0%, 100%, 0.6);
+		height: 0;
+		background-color: hsla(0, 0%, 100%, 0);
 		transition: width 0.3s;
 		padding-bottom: 1rem;
+		padding-top: 3rem;
 	}
+	.header_menu:before {
+		content: url(../img/main/butter.svg);
+		display: block;
+		position: absolute;
+		top: -1rem;
+		right: 0;
+	} 
 	.logo {
 		float: left;
 	}
-	.header_menu li {
-		position: relative;
-		width: 100%;
-		display: block;
-		height: 0.8rem;
-		transition: height 0.3s, margin-bottom 0.5s;
-	}
-	.header_menu li:after {
-		content: '';
-		width: 100%;
-		height: 2px;
-		background-color: hsl(188, 100%, 25%);
-		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		transition: bottom 0.5s;
-	}
-	.header_menu li a {
-		font-size: 0;
-	}
-	.header_menu:hover a {
-		font-size: 1.6rem;
-		transition: font-size 0.5s;
-	}
-	.header_menu:hover {
-		width: 12rem;
-	}
-	.header_menu:hover li {
-		width: 100%;
-		height: 2rem;
-		margin-bottom: 2rem;
-	}
-	.header_menu:hover li:after {
-		bottom: -2rem;
-	}
 	.my_account {
-		display: none;
+		float: left;
+		clear: left;
 	}
 	.search_header {
+		clear: both;
+		width: 100%;
+		margin: 1rem 0;
+	}
+	.main_screen_wrapper {
+		height: 100vh;
+	}
+	.main_screen_wrapper .sub_header {
+		margin-bottom: 1rem;
+		margin-top: 20vh;
+	}
+	.play_video {
+		margin-top: 2rem;
+	}
+	.main_search input,
+	.main_search select,
+	.main_search .btn {
+		width: 24rem;
+		margin: 0 0 1rem 0;
+	}
+	.travels_container {
+		height: 95rem;
+		padding-right: 2rem;
+		overflow: hidden;
+	}
+	.main_travel {
+		width: 100%;
+	}
+	.show_more_travels {
+		width: 100%;
+	}
+	.advantages_header,
+	.advantages_subheader {
 		display: none;
+	}
+	.advantage_block {
+		height: auto;
+	}
+	.reviews_container {
+		position: relative;
+		height: 49rem;
+		padding-right: 2rem;
+		padding-left: 1rem;
+		left: -1rem;
+	}
+	.review_block {
+		box-sizing: border-box;
+		width: calc(100% - 2rem);
+		position: absolute;
+		left: calc( 100% + 2rem);
+		padding: 1rem;
+		height: 47rem;
+	}
+	.review_block:first-child {
+		left: 1rem;
+	}
+	.review_block .text {
+		width: 100%;
+	}
+	.show_more_reviews {
+		display: none;
+	}
+	.discount_wrapper {
+		background-position: left;
+		padding: 6rem 0 7rem 0;  
+	}
+	.discount_header,
+	.discount_subheader {
+		display: none;
+	}
+	.discount_form {
+		width: 100%;
+		margin-top: 1rem;
+		text-align: center;
+	}
+	.discount_form .desctop_discount_form {
+		display: none;
+	}
+	.discount_form .mobile_discount_form {
+		width: 24rem;
+		display: inline-block;
+	}
+	.discount_form input,
+	.discount_form button {
+		width: 100%;
+		margin: 1rem 0 0 0;
+	}
+	.discount_form button {
+		margin-top: 2rem;
+	}
+	.captains_header {
+		margin-top: 6rem;
+	}
+	.captain_block {
+		display: none;
+		width: 100%;
+		padding: 1rem 1rem 3rem 1rem;
+	}
+	.captain_block:first-child {
+		display: block;
+	}
+	.captain_block .text {
+		display: inline-block;
+		width: 100%;
+	}
+	.captains_btn_container {
+		margin-top: 0;
+	}
+	.show_all_captains {
+		display: none;
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+	.mobile_btn {
+		display: block;
+	}
+	.become_a_captain {
+		width: 100%;
+	}
+	.infos_container {
+		margin-top: 3rem;
+	}
+	a.info_header,
+	.info_header {
+		width: 21rem;
+	}
+	.info_block {
+		display: none;
+		width: 100%;
+		height: 47rem;
+		margin-bottom: 2.5rem;
+	}
+	.info_block:first-child {
+		display: block;
+	}
+	.info_block .text {
+		width: 21rem;	
+	}
+	.show_more_infos {
+		width: 100%;
+		margin: 0;
+	}
+	.footer_adress {
+		width: 100%;
+		margin-top: 5rem;
+		margin-bottom: 6rem;
+	}
+	.copyright_wrapper {
+		width: 100%;
+	}
+	.copyright {
+		margin-top: 4rem;
+		padding-bottom: 9rem;
 	}
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
