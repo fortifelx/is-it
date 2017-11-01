@@ -83,9 +83,12 @@
     font-weight: 900;
 }
 @font-face {
-    font-family: "Resphekt";
-    src: url("../fonts/Resphekt.ttf");
-    font-style: normal;
+    font-family: Resphekt;
+    src: url("../fonts/Resphekt.eot");
+    src:
+         url("../fonts/Resphekt.woff") format("woff"),
+         url("../fonts/Resphekt.ttf") format("truetype"),
+         url("../fonts/Resphekt.svg") format("svg");
     font-weight: 400;
 }
 
@@ -692,7 +695,7 @@ header {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-    border: 0.5px solid hsl(188, 100%, 25%);
+/*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .review_img img {
     width:  100%;
@@ -893,7 +896,7 @@ header {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-    border: 0.5px solid hsl(188, 100%, 25%);
+/*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .captain_img img {
     display: inline-block;
@@ -1130,7 +1133,7 @@ footer .text {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-    border: 0.5px solid hsl(188, 100%, 25%);
+/*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .product_captain_img img {
     display: inline-block;
@@ -1834,6 +1837,12 @@ a.help_header {
     display: block;
 }
 .video_wrapper img {
+    width: auto;
+    height: 50%;
+    vertical-align: middle;
+    display: inline-block;
+}
+.video_wrapper video {
     width: auto;
     height: 50%;
     vertical-align: middle;

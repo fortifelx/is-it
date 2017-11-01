@@ -2,6 +2,71 @@
 	html {
 		font-size: 10px;
 	}
+	header,
+	.wrapper  {
+		width: 24rem;
+		padding: 0 4rem;
+	}
+	header {
+		position: relative;
+		overflow: visible;
+		z-index: 4;
+	}
+	.header_menu {
+		overflow: hidden;
+		position: absolute;
+		right: 4rem;
+		display: inline-block;
+		width: 5rem;
+		background-color: hsla(0, 0%, 100%, 0.6);
+		transition: width 0.3s;
+		padding-bottom: 1rem;
+	}
+	.logo {
+		float: left;
+	}
+	.header_menu li {
+		position: relative;
+		width: 100%;
+		display: block;
+		height: 0.8rem;
+		transition: height 0.3s, margin-bottom 0.5s;
+	}
+	.header_menu li:after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		background-color: hsl(188, 100%, 25%);
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transition: bottom 0.5s;
+	}
+	.header_menu li a {
+		font-size: 0;
+	}
+	.header_menu:hover a {
+		font-size: 1.6rem;
+		transition: font-size 0.5s;
+	}
+	.header_menu:hover {
+		width: 12rem;
+	}
+	.header_menu:hover li {
+		width: 100%;
+		height: 2rem;
+		margin-bottom: 2rem;
+	}
+	.header_menu:hover li:after {
+		bottom: -2rem;
+	}
+	.my_account {
+		display: none;
+	}
+	.search_header {
+		display: none;
+	}
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
 	html {
