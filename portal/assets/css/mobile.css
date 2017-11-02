@@ -279,6 +279,52 @@
 		width: 100%;
 		margin-top: 3rem;
 	}
+	.article_img {
+		height: 23rem;
+		margin-top: 9rem;
+	}
+	.article_img_wrapper {
+		line-height: 46rem;
+	}
+	.article_img  img {
+		height: 50%;
+		width: auto;
+	}
+	.article_header {
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
+	h6.nearest_travel_header {
+		display: none;
+		width: 100%;
+		margin: 0 0 2rem 0;
+	}
+	.article_text {
+		width: 100%;
+		margin-bottom: 6rem;
+	}
+	.article_text ul li {
+		margin-left: 3rem;
+	}
+	.article_text ul li:before {
+		left: -3rem;
+	}
+	div.print_article {
+		margin-bottom: 2rem;
+		width: 100%;
+	}
+	div.save_article {
+		width: 100%;
+	}
+	.article_travels_container {
+		width: 100%;
+		float: none;
+		margin: 0;
+	}
+	h6.mob_show {
+		display: block;
+	}
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
 	html {

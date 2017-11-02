@@ -106,6 +106,9 @@ a {
 a.name_header {
         display: block;
 }
+h6.mob_show {
+    display: none;
+}
 .white {
     color: hsl(0, 0%, 0%);
 }
