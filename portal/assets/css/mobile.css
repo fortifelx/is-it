@@ -422,7 +422,97 @@
 		width: 100%;
 		text-align: center;
 	}
-	
+	.all_product_header {
+		width: 100%;
+		text-align: center;
+	}
+	.product_container {
+		width: 100%;
+	}
+	.product_captain_block {
+		width: 100%;
+		height: 37rem;
+		margin-bottom: 3rem;
+	}
+	.product_captain_block .text {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 0 0.5rem;
+	}
+	.product_info {
+		width: 100%;
+		text-align: center;
+		height: auto;
+	}
+	.product_info .text {
+		width: 16rem;
+		margin: 1rem 0;
+		text-align: center;
+
+	}
+	.product_info .text:before {
+		position: relative;
+		top: auto;
+		left: auto;
+		bottom: auto;
+		right: auto;
+		display: block;
+		margin: 1rem auto;
+
+	}
+	.product_calendar {
+		clear: both;
+		position: relative;
+		top: auto;
+		left: auto;
+		bottom: auto;
+		right: auto;
+	}
+	.product_buttons_container {
+		clear: both;
+		padding-top: 4rem;
+		text-align: center;
+	}
+	.product_btn_buy {
+		width: 100%;
+	}
+	.product_btn_wish {
+		margin-top: 3rem;
+	}
+	.product_btn_share {
+		display: none;
+	}
+	.product_text {
+		margin-top: 5rem;
+	}
+	.show_full_travel {
+		display: none;
+		width: 100%;
+		margin-top: 4rem;
+	}
+	.reviews_header {
+		margin-top: 10rem;
+	}
+	.product_more_reviews {
+		display: none;
+	}
+	.same_products_header {
+		width: 100%;
+		text-align: center;
+		margin-top: 8rem;
+	}
+	.same_travels_container {
+		height: 63rem;
+	}
+	.saw_products_header {
+		margin-top: 8rem;
+		width: 100%;
+		text-align: center;
+	}
+	.saw_travels_container {
+		height: 63rem;
+	}
+
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
 	html {
