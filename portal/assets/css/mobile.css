@@ -322,8 +322,80 @@
 		float: none;
 		margin: 0;
 	}
+	div.mob_show,
 	h6.mob_show {
 		display: block;
+	}
+	.wish_wrapper {
+		width: 100%;
+	}
+	.wish_header {
+		margin-top: 7rem;
+		width: 100%;
+		text-align: center;
+	}
+	.wish_products_container {
+	    height: 63rem;
+	    overflow: hidden;
+		width: 24rem;
+		padding: 0 1rem;
+		position: relative;
+		left: -1rem;
+	}
+	.profile_container {
+		width: 100%;
+		margin-top: 3.5rem;
+	}
+	.profile_img {
+		width: 24rem;
+	}
+	.edit_profile {
+		background-color: hsla( 0, 0%, 100%, 0.3);
+		padding: 2px;
+	}
+	.profile_container {
+		height: auto;
+	}
+	.profile_container .name_header {
+		margin-top: 2rem;
+	}
+	.my_travels_header {
+		text-align: center;
+	}
+	.my_travels_map {
+		height: 15rem;
+		max-width: 32rem;
+		margin: 2.2rem auto 0 auto;
+	}
+	.history_products_container {
+		width: 24rem;
+		padding: 0 1rem;
+		position: relative;
+		left: -1rem;
+		overflow: hidden;
+		height: 57rem;
+		margin-bottom: 4rem;
+	}
+	.my_reviews_header {
+		margin-top: 7rem;
+		width: 100%;
+		text-align: center;
+	}
+	.my_review {
+		width: 100%;
+	}
+	.my_review .my_review_header {
+		font-size: 1.6rem;
+		float: left;
+		width: 15rem;
+		margin-right: 0;
+	}
+	.my_review_date {
+		float: right;
+		margin-top: 3rem;
+	}
+	.my_review_text {
+		clear: both;
 	}
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
