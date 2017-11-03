@@ -651,6 +651,81 @@
 	a.mob_show {
 		display: block;
 	}
+	.helps_container {
+		overflow: hidden;
+		box-sizing: content-box;
+		padding: 0 2rem;
+		position: relative;
+		left: -2rem;
+		display: block;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-content: stretch;
+		margin-top: 8.5rem;
+		height: 96.5rem;
+	}
+	.helps_container .help_block {
+		overflow: hidden;
+	    position: relative;
+	    width: 100%;
+	    height: 47rem;
+	    margin-bottom: 1.5rem;
+	    background-color: white;
+	    text-align: center;
+	    box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
+	}
+	.help_block .text {
+		margin: 0;
+	    width: calc(100% - 2rem);
+	    padding: 0 1rem;
+	}
+	a.help_header {
+		width: 100%;
+		margin: 2rem 0 1.4rem 1rem;
+	    font-size: 1.6rem;
+	    line-height: 2rem;
+	}
+	.help_block:nth-child(1),
+	.help_block:nth-child(2) {
+	    width: 100%;
+	    height: 47rem;
+	}
+	.help_block:nth-child(1) .help_header,
+	.help_block:nth-child(2) .help_header {
+	    width: 100%;
+	    display: inline-block;
+	    text-align: left;
+	    margin: 2rem 0 1.4rem 1rem;
+	    font-size: 1.6rem;
+	    line-height: 2rem;
+	}
+	.help_block:nth-child(1) .text,
+	.help_block:nth-child(2) .text {
+	    display: inline-block;
+	    margin: 0;
+	    text-align: left;
+	    height: 12rem;
+	    overflow: hidden;
+	    padding: 0 1rem;
+	    width: calc(100% - 2rem);
+	}
+	.help_block:nth-child(1) .help_img,
+	.help_block:nth-child(2) .help_img {
+	    width: 23rem;
+	    height: 15rem;
+	}
+	.help_block:nth-child(1) .help_img_wrapper,
+	.help_block:nth-child(2) .help_img_wrapper {
+	    line-height: 30rem;
+	}
+	.help_block_btn {
+		width: 22rem;
+		left: 1rem;
+	}
+	.show_more_helps {
+		margin-top: 2rem;
+		width: 100%;
+	}
 }
 @media handheld and (min-width: 768px), screen and (min-width: 768px) {
 	html {
