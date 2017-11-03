@@ -1951,6 +1951,8 @@ a.help_header {
     display: inline-block;
     text-align: left;
     vertical-align: top;
+    position: relative;
+    z-index: 1;
 }
 .contacts_header,
 .contacts_subheader {
@@ -2487,7 +2489,8 @@ h6.nearest_travel_header {
 
 div.mob_show,
 h6.mob_show,
-a.mob_show {
+a.mob_show,
+form.mob_show {
     display: none;
 }
 /*some text*/
