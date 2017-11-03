@@ -106,10 +106,7 @@ a {
 a.name_header {
         display: block;
 }
-div.mob_show,
-h6.mob_show {
-    display: none;
-}
+
 .white {
     color: hsl(0, 0%, 0%);
 }
@@ -206,8 +203,31 @@ footer {
 input, 
 select {
     outline: none !important;
+    border-radius: 0;
+    background-color: white;
 }
-
+select {
+    position: relative;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url(../img/main/d_arrow.svg);
+      background-size: 8%;
+      background-position: 23rem 2.6rem;
+      background-repeat: no-repeat;
+}
+select option {
+    width: 100%;
+}
+select option:selected {
+    background-color: white;
+}
+select option::selected {
+    background-color: white;
+}
+   select::-ms-expand {
+    display: none;
+   }
 /*   H E A D E R   */
 
 header {
@@ -264,7 +284,7 @@ header {
     border: 0.2rem solid hsla(188, 100%, 25%, 0.3);
     padding-left: 2rem;
     font-size: 1.6rem;
-    line-height: 3.1rem;
+    line-height: 3.3rem;
 }
 .search_header input::-moz-placeholder {
     font-size: 1.6rem;
@@ -376,18 +396,29 @@ header {
     height: calc(100vh - 6rem);
     overflow: hidden;
     text-align: center;
+    padding-bottom: 2rem;
+}
+.main_screen_wrapper:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 2rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: white;
 }
 .main_screen_video {
     position: absolute;
     width: 200%;
-    height:100%;
+    height: calc(100% - 1rem);
     top: 0;
     left:  -50%;
     text-align: center;
 }
 .main_screen_video img {
     min-width: 50%;
-    min-height: calc(100vh - 6rem);
+    min-height: calc(100vh - 7rem);
     height:auto;
     display: inline-block;
 }
@@ -424,7 +455,7 @@ header {
     line-height: 2.2rem;
 }
 .main_search {
-    bottom: 0;
+    bottom: 2rem;
     position: absolute;
     width: 100%;
     text-align: center;
@@ -454,6 +485,23 @@ header {
     margin-right: 1.5rem;
     outline: none;
     border: none;
+    background-color: white;
+    border-radius: 0;
+}
+.main_search .btn {
+    position: relative;
+    overflow: visible;
+    padding-top: 0;
+}
+.main_search .btn:after {
+    content: url(../img/main/3.svg);
+    display: block;
+    position: absolute;
+    height: 1.6rem;
+    width: 2.1rem;
+    top: 1rem;
+    left: -6rem;
+    z-index: 1;
 }
 .main_search input::-moz-placeholder {
     font-size: 1.6rem;
@@ -2432,5 +2480,14 @@ h6.nearest_travel_header {
     font-weight:800;
     font-size: 1.6rem;
     cursor: pointer;
+}
+
+
+
+
+div.mob_show,
+h6.mob_show,
+a.mob_show {
+    display: none;
 }
 /*some text*/
