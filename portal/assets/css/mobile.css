@@ -532,8 +532,37 @@
 	}
 	.listing_products_container {
 		width: 100%;
+		margin:  3rem 0;
 	}
 	.listing_map_container {
+		display: none;
+	}
+	.listing_show_more {
+		display: none;
+	}
+	.own_travel_container {
+		margin-top: 5rem;
+	}
+	.own_travel_wrapper {
+		width: 24rem;
+		text-align: center;
+	}
+	.own_travel_container .section_header {
+		font-size: 1.6rem;
+		line-height: 2rem;
+	}
+	.own_travel_container .text {
+		width: 100%;
+		text-align: center;
+	}
+	.own_travel_form {
+		width: 100%;
+	}
+	.own_travel_form input,
+	.own_travel_form button {
+		width: 100%;
+	}
+	.mob_hide {
 		display: none;
 	}
 
