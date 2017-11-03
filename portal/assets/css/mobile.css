@@ -130,7 +130,7 @@
 	}
 	.review_block {
 		box-sizing: border-box;
-		width: calc(100% - 2rem);
+		width: calc(100% - 3rem);
 		position: absolute;
 		left: calc( 100% + 2rem);
 		padding: 1rem;
@@ -564,6 +564,39 @@
 	}
 	.mob_hide {
 		display: none;
+	}
+
+	.owner_container {
+		margin-top: 7.5rem;
+		width: 100%;
+	}
+	.owner_img {
+		width: 100%;
+		height: 20rem;
+	}
+	.owner_img_wrapper {
+		line-height: 40rem;
+	}
+	.owner_text {
+		width: 100%;
+	}
+	h3.owner_header {
+		font-size: 1.8rem;
+		margin-top: 2rem;
+		width: 100%;
+	}
+	h6.owner_post {
+		width: 100%;
+		margin: 2rem 0;
+	}
+	.owner_reviews_header {
+		margin-top: 10rem;
+	}
+	.owner_travels_header {
+		margin-top: 9rem;
+	}
+	.travels_container {
+		width: 100%;
 	}
 
 }

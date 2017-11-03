@@ -695,12 +695,15 @@ header {
 }
 .reviews_container {
     width: 100%;
+    padding: 0 3rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 2rem;
     overflow: hidden;
+    position: relative;
+    left: -3rem;
 }
 .review_block {
     width: 27rem;
