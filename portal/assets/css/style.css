@@ -163,10 +163,11 @@ h3.section_header {
 }
 h2.sub_header {
     font-family: Resphekt;
-    font-size: 4.8rem;
+    font-size: 5.2rem;
     line-height: 6rem;
-    font-weight: 800;
+    font-weight: 200;
     font-style: normal;  
+    letter-spacing: 2px;
 }
 h4.sub_header {
     font-family: Resphekt;
@@ -415,7 +416,7 @@ header {
 }
 .main_header,
 .sub_header {
-    line-height: 1.6rem;
+    line-height: 2.2rem;
 }
 .main_search {
     bottom: 0;
