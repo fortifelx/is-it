@@ -203,6 +203,10 @@ footer {
     position: relative;
     z-index: 3;
 }
+input, 
+select {
+    outline: none !important;
+}
 
 /*   H E A D E R   */
 
@@ -251,6 +255,7 @@ header {
     float: right;
     margin-right: 3rem;
 }
+
 .search_header input {
     box-sizing: border-box;
     width: 100%;
