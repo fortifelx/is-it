@@ -194,11 +194,11 @@ footer {
 }
 .header_wrapper {
     box-shadow: 0 3px 3px 1px hsla(0, 0%, 0%, 0.05);
-    margin-bottom: 5rem;
     width: 100%;
     height: auto;
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    z-index: 10;
+    transition: top 0.7s;
 }
 input, 
 select {
@@ -231,11 +231,22 @@ select option::selected {
 /*   H E A D E R   */
 
 header {
-
     text-align: center;
     height: 6rem;
     line-height: 6rem;
     background-color: white;
+    transition: top 0.6s;
+}
+.header_fixed {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top:-6rem;
+    z-index: 10;
+}
+div.header_active {
+    top: 0;
 }
 .header_menu {
     float: left;
@@ -397,6 +408,7 @@ header {
     overflow: hidden;
     text-align: center;
     padding-bottom: 2rem;
+    margin-top: 6rem;
 }
 .main_screen_wrapper:after {
     content: "";
@@ -2277,6 +2289,7 @@ h4.contacts_subheader {
     overflow: hidden;
     display: block;
     position: relative;
+    margin-top: 11rem;
 }
 .article_img_wrapper {
     position: absolute;
