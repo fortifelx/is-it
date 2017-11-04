@@ -33,3 +33,37 @@
 
 	}
 })();
+(function( $ ) {
+  $.fn.fortySlider = function(time, options) {
+
+  	var $slides = this.children();
+  	var viewWidth = parseInt(this.css('width'), 10) ;
+  	$slides.css({
+  		"position" : "absolute",
+  		"left"     : -viewWidth,
+  		"visibility"  : "hidden"
+  	});
+  	$($slides[0]).css({
+  		"position" : "absolute",
+  		"left"     : "0",
+  		"visibility"  : "visible"
+  	});
+  	$($slides[$slides.length-1]).css({
+  		"left"     : viewWidth,
+  	});
+
+
+      return this.each(function() {
+      		var $this  = $(this);
+
+
+      	});
+
+  };
+})(jQuery);
+(function(){
+	var $view = $('.reviews_container');
+
+
+	$view.fortySlider(600);
+})();
