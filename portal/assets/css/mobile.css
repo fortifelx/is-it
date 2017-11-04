@@ -32,18 +32,22 @@
 		line-height: 2rem;
 	}
 	header {
-		position: fixed;
+		/*position: fixed;*/
 		overflow: hidden;
 		z-index: 4;
 		top: 2rem;
 		height: 4rem;
 		background-color: hsla( 0, 0%, 100%, 0);
 	}
+	.header_fixed {
+		height: 4.5rem;
+	}
 	.header_menu {
 		overflow: hidden;
 		box-sizing: content-box;
 		position: absolute;
 		right: 4rem;
+		top: 1rem;
 		display: inline-block;
 		width: 5rem;
 		height: 0;
@@ -66,7 +70,7 @@
 	    height:3.3rem;
 	    vertical-align: middle;
 	    cursor: pointer;
-	    margin: 0;
+	    margin: 0.5rem 0 0 0;
 	}
 	.logo img {
 	    width:100%;
@@ -83,6 +87,10 @@
 	}
 	.main_screen_wrapper {
 		height: 100vh;
+		margin-top: 0;
+	}
+	.shadow {
+		box-shadow: none;
 	}
 	.main_screen_wrapper .sub_header {
 		margin-bottom: 1rem;

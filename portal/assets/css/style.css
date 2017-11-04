@@ -244,6 +244,8 @@ header {
     position: fixed;
     top:-6rem;
     z-index: 10;
+    background-color: hsla( 0, 0%, 100%, 1);
+    height: 6rem;
 }
 div.header_active {
     top: 0;
