@@ -34,29 +34,86 @@
 	}
 })();
 (function( $ ) {
-  $.fn.fortySlider = function(time, options) {
+  $.fn.fortySlider = function(time, lArrow, rArrow, counter, seperator, method) {
 
   	var $slides = this.children();
   	var viewWidth = parseInt(this.css('width'), 10) ;
   	$slides.css({
   		"position" : "absolute",
   		"left"     : -viewWidth,
-  		"visibility"  : "hidden"
+  		"visibility"  : "hidden",
+  		"opacity"     : "0"
   	});
   	$($slides[0]).css({
   		"position" : "absolute",
   		"left"     : "0",
-  		"visibility"  : "visible"
+  		"visibility"  : "visible",
+  		"opacity"     : "1"
   	});
   	$($slides[$slides.length-1]).css({
   		"left"     : viewWidth,
   	});
 
+  	var $lArrow = $(lArrow);
+  	var $rArrow = $(rArrow);
+    var $seperator = seperator ? seperator : "/";
+
+    var i = 0;
+    var $count = (i+1) + $seperator + $slides.length;
+    var $counter = $(counter).html($count);
+    var $current;
+    var $next;
+
+    function showSlide() {
+    	$current = $($slides[i]);
+    	if(this == $lArrow[0]) {
+	   		$current.velocity({
+    			"opacity" : 0
+    		}, time);
+    		setTimeout(function(){
+    			$current.css({
+    				"left" : viewWidth,
+    				"visibility" : "hidden"
+    			})
+    		}, time);
+    		--i;
+    		if(i === -1) i = $slides.length - 1;
+    		$next = $($slides[i]);
+    		$next.css({
+    				"left" : 0,
+    				"visibility" : "visible"
+    			}).velocity({
+    			opacity : 1,
+    		}, time);
+    	}
+    	if(this == $rArrow[0]) {
+    		$current.velocity({
+    			"opacity" : 0
+    		}, time);
+    		setTimeout(function(){
+    			$current.css({
+    				"left" : -viewWidth,
+    				"visibility" : "hidden"
+    			})
+    		}, time);
+    		++i;
+    		if(i === $slides.length) i = 0;
+    		$next = $($slides[i]);
+    		$next.css({
+    				"left" : 0,
+    				"visibility" : "visible"
+    			}).velocity({
+    			opacity : 1,
+    		}, time);
+    	}
+		$count = (i+1) + $seperator + $slides.length;
+	    $counter = $(counter).html($count);
+    }
+    $lArrow.click(showSlide);
+    $rArrow.click(showSlide);
 
       return this.each(function() {
       		var $this  = $(this);
-
-
       	});
 
   };
@@ -64,6 +121,5 @@
 (function(){
 	var $view = $('.reviews_container');
 
-
-	$view.fortySlider(600);
+	$view.fortySlider(600, ".reviews_l_arrow", ".reviews_r_arrow", ".reviews_slider_counter", "/");
 })();

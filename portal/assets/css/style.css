@@ -804,6 +804,23 @@ div.header_active {
     height: 15.8rem;
     width: 22.5rem;
 }
+.reviews_slider_control {
+    width: 100%;
+    text-align: center;
+}
+.reviews_slider_control div {
+    display: inline-block;
+    color: inherit;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+.reviews_l_arrow,
+.reviews_r_arrow {
+    cursor: pointer;
+    height: 2rem;
+    width: 3rem;
+    text-align: center;
+}
 .product_more_reviews {
     text-align: center;
     cursor: pointer;
