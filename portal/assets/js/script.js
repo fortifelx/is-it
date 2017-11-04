@@ -120,6 +120,9 @@
 })(jQuery);
 (function(){
 	var $view = $('.reviews_container');
-
-	$view.fortySlider(600, ".reviews_l_arrow", ".reviews_r_arrow", ".reviews_slider_counter", "/");
+	var vWidth = parseInt($view.css("width"), 10);
+	console.log(vWidth);
+	if(vWidth < 600) {
+		$view.fortySlider(600, ".reviews_l_arrow", ".reviews_r_arrow", ".reviews_slider_counter", "/");
+	}
 })();
