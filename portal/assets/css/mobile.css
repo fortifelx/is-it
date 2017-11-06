@@ -10,7 +10,19 @@
 	}
 	select {
       background-position: 20rem 2.6rem;
-}
+	}
+	.search_container select {
+		background-position: 20rem 1.6rem;
+	}
+	.date_choice {
+      background-position: 20rem 1.6rem;
+	}
+	.page_search .date_choice {
+    background-position: 20rem 2.2rem;
+	}
+	.page_search select {
+	   background-position: 20rem 2.2rem; 
+	}
 	h1.main_header {
 		font-size: 2.4rem;
 	}
@@ -39,12 +51,12 @@
 		position: relative;
 		overflow: hidden;
 		z-index: 4;
-		top: 2rem;
 		height: 4rem;
 		background-color: hsla( 0, 0%, 100%, 0);
 	}
 	.header_fixed {
 		height: 4.5rem;
+		top: -27rem;
 	}
 	.header_menu {
 		cursor: pointer;
@@ -77,6 +89,7 @@
 	}
 	.show_header_menu header {
 		overflow: visible;
+/*		top: 2rem;*/
 	}
 	.show_header_menu .header_menu {
 		padding-top: 0;
@@ -308,7 +321,7 @@
 	}
 	.cart_travels_container {
 		width: 100%;
-		margin-top: 3.5rem;
+		margin-top: 8.5rem;
 	}
 	.cart_container {
 		width: 100%;
@@ -334,6 +347,21 @@
 		margin: 2rem auto 0 auto;
 		line-height: 6rem;
 		height: 6rem;
+	}
+	.pay_type_wrapper {
+		text-align: left;
+		padding: 1.5rem 0;
+	}
+	.pay_type_wrapper label {
+		display: block;
+		margin-left: -0.5rem;
+		padding: 0.5rem 0;
+	}
+	.people_numbers:after {
+		position: absolute;
+		bottom: 2.3rem;
+		top: auto;
+		right: 9.5rem;
 	}
 	.cart_form input {
 		display: block;
@@ -413,7 +441,7 @@
 	}
 	.profile_container {
 		width: 100%;
-		margin-top: 3.5rem;
+		margin-top: 8rem;
 	}
 	.profile_img {
 		width: 24rem;
@@ -472,7 +500,7 @@
 	.main_slider_viewer {
 		width: 100%;
 		height: calc( 100vh - 10rem);
-		margin-top: 7rem;
+		margin-top: 0;
 		padding-bottom: 5rem;
 		margin-bottom: 6rem;
 	}
@@ -485,6 +513,9 @@
 		width: auto;
 		position: relative;
 		left: -50%;
+	}
+	.slider_container {
+		margin-top: 8rem;
 	}
 	.product_header {
 		margin-top: 0;
@@ -595,6 +626,7 @@
 	}
 	.sorting_container select {
 		width: 100%;
+	    background-position: 20rem 1.2rem;
 	}
 	.goods_container {
 		width: 100%;
@@ -669,7 +701,7 @@
 	}
 	.video_container {
 		width: 100%;
-		margin-top: 3.5rem;
+		margin-top: 8.5rem;
 		height: 17rem;
 		overflow: hidden;
 	}
@@ -678,6 +710,7 @@
 	}
 	.adress_container {
 		width: 100%;
+		margin-top: 0;
 	}
 	h3.contacts_header {
 		margin-top: 5rem;

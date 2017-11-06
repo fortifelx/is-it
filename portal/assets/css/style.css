@@ -216,6 +216,18 @@ select {
       background-position: 23rem 2.6rem;
       background-repeat: no-repeat;
 }
+.date_choice {
+      background-image: url(../img/main/3.svg);
+      background-size: 8%;
+      background-position: 23rem 2.6rem;
+      background-repeat: no-repeat;
+}
+.page_search .date_choice {
+    background-position: 23rem 2.2rem;
+}
+.page_search select {
+   background-position: 23rem 2.2rem; 
+}
 select option {
     width: 100%;
 }
@@ -506,16 +518,6 @@ div.header_active {
     position: relative;
     overflow: visible;
     padding-top: 0;
-}
-.main_search .btn:after {
-    content: url(../img/main/3.svg);
-    display: block;
-    position: absolute;
-    height: 1.6rem;
-    width: 2.1rem;
-    top: 1rem;
-    left: -6rem;
-    z-index: 1;
 }
 .main_search input::-moz-placeholder {
     font-size: 1.6rem;
@@ -1127,10 +1129,13 @@ a.info_header,
     font-weight: 800; 
 }
 
-footer {
+.footer_wrapper {
+    clear: both;
     padding-bottom: 10rem;
-    margin-top: 10rem;
+    margin-top: 7rem;
+    padding-top: 3rem;
     text-align: left;
+    border-top: 2px solid hsla(188, 100%, 25%, 0.3);
 }
 footer .text {
     color: hsla(188, 100%, 25%, 1);
@@ -1233,6 +1238,9 @@ footer .text {
 .main_slide img {
     width: 100%;
     height: 100%;
+}
+.slider_container {
+    margin-top: 10rem;
 }
 .product_header {
     width: 100%;
@@ -1407,7 +1415,7 @@ footer .text {
 }
 .search_container {
     display: block;
-    margin-top: 5rem;
+    margin-top: 6rem;
     width: 100%;
     text-align: center;
     line-height: 11rem;
@@ -1497,6 +1505,7 @@ footer .text {
     line-height: 2.1rem;
     margin-right: 1.5rem;
     padding-left: calc(2rem - 2px);
+    background-position: 23rem 1.1rem;
 }
 .listing_products_container {
     float: left;
@@ -1670,6 +1679,7 @@ footer .text {
 .own_travel_container .text {
     text-align: left;
     margin-top: 2rem;
+    color: inherit;
 
 }
 .own_travel_form {
@@ -1751,7 +1761,7 @@ footer .text {
     margin-bottom: 11rem;
 }
 .owner_container {
-    margin-top: 5rem;
+    margin-top: 10rem;
     display: block;
     text-align: left;
 }
@@ -1836,7 +1846,7 @@ footer .text {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
-    margin-top: 2rem;
+    margin-top: 10rem;
 }
 .help_block {
     overflow: hidden;
@@ -1953,6 +1963,7 @@ a.help_header {
     height: 36rem;
     display: inline-block;
     margin-right: 8rem;
+    margin-top: 10rem;
     position: relative;
 }
 .video_wrapper {
@@ -1984,6 +1995,7 @@ a.help_header {
     vertical-align: top;
     position: relative;
     z-index: 1;
+    margin-top: 10rem;
 }
 .contacts_header,
 .contacts_subheader {
@@ -2021,6 +2033,7 @@ h4.contacts_subheader {
     display: inline-block;
     width: auto;
     float: left;
+    margin-top: 10rem;
 }
 .show_wish_travels {
     clear: both;
@@ -2041,6 +2054,7 @@ h4.contacts_subheader {
     float: right;
     height: 62rem;
     position: relative;
+    margin-top: 10rem;    
 }
 .profile_img {
     width: 25rem;
@@ -2211,7 +2225,7 @@ h4.contacts_subheader {
     height: 6rem;
     padding-left: 2rem;
     box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
-    border: 1px solid hsl(188, 100%, 25%);
+    border: 2px solid hsl(188, 100%, 25%);
     background-color: hsl(0, 0%, 100%);
     margin-right: 2rem;
     color: hsl(188, 100%, 25%);
@@ -2220,10 +2234,54 @@ h4.contacts_subheader {
     font-weight: 800;
     line-height: 2.1rem;
 }
+.page_search input::-moz-placeholder {
+    font-size: 1.6rem;
+    line-height: 3.1rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 1);
+    opacity: 1;
+   }
+.page_search input::-webkit-input-placeholder {
+    font-size: 1.6rem;
+    line-height: 3.1rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%,1);
+}
+.page_search input:-ms-input-placeholder {
+    font-size: 1.6rem;
+    line-height: 3.1rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 1);
+    opacity: 1;
+
+}
+.page_search input::-ms-input-placeholder { 
+    font-size: 1.6rem;
+    line-height: 3.1rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 1);
+    opacity: 1;
+}
+.page_search input::placeholder { 
+    font-size: 1.6rem;
+    line-height: 5.6rem;
+    font-weight: 800;
+    font-family: Lato;
+    color: hsla(188, 100%, 25%, 1);
+    opacity: 1;
+
+}
 .search_travel_header {
     width: 100%;
     text-align: left;
     margin-top: 8.5rem;
+}
+.search_screen_wrapper {
+    margin-top: 10rem;
 }
 .search_show_travels {
     display: block;
@@ -2293,7 +2351,7 @@ h4.contacts_subheader {
     width: 100%;
     text-align: center;
     line-height: 2.5rem;
-    margin-top: 5rem;
+    margin-top: 10rem;
 }
 .captains_page_container {
     display: flex;
@@ -2408,12 +2466,14 @@ h6.nearest_travel_header {
 .cart_travels_container {
     width: auto;
     float: left;
+    margin-top: 10rem;
 }
 .cart_container {
     width: 73rem;
     float: right;
     margin-left: 2rem;
     margin-bottom: 12rem;
+    margin-top: 10rem;
 }
 .cart_header {
     margin-bottom: 4rem;
@@ -2448,10 +2508,31 @@ h6.nearest_travel_header {
     font-weight: 800;
     line-height: 2.5rem;
     padding-left: 2rem;
+    padding-right: 2rem;
     opacity: 1;
     margin-left: 1rem;
     outline: none;
     border: none;
+}
+.cart-form option {
+    text-align: center;
+}
+.people_numbers {
+    position: relative;
+    width: auto;
+}
+.people_numbers:after {
+    pointer-events: none;
+    content: "";
+    position: relative;
+    right:3rem;
+    top: 0.2rem;
+    display: inline-block;
+    line-height: 3.1rem;
+    width: 1.8rem;
+    height: 1rem;
+    background-image: url("../img/main/d_arrow.svg");
+    background-size: cover;
 }
 .cart_form input {
     display: block;
@@ -2515,8 +2596,55 @@ h6.nearest_travel_header {
     font-size: 1.6rem;
     cursor: pointer;
 }
+.pay_type_wrapper {
+    margin-left: 2rem;
+}
+.checkbox {
+    display: none !important;
+}
 
+.custom_checkbox {
+    cursor: pointer;
+    position: relative;
+    top: -1px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid hsla(188, 100%, 25%, 1);;
+    border-radius: 0;
+    margin-right: 3px;
+/*    margin-left: 2rem;*/
+}
 
+.custom_checkbox,
+.pay_type {
+    display: inline-block;
+    vertical-align: middle;
+}
+.pay_type {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox:checked + .custom_checkbox::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+    left: 2px;
+    background: hsla(188, 100%, 25%, 1);
+    border-radius: 0;
+}
+.pay_type {
+    cursor: pointer;
+    color:  hsla(188, 100%, 25%, 1);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    font-weight: 800;
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+}
 
 
 div.mob_show,
