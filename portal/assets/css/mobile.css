@@ -36,6 +36,7 @@
 	}
 	header {
 		/*position: fixed;*/
+		position: relative;
 		overflow: hidden;
 		z-index: 4;
 		top: 2rem;
@@ -46,6 +47,7 @@
 		height: 4.5rem;
 	}
 	.header_menu {
+		cursor: pointer;
 		overflow: hidden;
 		box-sizing: content-box;
 		position: absolute;
@@ -55,9 +57,44 @@
 		width: 5rem;
 		height: 0;
 		background-color: hsla(0, 0%, 100%, 0);
-		transition: width 0.3s;
+/*		transition: width 0.3s;*/
 		padding-bottom: 1rem;
 		padding-top: 3rem;
+	}
+	.header_menu li {
+		line-height: 3.5rem;
+		height: 3.5rem;
+		display: inline-block;
+		width: 49%;
+	}
+	.header_menu li a {
+		line-height: 3.5rem;
+		display: inline-block;
+	}
+	.show_header_menu {
+		background-color: white;
+		min-height: 27rem;
+	}
+	.show_header_menu header {
+		overflow: visible;
+	}
+	.show_header_menu .header_menu {
+		padding-top: 0;
+		height: auto;
+		width: 24rem;
+		left: 4rem;
+		top: 16rem;
+		overflow: visible;
+		line-height: 3.5rem;
+		font-size: 0;
+		text-align: left;
+		transition: width 0;
+	}
+	.show_header_menu .header_menu:before {
+		content: 'X';
+		font-size: 3.4rem;
+		color: hsl(188, 100%, 25%);
+		top: -16rem;
 	}
 	.header_menu:before {
 		content: url(../img/main/butter.svg);
@@ -65,7 +102,25 @@
 		position: absolute;
 		top: -1rem;
 		right: 0;
+	}
+	.show_header_menu .my_account {
+		position: absolute;
+		top: 4rem;
+		left: 4rem;
 	} 
+	.show_header_menu .my_account_menu:after {
+		top: 0.5rem;
+	}
+	.show_header_menu .my_account ul {
+/*			top: 0;*/
+			padding-top: 0;
+	}
+	.show_header_menu .search_header  {
+		position: absolute;
+		top: 8rem;
+		width: 24rem;
+		left: calc(50% - 12rem);
+	}
 	.logo {
 		float: left;
 	    display: inline-block;

@@ -121,8 +121,27 @@
 (function(){
 	var $view = $('.reviews_container');
 	var vWidth = parseInt($view.css("width"), 10);
-	console.log(vWidth);
 	if(vWidth < 600) {
 		$view.fortySlider(600, ".reviews_l_arrow", ".reviews_r_arrow", ".reviews_slider_counter", "/");
 	}
+})();
+(function(){
+  var $header = $('header');
+  var vWidth = parseInt($header.css("width"), 10);
+  var $headerMenu = $('.header_menu');
+  var $headerWrapper = $('.header_wrapper');
+  var status = false;
+  if(vWidth < 600) {
+      $headerMenu.click(function(e){
+        if(status === false) {
+          $headerWrapper.addClass('show_header_menu');
+          status = true;
+        } else {
+          if(e.target == $headerMenu[0]) {
+            $headerWrapper.removeClass('show_header_menu');
+            status = false;
+          }
+        }
+      })
+  }
 })();
