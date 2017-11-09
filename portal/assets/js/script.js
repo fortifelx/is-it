@@ -198,20 +198,34 @@
 (function(){
 var status = false;
 $(".sel_btn").click(function(e){
+  console.log("click");
+  console.log(status);
+  e.stopPropagation();
   if(status===false) {
-    $(e.target).next().css("display", "block");
+    console.log('block');
+    $(e.target).next().children().css("display", "block");
+    $(document).bind("click", hideCustomSelect);
     status = true;
   } else {
-    $(e.target).next().css("display", "none");
+    console.log("none");
+    $(e.target).next().children().css("display", "none");
+    $(document).unbind("click", hideCustomSelect);
     status = false;
   }
-  
 });
+function hideCustomSelect(){
+  console.log("here");
+  $(".custom_dropdown li").css('display', 'none');
+  status = false;
+  $(document).unbind("click", hideCustomSelect);
+}
 function cutomizeSelect( selectOption, customOption) {
           var $selections = $(selectOption);
           var $customSelections = $(customOption);
           $customSelections.click(function(e){
-            $(e.target).parent().css("display" , "none");
+            e.stopPropagation();
+            $(e.target).parent().children().css("display" , "none");
+            $(document).unbind("click", hideCustomSelect);
             status = false;
             var pos = $.inArray(e.target, $customSelections);
             $selections.prop("selected", false);
