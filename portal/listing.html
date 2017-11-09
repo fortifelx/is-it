@@ -34,20 +34,36 @@
 	</header>
 </div>
    <div class="search_container">
-       	     <select name="country" id="">
-                <option value="" defaul>Выбирите страну</option>
-	            <option value="">Италия</option>
-	            <option value="">Испания</option>
-	            <option value="">Греция</option>
-	            <option value="">Турция</option>
-	            <option value="">Египет</option>
-	            <option value="">ОАЕ</option>
-	            <option value="">Кипр</option>
-	            <option value="">Болгария</option>
-	            <option value="">Хорватия</option>
-	            <option value="">Украина</option>
+    <div class="custom_dropdown custom_dropdown_country">
+       	     <select name="country" value="" id="">
+                <option value="" default>Выбирите страну</option>
+	            <option value="Италия">Италия</option>
+	            <option value="Испания">Испания</option>
+	            <option value="Греция">Греция</option>
+	            <option value="Турция">Турция</option>
+	            <option value="Египет">Египет</option>
+	            <option value="ОАЕ">ОАЕ</option>
+	            <option value="Кипр">Кипр</option>
+	            <option value="Болгария">Болгария</option>
+	            <option value="Хорватия">Хорватия</option>
+	            <option value="Украина">Украина</option>
 	        </select>
+            <div class="sel_btn"></div>
+            <ul class="select_custom_block custom_block_country">
+                <li c_data="Италия">Италия</li>
+                <li c_data="Испания">Испания</li>
+                <li c_data="Греция">Греция</li>
+                <li c_data="Турция">Турция</li>
+                <li c_data="Египет">Египет</li>
+                <li c_data="ОАЕ">ОАЕ</li>
+                <li c_data="Кипр">Кипр</li>
+                <li c_data="Болгария">Болгария</li>
+                <li c_data="Хорватия">Хорватия</li>
+                <li c_data="Украина">Украина</li>
+            </ul>
+   </div>
 	        <input class="date_choice" type="text" placeholder="Выбирите дату">
+    <div class="custom_dropdown custom_dropdown_people">
             <select name="people" id="">
                 <option value="" defaul>Количество человек</option>
                 <option value="1">1</option>
@@ -61,67 +77,91 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
 	        </select>
+            <div class="sel_btn"></div>
+            <ul class="select_custom_block custom_block_people">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+    </div>
    </div>
     <div class="wrapper">
         <div class="sorting_container">
             <p class="text aqua">Сортировать</p>
+            <div class="custom_dropdown custom_dropdown_filter">
             <select name="" id="">
                 <option value="" default>По популярности</option>
+                <option value="">По популярности</option>
                 <option value="">По возростанию цены</option>
                 <option value="">По убыванию цены</option>
                 <option value="">По убыванию популярности</option>
             </select>
+            <div class="sel_btn sel_btn_filter"></div>
+            <ul class="select_custom_block custom_block_filter">
+                <li>По популярности</li>
+                <li>По возростанию цены</li>
+                <li>По убыванию цены</li>
+                <li>По убыванию популярности</li>
+            </ul>
+        </div>
         </div>
         <div class="goods_container">
             <div class="listing_products_container">
-                <article class="main_travel aqua">
+                <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="main_travel aqua">
                 <p class="main_travel_price text">$1400</p>
                 <div class="travel_video_container">
                     <img src="assets/img/main/2.jpg" alt="">
                 </div>
-                <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="name_header">Круиз по солнечной Греции 7&nbsp;дней/6&nbsp;ночей</a>
+                <p class="name_header">Круиз по солнечной Греции 7&nbsp;дней/6&nbsp;ночей</p>
                 <p class="main_travel_date number_text">15–21.09</p>
                 <div class="main_travel_play">
                     <img src="assets/img/main/video.svg" alt="">
                 </div>
                 <p class="main_travel_spots number_text">4</p>
-            </article>
-            <article class="main_travel aqua">
+            </a>
+            <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="main_travel aqua">
                 <p class="main_travel_price text">$1300</p>
                 <div class="travel_video_container">
                     <img src="assets/img/main/3.jpg" alt="">
                 </div>
-                <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="name_header">Круиз по солнечной Италии 6&nbsp;дней/5&nbsp;ночей</a>
+                <p class="name_header">Круиз по солнечной Италии 6&nbsp;дней/5&nbsp;ночей</p>
                 <p class="main_travel_date number_text">15–20.11</p>
                 <div class="main_travel_play">
                     <img src="assets/img/main/video.svg" alt="">
                 </div>
                 <p class="main_travel_spots number_text">5</p>
-            </article>
-            <article class="main_travel aqua">
+            </a>
+            <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="main_travel aqua">
                 <p class="main_travel_price text">$1200</p>
                 <div class="travel_video_container">
                     <img src="assets/img/main/4.jpg" alt="">
                 </div>
-                <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="name_header">Круиз по солнечной Турции 5&nbsp;дней/4&nbsp;ночей</a>
+                <p class="name_header">Круиз по солнечной Турции 5&nbsp;дней/4&nbsp;ночей</p>
                 <p class="main_travel_date number_text">01–05.07</p>
                 <div class="main_travel_play">
                     <img src="assets/img/main/video.svg" alt="">
                 </div>
                 <p class="main_travel_spots number_text">5</p>
-            </article>
-            <article class="main_travel aqua">
+            </a>
+            <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="main_travel aqua">
                 <p class="main_travel_price text">$1400</p>
                 <div class="travel_video_container">
                     <img src="assets/img/main/4.jpg" alt="">
                 </div>
-                <a href="https://fortifelx.github.io/is-it/portal/travel.html" class="name_header">Круиз по солнечному Египту 7&nbsp;дней/6&nbsp;ночей</a>
+                <p class="name_header">Круиз по солнечному Египту 7&nbsp;дней/6&nbsp;ночей</p>
                 <p class="main_travel_date number_text">11–17.05</p>
                 <div class="main_travel_play">
                     <img src="assets/img/main/video.svg" alt="">
                 </div>
                 <p class="main_travel_spots number_text">3</p>
-            </article>
+            </a>
             </div>
             <div class="listing_map_container"
                    style="background-image: url(assets/img/Listing-page/0.jpg)">
@@ -136,7 +176,7 @@
         </div> 
         
     </div>
-    <div class="own_travel_container aqua">
+     <div class="own_travel_container aqua">
         <div class="own_travel_wrapper">
             <h3 class="section_header aqua">Создайте уникальное путешествие</h3>
             <p class="text">Если вы не подобрали путешествие на подходящее время, место или количество человек — ми готовы создать вам уникальное путешествие, которое вы запомните на всю жизнь.</p>
@@ -226,3 +266,5 @@
     <script src="assets/js/script.js"></script>
 	</body>
 </html>
+
+

@@ -193,6 +193,34 @@
        };
     }
   }
+})();
+
+(function(){
+var status = false;
+$(".sel_btn").click(function(e){
+  if(status===false) {
+    $(e.target).next().css("display", "block");
+    status = true;
+  } else {
+    $(e.target).next().css("display", "none");
+    status = false;
+  }
+  
+});
+function cutomizeSelect( selectOption, customOption) {
+          var $selections = $(selectOption);
+          var $customSelections = $(customOption);
+          $customSelections.click(function(e){
+            $(e.target).parent().css("display" , "none");
+            status = false;
+            var pos = $.inArray(e.target, $customSelections);
+            $selections.prop("selected", false);
+            $selections.eq($.inArray(e.target, $customSelections)+1).prop("selected", true);
+          });
+    }
+    cutomizeSelect(".custom_dropdown_country option",".custom_block_country li");
+    cutomizeSelect(".custom_dropdown_people option",".custom_block_people li");
+    cutomizeSelect(".custom_dropdown_filter option",".custom_block_filter li");
 
 
 

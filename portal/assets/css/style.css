@@ -173,7 +173,8 @@ h4.sub_header {
     line-height: 6rem;
 }
 h6.name_header,
-a.name_header {
+a.name_header,
+p.name_header {
     font-size: 1.8rem;
     line-height: 2.1rem;
     font-weight: 800;
@@ -215,6 +216,60 @@ select {
       background-size: 8%;
       background-position: 23rem 2.6rem;
       background-repeat: no-repeat;
+}
+select option {
+    visibility: hidden;
+    position: relative;
+    z-index: 1;
+    display: none;
+    margin-top: 1rem;
+}
+.custom_dropdown {
+    display: inline-block;
+    position: relative;
+}
+.sel_btn {
+    display: block;
+    position: absolute; width: calc(100% - 1.5rem);
+    height: 6rem;
+    background-color: black;
+    opacity: 0;
+    left: 0;
+    top: 2.6rem;
+    cursor: pointer;
+}
+.sel_btn_filter {
+    height: 4rem;
+    top: 0;
+}
+.select_custom_block {
+    position: absolute;
+    display: none;
+    top: 8.5rem;
+    background-color: white;
+    width: calc(100% - 1.5rem);
+    z-index: 10;
+}
+.custom_block_filter {
+    top: 5.5rem;
+}
+.select_custom_block li {
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 3.5rem;
+    font-weight: 800;
+    display: block;
+    height: 3.5rem;
+    width: 100%;
+    background-color: white;
+    color: hsla(188, 100%, 25%, 1);
+    text-align: left;
+    padding-left: 1rem;
+}
+.select_custom_block li:hover {
+    background-color: hsla(188, 100%, 25%, 1);
+    color: white;
 }
 .date_choice {
       background-image: url(../img/main/3.svg);
@@ -2676,3 +2731,6 @@ form.mob_show {
     display: none;
 }
 /*some text*/
+
+
+
