@@ -1,84 +1,84 @@
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Light.woff2") format("woff2"),
-         url("../fonts/Lato-Light.woff") format("woff");
+    url("../fonts/Lato-Light.woff") format("woff");
     font-style: normal;
     font-weight: 200;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Regular.woff2") format("woff2"),
-         url("../fonts/Lato-Regular.woff") format("woff");
+    url("../fonts/Lato-Regular.woff") format("woff");
     font-style: normal;
     font-weight: 300;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Medium.woff2") format("woff2"),
-         url("../fonts/Lato-Medium.woff") format("woff");
+    url("../fonts/Lato-Medium.woff") format("woff");
     font-style: normal;
     font-weight: 400;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Semibold.woff2") format("woff2"),
-         url("../fonts/Lato-Semibold.woff") format("woff");
+    url("../fonts/Lato-Semibold.woff") format("woff");
     font-style: normal;
     font-weight: 500;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Bold.woff2") format("woff2"),
-         url("../fonts/Lato-Bold.woff") format("woff");
+    url("../fonts/Lato-Bold.woff") format("woff");
     font-style: normal;
     font-weight: 600;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Heavy.woff2") format("woff2"),
-         url("../fonts/Lato-Heavy.woff") format("woff");
+    url("../fonts/Lato-Heavy.woff") format("woff");
     font-style: normal;
     font-weight: 800;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Black.woff2") format("woff2"),
-         url("../fonts/Lato-Black.woff") format("woff");
+    url("../fonts/Lato-Black.woff") format("woff");
     font-style: normal;
     font-weight: 900;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-LightItalic.woff2") format("woff2"),
-         url("../fonts/Lato-LightItalic.woff") format("woff");
+    url("../fonts/Lato-LightItalic.woff") format("woff");
     font-style: italic;
     font-weight: 200;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-Italic.woff2") format("woff2"),
-         url("../fonts/Lato-Italic.woff") format("woff");
+    url("../fonts/Lato-Italic.woff") format("woff");
     font-style: italic;
     font-weight: 300;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-BoldItalic.woff2") format("woff2"),
-         url("../fonts/Lato-BoldItalic.woff") format("woff");
+    url("../fonts/Lato-BoldItalic.woff") format("woff");
     font-style: italic;
     font-weight: 600;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-BlackItalic.woff2") format("woff2"),
-         url("../fonts/Lato-BlackItalic.woff") format("woff");
+    url("../fonts/Lato-BlackItalic.woff") format("woff");
     font-style: italic;
     font-weight: 900;
 }
 @font-face {
     font-family: "Lato";
     src: url("../fonts/Lato-BlackItalic.woff2") format("woff2"),
-         url("../fonts/Lato-BlackItalic.woff") format("woff");
+    url("../fonts/Lato-BlackItalic.woff") format("woff");
     font-style: italic;
     font-weight: 900;
 }
@@ -86,9 +86,9 @@
     font-family: Resphekt;
     src: url("../fonts/Resphekt.eot");
     src:
-         url("../fonts/Resphekt.woff") format("woff"),
-         url("../fonts/Resphekt.ttf") format("truetype"),
-         url("../fonts/Resphekt.svg") format("svg");
+            url("../fonts/Resphekt.woff") format("woff"),
+            url("../fonts/Resphekt.ttf") format("truetype"),
+            url("../fonts/Resphekt.svg") format("svg");
     font-weight: 400;
 }
 
@@ -104,7 +104,7 @@ a {
     cursor: pointer;
 }
 a.name_header {
-        display: block;
+    display: block;
 }
 
 .white {
@@ -148,14 +148,14 @@ a.name_header {
 }
 h1.main_header {
     font-size: 4.8rem;
-/*    line-height: 6rem;*/
+    /*    line-height: 6rem;*/
     font-weight: 800;
     font-style: normal;
 }
 h3.section_header {
     font-size: 3.6rem;
     font-weight: 800;
-/*    line-height: 6rem;*/
+    /*    line-height: 6rem;*/
     font-style: normal;
 }
 h2.sub_header {
@@ -163,7 +163,7 @@ h2.sub_header {
     font-size: 5.2rem;
     line-height: 6rem;
     font-weight: 200;
-    font-style: normal;  
+    font-style: normal;
     letter-spacing: 2px;
 }
 h4.sub_header {
@@ -201,7 +201,7 @@ footer {
     z-index: 10;
     transition: top 0.7s;
 }
-input, 
+input,
 select {
     outline: none !important;
     border-radius: 0;
@@ -209,13 +209,13 @@ select {
 }
 select {
     position: relative;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      background-image: url(../img/main/d_arrow.svg);
-      background-size: 8%;
-      background-position: 23rem 2.6rem;
-      background-repeat: no-repeat;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(../img/main/d_arrow.svg);
+    background-size: 8%;
+    background-position: 23rem 2.6rem;
+    background-repeat: no-repeat;
 }
 select option {
     visibility: hidden;
@@ -223,6 +223,8 @@ select option {
     z-index: 1;
     display: none;
     margin-top: 1rem;
+    outline: none;
+    border: none;
 }
 .custom_dropdown {
     display: inline-block;
@@ -250,6 +252,20 @@ select option {
     width: calc(100% - 1.5rem);
     z-index: 10;
 }
+.main_search_wrapper {
+    width: 114rem;
+    margin: 0 auto;
+    position: relative;
+}
+.main_search .select_custom_block {
+    width: 27rem;
+    left: 15rem;
+}
+.main_search .sel_btn {
+    width: 27rem;
+    top: 0;
+    left: 15rem;
+}
 .custom_block_filter {
     top: 5.5rem;
 }
@@ -272,16 +288,16 @@ select option {
     color: white;
 }
 .date_choice {
-      background-image: url(../img/main/3.svg);
-      background-size: 8%;
-      background-position: 23rem 2.6rem;
-      background-repeat: no-repeat;
+    background-image: url(../img/main/3.svg);
+    background-size: 8%;
+    background-position: 23rem 2.6rem;
+    background-repeat: no-repeat;
 }
 .page_search .date_choice {
     background-position: 23rem 2.2rem;
 }
 .page_search select {
-   background-position: 23rem 2.2rem; 
+    background-position: 23rem 2.2rem;
 }
 select option {
     width: 100%;
@@ -292,9 +308,9 @@ select option:selected {
 select option::selected {
     background-color: white;
 }
-   select::-ms-expand {
+select::-ms-expand {
     display: none;
-   }
+}
 /*   H E A D E R   */
 
 header {
@@ -323,7 +339,7 @@ div.header_active {
     display: flex;
     vertical-align: middle;
     justify-content: space-between;
-    
+
 }
 .header_menu li {
     width: auto;
@@ -372,7 +388,7 @@ div.header_active {
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
-   }
+}
 .search_header input::-webkit-input-placeholder {
     font-size: 1.6rem;
     line-height: 3.1rem;
@@ -388,21 +404,21 @@ div.header_active {
     color: hsla(188, 100%, 25%, 0.3);
 
 }
-.search_header input::-ms-input-placeholder { 
+.search_header input::-ms-input-placeholder {
     font-size: 1.6rem;
     line-height: 3.1rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
 }
-.search_header input::placeholder { 
+.search_header input::placeholder {
     font-size: 1.6rem;
     line-height: 3.1rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
 
-} 
+}
 .search_header input:focus {
     color: hsla(188, 100%, 25%, 1);
     border: 0.2rem solid hsla(188, 100%, 25%, 1);
@@ -472,9 +488,9 @@ div.header_active {
 .main_screen_wrapper {
     width: 100%;
     position: relative;
-/*    top: 6rem;*/
+    /*    top: 6rem;*/
     height: calc(100vh - 6rem);
-    overflow: hidden;
+    /*    overflow: hidden;*/
     text-align: center;
     padding-bottom: 2rem;
     margin-top: 6rem;
@@ -483,9 +499,10 @@ div.header_active {
     content: "";
     display: block;
     position: absolute;
-    height: 2rem;
+    /*    height: 2rem;*/
+    height: 100%;
     width: 100%;
-    bottom: 0;
+    top: calc(100% - 2rem);
     left: 0;
     background-color: white;
 }
@@ -528,8 +545,8 @@ div.header_active {
     margin-top: 4rem;
     cursor: pointer;
 }
-.sub_header {
-    margin-top: 30vh;
+.main_screen_wrapper .sub_header {
+    padding-top: 30vh;
 }
 .main_header,
 .sub_header {
@@ -580,7 +597,7 @@ div.header_active {
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-   }
+}
 .main_search input::-webkit-input-placeholder {
     font-size: 1.6rem;
     font-weight: 800;
@@ -595,22 +612,22 @@ div.header_active {
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.main_search input::-ms-input-placeholder { 
+.main_search input::-ms-input-placeholder {
     font-size: 1.6rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.main_search input::placeholder { 
+.main_search input::placeholder {
     font-size: 1.6rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-} 
+}
 .main_search button {
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -636,13 +653,13 @@ div.header_active {
     width: 37rem;
     height: 30rem;
     margin-bottom: 2rem;
-/*    margin-top: 0.2rem;*/
+    /*    margin-top: 0.2rem;*/
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
     background-color: hsl(0, 0%, 100%);
-/*    transition: margin-top 0.4s;*/
+    /*    transition: margin-top 0.4s;*/
 }
 .main_travel:hover {
-/*    margin-top: 0;*/
+    /*    margin-top: 0;*/
     box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
 }
 
@@ -654,9 +671,108 @@ div.header_active {
     background-color: hsla( 0, 0%, 100%, 1);
     color: inherit;
     line-height: 3.3rem;
-    padding: 0 1.5rem;
+    padding: 0 1.5rem 0 3rem;
     z-index: 1;
     font-weight: 800;
+}
+.main_travel_price:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-image: url("../img/main/yacht.jpg");
+    width: 3rem;
+    height: 80%;
+    background-size: cover;
+}
+.main_travel_smartprice {
+    position: absolute;
+    left: -5rem;
+    top: 4rem;
+    display: inline-block;
+    background-color: hsl(188, 100%, 25%);
+    color: inherit;
+    line-height: 3.3rem;
+    padding: 0 4rem 0 5rem;
+    z-index: 1;
+    font-weight: 800;
+    color: white;
+    transform: rotate(-45deg);
+    border: 2px solid white;
+}
+/*.main_travel_smartprice:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -2rem;
+    background-color: hsl(188, 100%, 25%);
+    width: 3rem;
+    height: 100%;
+    background-size: cover;
+}*/
+.main_travel_katprice {
+    position: absolute;
+    right: 0;
+    top: 5rem;
+    display: inline-block;
+    background-color: hsla( 0, 0%, 100%, 1);
+    color: inherit;
+    line-height: 3.3rem;
+    padding: 0 1.5rem 0 3rem;
+    z-index: 1;
+    font-weight: 800;
+}
+.main_travel_katprice:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-image: url("../img/main/catamaran.jpg");
+    width: 3rem;
+    height: 80%;
+    background-size: cover;
+}
+.yaht_price {
+    display: inline-block;
+    position: relative;
+    padding-left: 4rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    line-height: 3rem;
+}
+.yaht_price:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-image: url("../img/main/yacht.jpg");
+    width: 3rem;
+    height: 3rem;
+    background-size: cover;
+}
+.kat_price {
+    display: inline-block;
+    position: relative;
+    padding-left: 4rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+    line-height: 3rem;
+}
+.kat_price:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-image: url("../img/main/catamaran.jpg");
+    width: 3rem;
+    height: 3rem;
+    background-size: cover;
+}
+.kat_price:hover::after {
+    content: attr(data-title);
+}
+.yaht_price:hover::after {
+    content: attr(data-title);
 }
 .travel_video_container {
     position: relative;
@@ -698,6 +814,9 @@ div.header_active {
     margin: 1rem 0 0 2rem;
     padding-left: 3rem;
 }
+.main_travel_date span {
+    font-size: 1.2rem;
+}
 .main_travel_date:before {
     content: url("../img/main/3.svg");
     display: inline-block;
@@ -733,6 +852,8 @@ div.header_active {
     margin-top: 1.2rem;
 }
 .show_more_travels {
+    position: relative;
+    z-index: 2;
     cursor: pointer;
     margin: 4rem auto 0 auto;
     display: block;
@@ -825,12 +946,16 @@ div.header_active {
     left: -3rem;
 }
 .review_block {
+    cursor: pointer;
     width: 27rem;
     height: 45rem;
     background-color: white;
     text-align: center;
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
     margin-bottom: 2rem;
+}
+.review_block:hover {
+    box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
 }
 .review_img {
     display: inline-block;
@@ -839,7 +964,7 @@ div.header_active {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-/*    border: 0.5px solid hsl(188, 100%, 25%);*/
+    /*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .review_img img {
     width:  100%;
@@ -858,7 +983,8 @@ div.header_active {
 .review_block .text {
     display: inline-block;
     text-align: left;
-    height: 15.8rem;
+    height: 18rem;
+    overflow: hidden;
     width: 22.5rem;
 }
 .reviews_slider_control {
@@ -885,7 +1011,7 @@ div.header_active {
     display: block;
     width: 27rem;
     height: 6rem;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -901,10 +1027,11 @@ div.header_active {
     width: 21rem;
     height: 6rem;
     box-sizing: border-box;
-    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    box-shadow: 0 3px 10px 1px  hsla(0, 0%, 0%, 0.1);
     border: 2px solid hsl(188, 100%, 25%);
     text-align: center;
-    line-height: 6rem;
+	text-align-last: center;
+	line-height: 6rem;
     font-size: 1.6rem;
     font-weight: 800;
 }
@@ -980,7 +1107,7 @@ div.header_active {
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-   }
+}
 .discount_form input::-webkit-input-placeholder {
     font-size: 1.6rem;
     font-weight: 400;
@@ -995,14 +1122,14 @@ div.header_active {
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.discount_form input::-ms-input-placeholder { 
+.discount_form input::-ms-input-placeholder {
     font-size: 1.6rem;
     font-weight: 400;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.discount_form input::placeholder { 
+.discount_form input::placeholder {
     font-size: 1.6rem;
     font-weight: 400;
     font-family: Lato;
@@ -1010,7 +1137,7 @@ div.header_active {
     opacity: 1;
 }
 .discount_form button {
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -1040,7 +1167,7 @@ div.header_active {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 5rem;
-} 
+}
 .captain_block {
     display: inline-block;
     width: 37rem;
@@ -1050,6 +1177,9 @@ div.header_active {
     background-color: white;
     margin-bottom: 2rem;
 }
+.captain_block:hover {
+    box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
+}
 .captain_img {
     display: inline-block;
     margin-top: 2rem;
@@ -1057,7 +1187,7 @@ div.header_active {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-/*    border: 0.5px solid hsl(188, 100%, 25%);*/
+    /*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .captain_img img {
     display: inline-block;
@@ -1085,7 +1215,7 @@ div.header_active {
 .show_all_captains {
     display: inline-block;
     vertical-align: middle;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -1110,7 +1240,7 @@ div.header_active {
     text-align: center;
     line-height: 6rem;
     font-size: 1.6rem;
-    font-weight: 800; 
+    font-weight: 800;
 }
 
 .infos_header {
@@ -1135,12 +1265,17 @@ div.header_active {
     margin-top: 2rem;
 }
 .info_block {
+    display: inline-block;
+    cursor: pointer;
     width: 27rem;
     height: 45rem;
     background-color: white;
     text-align: center;
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
     margin-bottom: 1.5rem;
+}
+.info_block:hover {
+    box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
 }
 .info_img {
     display: inline-block;
@@ -1161,7 +1296,7 @@ a.info_header,
     display: inline-block;
     text-align: left;
     margin: 1.4rem 0;
-/*    min-height: 4.2rem;*/
+    /*    min-height: 4.2rem;*/
 }
 .info_block .text {
     display: inline-block;
@@ -1181,7 +1316,7 @@ a.info_header,
     text-align: center;
     line-height: 6rem;
     font-size: 1.6rem;
-    font-weight: 800; 
+    font-weight: 800;
 }
 
 .footer_wrapper {
@@ -1276,7 +1411,7 @@ footer .text {
     vertical-align: middle;
     width: auto;
     height: 50%;
-/*    transition: left 7s;*/
+    /*    transition: left 7s;*/
 }
 .main_slider_viewer {
     float: right;
@@ -1289,7 +1424,7 @@ footer .text {
 }
 .main_slider_viewer:after {
     pointer-events: none;
-    content: ''; 
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -1332,12 +1467,33 @@ footer .text {
 .product_container {
     margin-top: 5rem;
 }
-.product_captain_block {
+.product_captain_viewer {
+    display: block;
+    width: 37rem;
+    height: 34rem;
+    position: relative;
+
+}
+.product_captain_wrapper {
     display: inline-block;
+    visibility: hidden;
+    opacity: 0;
     width: 37rem;
     height: 34rem;
     text-align: center;
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
+    background-color: white;
+}
+.product_captain_wrapper:first-child {
+    visibility: visible;
+    opacity: 1;
+}
+.product_captain_block {
+    display: inline-block;
+    width: 37rem;
+    height: 38rem;
+    text-align: center;
+    /*    box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);*/
     background-color: white;
 }
 .product_captain_img {
@@ -1347,7 +1503,7 @@ footer .text {
     height: 16rem;
     overflow: hidden;
     border-radius: 16rem;
-/*    border: 0.5px solid hsl(188, 100%, 25%);*/
+    /*    border: 0.5px solid hsl(188, 100%, 25%);*/
 }
 .product_captain_img img {
     display: inline-block;
@@ -1365,6 +1521,35 @@ footer .text {
 }
 .product_captain_block .text span {
     font-weight: 800;
+}
+.captain_slider_control {
+    width: 100%;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.capt_slider_control div {
+    display: inline-block;
+    color: inherit;
+    font-size: 3rem;
+    line-height: 3rem;
+    vertical-align: middle;
+    font-weight: 800;
+}
+.capt_l_arrow,
+.capt_r_arrow {
+    cursor: pointer;
+    height: 2rem;
+    width: 3rem;
+    text-align: center;
+    margin: 1rem;
+}
+.capt_slider_control .capt_slider_counter {
+    font-size: 2rem;
+    /*    line-height: 3rem;*/
+    margin-top: 1rem;
+}
+.mycalendar {
+    margin-top: 4rem;
 }
 .product_info {
     position: relative;
@@ -1391,12 +1576,12 @@ footer .text {
     margin-bottom: 1rem;
 }
 .product_info .text:nth-child(2):before {
-    content: url(../img/Product/18x20.svg);
+    content: url(../img/Product/money-bag.svg);
     width: 1.8rem;
     height: 2rem;
 }
 .product_info .text:nth-child(3):before {
-    content: url(../img/Product/%D0%9A%D0%BE%D0%BF%D0%B8%D1%8F%201.svg);
+    content: url(../img/main/video.svg);
     width: 2.2rem;
     height: 1.6rem;
 }
@@ -1415,12 +1600,12 @@ footer .text {
     margin-top: 4rem;
     width: 100%;
     text-align: left;
-/*    line-height: 6rem;*/
-/*    height: 6rem;*/
+    /*    line-height: 6rem;*/
+    /*    height: 6rem;*/
 }
 .product_btn_buy {
     display: inline-block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -1460,6 +1645,55 @@ footer .text {
 .product_text {
     width: 100%;
     margin-top: 6rem;
+}
+.travel_page_price,
+.travel_page_content,
+.travel_page_route,
+.travel_page_include,
+.travel_page_aditional {
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    margin: 1rem 0 2rem 0;
+}
+.travel_page_price span,
+.travel_page_route span,
+.travel_page_include span,
+.travel_page_aditional span {
+    color: hsla(188, 100%, 25%, 1);
+    font-weight: 600;
+    display: inline-block;
+    margin: 1rem;
+    margin-left: 0;
+}
+.travel_page_include {
+    width: 40rem;
+    float: right;
+    margin-top: 0;
+}
+.travel_page_include li,
+.travel_page_aditional li {
+    position: relative;
+    display: block;
+    margin: 0.5rem 0;
+}
+.travel_page_include li:before,
+.travel_page_aditional li:before {
+    content: "";
+    position: absolute;
+    left: -1.2rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 1rem;
+    background-color: hsla(188, 100%, 25%, 1);
+    display: block;
+    top: 0.7rem;
+}
+.travel_page_include ul,
+.travel_page_aditional ul {
+    list-style-type: disc;
+}
+.travel_page_content {
+    width:70rem;
 }
 .show_full_travel {
     cursor: pointer;
@@ -1529,7 +1763,7 @@ footer .text {
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-   }
+}
 .search_container input::-webkit-input-placeholder {
     font-size: 1.6rem;
     font-weight: 800;
@@ -1544,20 +1778,20 @@ footer .text {
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.search_container input::-ms-input-placeholder { 
+.search_container input::-ms-input-placeholder {
     font-size: 1.6rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.search_container input::placeholder { 
+.search_container input::placeholder {
     font-size: 1.6rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-} 
+}
 .sorting_container {
     width: 100%;
     text-align: left;
@@ -1584,6 +1818,9 @@ footer .text {
     padding-left: calc(2rem - 2px);
     background-position: 23rem 1.1rem;
 }
+.goods_container {
+    position: relative;
+}
 .listing_products_container {
     float: left;
     display: flex;
@@ -1592,6 +1829,7 @@ footer .text {
     flex-direction: row;
     width: 76rem;
     height: auto;
+    min-height: 70rem;
     margin: 4rem 0;
 }
 .main_travel {
@@ -1603,16 +1841,16 @@ footer .text {
     width: 37rem;
     height: 30rem;
     margin-bottom: 2rem;
-/*    margin-top: 0.2rem;*/
+    /*    margin-top: 0.2rem;*/
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
     background-color: hsl(0, 0%, 100%);
-/*    transition: margin-top 0.4s;*/
+    /*    transition: margin-top 0.4s;*/
 }
 .main_travel:hover {
-/*    margin-top: 0;*/
+    /*    margin-top: 0;*/
     box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
 }
-
+/*
 .main_travel_price {
     position: absolute;
     right: 0;
@@ -1624,7 +1862,7 @@ footer .text {
     padding: 0 1.5rem;
     z-index: 1;
     font-weight: 800;
-}
+}*/
 .travel_video_container {
     position: relative;
     width: 200%;
@@ -1649,8 +1887,8 @@ footer .text {
     cursor: pointer;
     height: auto;
     min-height: 100%;
-    width: auto;
-    min-width: 50%;
+    width: 50%;
+    /*    min-width: 50%;*/
     display: inline-block;
 }
 .main_travel .name_header {
@@ -1700,8 +1938,10 @@ footer .text {
     margin-top: 1.2rem;
 }
 .listing_map_container {
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 36rem;
-    float: right;
     height: 62rem;
     margin-top: 4rem;
     background-position: center;
@@ -1733,6 +1973,7 @@ footer .text {
     background-size: cover;
     background-position: center;
     position: relative;
+    clear: both;
 }
 .own_travel_container:after {
     position: absolute;
@@ -1751,7 +1992,7 @@ footer .text {
     text-align: left;
     position: relative;
     z-index: 2;
-    
+
 }
 .own_travel_container .text {
     text-align: left;
@@ -1787,7 +2028,7 @@ footer .text {
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-   }
+}
 .own_travel_form input::-webkit-input-placeholder {
     font-size: 1.6rem;
     font-weight: 400;
@@ -1802,14 +2043,14 @@ footer .text {
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.own_travel_form input::-ms-input-placeholder { 
+.own_travel_form input::-ms-input-placeholder {
     font-size: 1.6rem;
     font-weight: 400;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.own_travel_form input::placeholder { 
+.own_travel_form input::placeholder {
     font-size: 1.6rem;
     font-weight: 400;
     font-family: Lato;
@@ -1818,7 +2059,7 @@ footer .text {
 }
 .own_travel_form button {
     display: block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -1992,7 +2233,7 @@ a.help_header {
     display: inline-block;
     text-align: left;
     margin: 1.4rem 0;
-/*    min-height: 4.2rem;*/
+    /*    min-height: 4.2rem;*/
 }
 .help_block .text {
     display: inline-block;
@@ -2004,7 +2245,7 @@ a.help_header {
 .show_more_helps {
     display: block;
     vertical-align: middle;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2131,7 +2372,7 @@ h4.contacts_subheader {
     float: right;
     height: 62rem;
     position: relative;
-    margin-top: 10rem;    
+    margin-top: 10rem;
 }
 .profile_img {
     width: 25rem;
@@ -2170,7 +2411,7 @@ h4.contacts_subheader {
     right: 0;
     cursor: pointer;
 }
-.edit_profile:hover::after { 
+.edit_profile:hover::after {
     content: attr(data-title);
     position: absolute;
     top: -2rem;
@@ -2221,10 +2462,10 @@ h4.contacts_subheader {
     width: 27rem;
     height: 27rem;
     margin-bottom: 2rem;
-/*    margin-top: 0.2rem;*/
+    /*    margin-top: 0.2rem;*/
     box-shadow: 3px 2px 6px 1px hsla(0, 0%, 0%, 0.1);
     background-color: hsl(0, 0%, 100%);
-/*    transition: margin-top 0.4s;*/
+    /*    transition: margin-top 0.4s;*/
 }
 .travel_video_container {
     position: relative;
@@ -2246,14 +2487,14 @@ h4.contacts_subheader {
     z-index: 1;
 
 }
-.travel_video_container img {
+/*.travel_video_container img {
     cursor: pointer;
     height: auto;
     min-height: 100%;
     width: auto;
     min-width: 50%;
     display: inline-block;
-}
+}*/
 .history_travel .text {
     display: inline-block;
     width: 100%;
@@ -2318,7 +2559,7 @@ h4.contacts_subheader {
     font-family: Lato;
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
-   }
+}
 .page_search input::-webkit-input-placeholder {
     font-size: 1.6rem;
     line-height: 3.1rem;
@@ -2335,7 +2576,7 @@ h4.contacts_subheader {
     opacity: 1;
 
 }
-.page_search input::-ms-input-placeholder { 
+.page_search input::-ms-input-placeholder {
     font-size: 1.6rem;
     line-height: 3.1rem;
     font-weight: 800;
@@ -2343,7 +2584,7 @@ h4.contacts_subheader {
     color: hsla(188, 100%, 25%, 1);
     opacity: 1;
 }
-.page_search input::placeholder { 
+.page_search input::placeholder {
     font-size: 1.6rem;
     line-height: 5.6rem;
     font-weight: 800;
@@ -2362,7 +2603,7 @@ h4.contacts_subheader {
 }
 .search_show_travels {
     display: block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2378,7 +2619,7 @@ h4.contacts_subheader {
 }
 .search_more_infos {
     display: block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2394,7 +2635,7 @@ h4.contacts_subheader {
 }
 .search_all_captains {
     display: block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2410,7 +2651,7 @@ h4.contacts_subheader {
 }
 .show_next_captains {
     display: block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2436,7 +2677,7 @@ h4.contacts_subheader {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 5rem;
-} 
+}
 .article_img {
     width: 100%;
     height: 59rem;
@@ -2477,12 +2718,18 @@ h4.contacts_subheader {
 .article_text li {
     color: inherit;
 }
+.article_text strong {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
 .article_btn {
     width: 100%;
     margin-top: 4rem;
     text-align: right;
 }
-div.print_article {
+a.print_article {
     cursor: pointer;
     margin-right: 2rem;
     display: inline-block;
@@ -2497,9 +2744,9 @@ div.print_article {
     font-size: 1.6rem;
     font-weight: 800;
 }
-div.save_article {
+a.save_article {
     display: inline-block;
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2629,7 +2876,7 @@ h6.nearest_travel_header {
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
-   }
+}
 .cart_form input::-webkit-input-placeholder {
     font-size: 1.6rem;
     line-height: 4.4rem;
@@ -2645,27 +2892,27 @@ h6.nearest_travel_header {
     color: hsla(188, 100%, 25%, 0.3);
 
 }
-.cart_form input::-ms-input-placeholder { 
+.cart_form input::-ms-input-placeholder {
     font-size: 1.6rem;
     line-height: 4.4rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
 }
-.cart_form input::placeholder { 
+.cart_form input::placeholder {
     font-size: 1.6rem;
     line-height: 4.4rem;
     font-weight: 800;
     font-family: Lato;
     color: hsla(188, 100%, 25%, 0.3);
 
-} 
+}
 .cart_form input:focus {
     color: hsla(188, 100%, 25%, 1);
     border: 0.2rem solid hsla(188, 100%, 25%, 1);
 }
 .cart_form button {
-    background-color: hsla(188, 100%, 25%, 1); 
+    background-color: hsla(188, 100%, 25%, 1);
     border: none;
     color: white;
     font-family: Lato;
@@ -2689,7 +2936,7 @@ h6.nearest_travel_header {
     border: 2px solid hsla(188, 100%, 25%, 1);;
     border-radius: 0;
     margin-right: 3px;
-/*    margin-left: 2rem;*/
+    /*    margin-left: 2rem;*/
 }
 
 .custom_checkbox,
@@ -2730,7 +2977,189 @@ a.mob_show,
 form.mob_show {
     display: none;
 }
+.register,
+.loginForm,
+.loginFP {
+    display: block;
+    margin: 10vh auto 0 auto;
+    width: 30rem;
+}
+.register_wrapper {
+    width: 114rem;
+    padding: 0 3rem;
+    margin: 0 auto;
+    display: block;
+    min-height: 60vh;
+    overflow: hidden;
+    margin-top: 6rem;
+}
+.register input,
+.register select,
+.register .btn,
+.loginForm input,
+.loginForm select,
+.loginForm .btn,
+.loginFPForm input,
+.loginFPForm select,
+.loginFPForm .btn {
+    box-sizing: border-box;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 4rem;
+    padding-top: 0;
+    margin-bottom: 2rem;
+    line-height: 4rem;
+    vertical-align: middle;
+    box-shadow: 0 3px 10px 1px hsla(0, 0%, 0%, 0.1);
+    border: 2px solid hsla(188, 100%, 25%, 1);
+    color: hsla(188, 100%, 25%, 1);
+    font-size: 2rem;
+}
+.register .btn,
+.loginForm .btn,
+.loginFPForm .btn {
+    line-height: 3rem;
+    margin-top: 2rem;
+}
+.register label,
+.loginForm label,
+.loginFPForm label {
+    color: hsla(188, 100%, 25%, 1);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.btn:hover {
+    box-shadow: 4px 3px 9px 2px hsla(0, 0%, 0%, 0.1);
+}
+.register label p,
+.loginForm label p,
+.loginFPForm label p {
+    margin-bottom: 0.5rem;
+}
+.loginLegend,
+.fog_pass,
+.FP_instruction {
+    width: 100%;
+    text-align: center;
+    color: hsla(188, 100%, 25%, 1);
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.fog_pass,
+.FP_text {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+
+.review_block_popup {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+	background-color: hsla(188, 100%, 25%, 0.5) 
+}
+.review_popup {
+	background-color: white;
+	margin-top: 20vh;
+	min-height: 20rem;
+	padding-bottom: 3rem;
+
+}
+.review_popup .review_img {
+	float: left;
+}
+.review_popup .name_header {
+	font-size: 2.2rem;
+	line-height: 2.5rem;
+	text-indent: 2rem;
+	text-align: left;
+}
+.review_popup .review_header {
+	padding-top: 2rem;
+}
+.review_popup .text {
+	color: black;
+	font-size: 1.8rem;
+	line-height: 2.3rem;
+	margin-left: 18rem;
+	height: auto;
+}
+.review_block .full_text {
+	display: none;
+}
 /*some text*/
+.become_a_captain_popup {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	background-color: hsla(188, 100%, 25%, 0.5);
+}
+.become_a_captain_block {
+	background-color: white;
+	height: auto !important;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-bottom: 2rem;
+}
+.become_a_captain_block .name_header {
+	text-align: left;
+	text-align-last: left;
+	width: 100%;
+	margin-top: 2rem;
+}
+.become_a_captain_block input,
+.become_a_captain_block button {
+	width: 26.7rem;
+	display: inline-block;
+	text-align: left;
+	text-align-last: left;
+}
+.become_a_captain_block input {
+	color: hsla(188, 100%, 25%, 1);
+	border: 2px solid hsla(188, 100%, 25%, 1);
+	height: 4.5rem;
+	box-sizing: border-box;
+	line-height: 4.5rem;
+    font-family: Lato;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 2.1rem;
+    padding-left: 2rem;
+    opacity: 1;
+    margin-right: 1.5rem;
+    outline: none;
+    background-color: white;
+    border-radius: 0;
+        box-shadow: 0 3px 3px 1px hsla(0, 0%, 0%, 0.05);
+}
+.become_a_captain_block button {
+	text-align: center;
+	box-sizing: border-box;
+	height: 4.5rem;
+	line-height: 3.7rem;
+	text-align-last: center;
+	background-color: white;
+	width: 28rem;
+	position: relative;
+	top: 2px;
+}
+.captain_popup_active {
+	display: flex;
+}
 
 
 

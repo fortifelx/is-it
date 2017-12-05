@@ -27,16 +27,16 @@
 				if(scrolled < 90) {
 					$header.removeClass(fixed);
 				}
+
+
+
+
 	}
 })();
 (function( $ ) {
   $.fn.fortySlider = function(time, lArrow, rArrow, counter, seperator, method) {
 
   	var $slides = this.children();
-    if($slides.length === 1) {
-      $(counter).parent().css("display" , "none");
-      return;
-    };
   	var viewWidth = parseInt(this.css('width'), 10) ;
   	$slides.css({
   		"position" : "absolute",
@@ -63,9 +63,7 @@
     var $counter = $(counter).html($count);
     var $current;
     var $next;
-    if ($slides.legnth === 1) {
-      $counter.parent().css("display" , "none");
-    }
+
     function showSlide() {
     	$current = $($slides[i]);
     	if(this == $lArrow[0]) {
@@ -126,11 +124,6 @@
 	if(vWidth < 600) {
 		$view.fortySlider(600, ".reviews_l_arrow", ".reviews_r_arrow", ".reviews_slider_counter", "/");
 	}
-})();
-(function(){
-  var $view = $('.product_captain_viewer');
-  var vWidth = parseInt($view.css("width"), 10);
-  $view.fortySlider(600, ".capt_l_arrow", ".capt_r_arrow", ".capt_slider_counter", "/");
 })();
 (function(){
   var $header = $('header');
@@ -221,7 +214,7 @@ function hideCustomSelect(){
   status = false;
   $(document).unbind("click", hideCustomSelect);
 }
-function cutomizeSelect( selectOption, customOption) {
+function cutomizeSelect( selectOption, customOption, useLink) {
           var $selections = $(selectOption);
           var $customSelections = $(customOption);
           $customSelections.click(function(e){
@@ -231,15 +224,17 @@ function cutomizeSelect( selectOption, customOption) {
             status = false;
             var pos = $.inArray(e.target, $customSelections);
             $selections.prop("selected", false);
-
-            var opt = $selections.eq($.inArray(e.target, $customSelections)+1);
             $selections.eq($.inArray(e.target, $customSelections)+1).attr("selected", "true");
-            // window.location.href=e.target.options[e.target.selectedIndex].value
-            var test = tets[0].value;
-            console.log(test);
+            if(useLink === true) {
+            var opt = $selections.eq($.inArray(e.target, $customSelections)+1);
+            window.location.href=opt[0].value;              
+            };
+
           });
     }
-    cutomizeSelect(".custom_dropdown_country option",".custom_block_country li");
+
+    cutomizeSelect(".custom_dropdown_par option",".custom_block_par li", false);
+    cutomizeSelect(".custom_dropdown_link option",".custom_block_link li", true);
     cutomizeSelect(".custom_dropdown_people option",".custom_block_people li");
     cutomizeSelect(".custom_dropdown_filter option",".custom_block_filter li");
 
@@ -247,38 +242,8 @@ function cutomizeSelect( selectOption, customOption) {
 
 })();
 (function(){
-  var $reviews = $(".reviews_container .review_block");
-  var $popup = $(".review_popup");
-  var $popupClose = $(".review_popup .show_more_reviews");
-  $reviews.click(function(){
-    $popup.parent().css("display" , "block");
-    var $target = $(this);
-    var imgSrc = $target.find(".review_img img").attr("src");
-    var name = $target.find(".review_header").text();
-    var revObject = $target.find(".review_object").text();
-    var revText = $target.find(".full_text").text();
-
-    $popup.find(".review_img img").attr("src" , imgSrc);
-    $popup.find(".review_header").html(name);
-    $popup.find(".review_object").html(revObject);
-    $popup.find(".text").html(revText);
-
-  });
-  $popupClose.click(function(){
-    $popup.parent().css("display" , "none");
-  });
-})();
-(function(){
-    $(".become_a_captain").click(function(e){     
-        $(".become_a_captain_popup").addClass("captain_popup_active");
-
-    });
-    $(".popup_close").click(function(e){
-       $(".become_a_captain_popup").removeClass("captain_popup_active");
-    })
-     $(".become_a_captain_popup").click(function(e){
-      if(this != e.target) return;
-        $(".become_a_captain_popup").removeClass("captain_popup_active");
-     })
+  var $view = $('.product_captain_viewer');
+  var vWidth = parseInt($view.css("width"), 10);
+  $view.fortySlider(600, ".capt_l_arrow", ".capt_r_arrow", ".capt_slider_counter", "/");
 })();
 
