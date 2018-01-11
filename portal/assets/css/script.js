@@ -247,3 +247,5 @@ function cutomizeSelect( selectOption, customOption, useLink) {
   $view.fortySlider(600, ".capt_l_arrow", ".capt_r_arrow", ".capt_slider_counter", "/");
 })();
 
+
+

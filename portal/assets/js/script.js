@@ -281,4 +281,106 @@ function cutomizeSelect( selectOption, customOption) {
         $(".become_a_captain_popup").removeClass("captain_popup_active");
      })
 })();
+(function(){
+  $(".product_btn_buy").click(function(e){
+    console.log('here');
+      $(".product_cart").css("display" , "none");
+      $(".cart_product").css("display" , "block").animate({"opacity" : 1}, 200);
+  });
+})();
+(function(){
 
+    var video = $('#video')[0];
+    if(video) {
+          video.addEventListener('canplay', function(e) {
+        this.volume = 0.2;
+            });
+    }
+
+
+    var status = true;
+    var $soundBtn = $('.sound-btn');
+    var $muteBtn = $('.mute-btn');
+    var playStatus = true;
+    var $playBtn = $('.play_video');
+    var $pauseBtn = $('.pause_video');
+    $pauseBtn.click(function(){
+        $pauseBtn.css("display" , "none");
+        $playBtn.css("display", "block");
+        video.pause();
+        $(video).parent().addClass('main_screen_play');
+    });
+    $playBtn.click(function(){
+        $playBtn.css("display" , "none");
+        $pauseBtn.css("display", "block");
+        video.play();
+        $(video).parent().removeClass('main_screen_play');
+    });
+    $soundBtn.click(function(){
+        if(status) {
+            status = false;
+            video.volume = 0;
+            $soundBtn.css("display", "none");
+            $muteBtn.css("display", "block");
+            video.addEventListener('playing', function(e) {
+                this.volume = 0;
+            });
+        }
+    });
+    $muteBtn.click(function(){
+        status = true;
+        video.volume = 0.2;
+        $soundBtn.css("display", "block");
+        $muteBtn.css("display", "none");
+        video.addEventListener('paying', function(e) {
+            this.volume = 0.2;
+        });
+    });
+
+})();
+(function(){
+
+    var video = $('#video2')[0];
+    if(video) {
+          video.addEventListener('canplay', function(e) {
+        this.volume = 0.4;
+            });
+    }
+    var status = true;
+    var $soundBtn = $('.sound-btn');
+    var $muteBtn = $('.mute-btn');
+    var playStatus = true;
+    var $playBtn = $('.pl_video');
+    var $pauseBtn = $('.ps_video');
+    $pauseBtn.click(function(){
+        $pauseBtn.css("display" , "none");
+        $playBtn.css("display", "block");
+        video.pause();
+    });
+    $playBtn.click(function(){
+        $playBtn.css("display" , "none");
+        $pauseBtn.css("display", "block");
+        video.play();
+    });
+    $soundBtn.click(function(){
+        if(status) {
+            status = false;
+            video.volume = 0;
+            $soundBtn.css("display", "none");
+            $muteBtn.css("display", "block");
+            video.addEventListener('playing', function(e) {
+                this.volume = 0;
+            });
+        }
+    });
+    $muteBtn.click(function(){
+        status = true;
+        video.volume = 0.4;
+        $soundBtn.css("display", "block");
+        $muteBtn.css("display", "none");
+        video.addEventListener('paying', function(e) {
+            this.volume = 0.4;
+        });
+    });
+
+})();

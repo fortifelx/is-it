@@ -494,6 +494,7 @@ div.header_active {
     text-align: center;
     padding-bottom: 2rem;
     margin-top: 6rem;
+    overflow: hidden;
 }
 .main_screen_wrapper:after {
     content: "";
@@ -512,38 +513,50 @@ div.header_active {
     height: calc(100% - 1rem);
     top: 0;
     left:  -50%;
+    transition: background-color 1s;
     text-align: center;
 }
-.main_screen_video img {
-    min-width: 50%;
-    min-height: calc(100vh - 7rem);
+.main_screen_video video {
+    min-width: 80%;
+    min-height: 100vh;
     height:auto;
     display: inline-block;
+    margin-top: -20rem;
 }
 .main_screen_video:before {
     content: "";
     position: absolute;
-    display: block;
+    display: none;
     width: 100%;
     height:100%;
     top: 0;
     left: 0;
-    background-color: hsla( 0, 0%, 100%, 0.4);
+    transition: background-color 1s;
+    background-color: hsla( 0, 0%, 100%, 0);
+}
+.main_screen_play:before {
+    display: block;
+    background-color: hsla( 0, 0%, 100%, 0.3);
 }
 .sub_header,
 .main_header,
 .main_search,
-.play_video {
+.play_video,
+.pause_video {
     position: relative;
     z-index: 2;
     display: block;
     margin: 0 auto;
 }
-.play_video {
+.play_video,
+.pause_video {
     width: 2rem;
     height: 1.5rem;
     margin-top: 4rem;
     cursor: pointer;
+}
+.play_video {
+    display: none;
 }
 .main_screen_wrapper .sub_header {
     padding-top: 30vh;
@@ -1596,7 +1609,7 @@ footer .text {
     height: 100%;
 }
 .product_buttons_container {
-    display: block;
+    display: inline-block;
     margin-top: 4rem;
     width: 100%;
     text-align: left;
@@ -1698,7 +1711,7 @@ footer .text {
 .show_full_travel {
     cursor: pointer;
     margin: 4.5rem 0 0 0;
-    display: block;
+    display: inline-block;
     width: 29rem;
     height: 6.5rem;
     box-sizing: border-box;
@@ -3160,6 +3173,23 @@ form.mob_show {
 .captain_popup_active {
 	display: flex;
 }
-
-
-
+.cart_product {
+    display: none;
+    opacity: 0;
+}
+.product_cart {
+    display: block;
+}
+.pl_video,
+.ps_video {
+    cursor: pointer;
+    position: absolute;
+    width: 4rem;
+    height: auto;
+    z-index: 1000;
+    right: 1rem;
+    bottom: 1rem;
+}
+.pl_video {
+    display: none;
+}

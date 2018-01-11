@@ -36,9 +36,11 @@
 	</header>
     </div>
 	<div class="main_screen_wrapper">
-	    <div class="main_screen_video">
-	        <img src="assets/img/main/1.jpg" alt="">
-	    </div>
+        <div class="main_screen_video">
+	        <video id="video" autoplay="autoplay" loop="loop" preload="auto" class="main_video">
+        <source src="assets/video/main.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
+        </div>
 	    <h2 class="sub_header aqua">
 	        Ваше незабываемое
 	    </h2>
@@ -48,6 +50,9 @@
 	    <div class="play_video">
 	        <img src="assets/img/main/1.svg" alt="">
 	    </div>
+        <div class="pause_video">
+            <img src="assets/img/main/pause.svg" alt="">
+        </div>
 	    <div class="main_search">
             <form class="main_search_wrapper">
 	        <select class="custom_dropdown_country" name="country" id="">
