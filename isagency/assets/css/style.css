@@ -299,3 +299,35 @@
 	font-weight: 700;
 	line-height: 4rem;
 }
+.portfolio_section {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	font-size: 0;	
+}
+.portfolio_block {
+	width: 25%;
+}
+.portfolio_block img {
+	width: 100%;
+}
+.portfolio_block:last-child {
+	display: block;
+	background-color: hsl(360, 85%, 62%);
+	text-align: center;
+/*	height: 100%;*/
+	align-self: stretch;
+	box-sizing: border-box;
+}
+.portfolio_block a {
+	display: inline;
+	color: hsl(0, 100%, 0%);
+	font-family: Oswald, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 2.4rem;
+	display: inline-block;
+	text-decoration: none;
+	margin-top: 40%;
+}
