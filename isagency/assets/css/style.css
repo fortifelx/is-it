@@ -212,7 +212,7 @@
 .stages_canvas {
 	position: relative;
 	width: 50%;
-	height:50%;
+	height: 600px;
 	display: inline-block;
 	overflow: hidden;
 	vertical-align: top;
@@ -330,4 +330,169 @@
 	display: inline-block;
 	text-decoration: none;
 	margin-top: 40%;
+}
+.we_create_section {
+	height: 100vh;
+}
+.we_create_header {
+	color: hsl(360, 85%, 62%);
+	font-family: Oswald, sans-serif;
+	font-size: 3.6rem;
+	font-weight: 700;
+	line-height: 7.2rem;
+	margin-top: 17vh;
+}
+.we_create_list li {
+	color: hsl(0, 0%, 0%);
+	font-family: Lato, sans-serif;
+	font-size: 2.4rem;
+	font-weight: 400;
+	line-height: 4.8rem;
+	margin-top: 2rem;
+}
+.we_create_list li:before {
+	content: url(../img/8.svg);
+	display: inline-block;
+	width: 3.6rem;
+	margin-right: 2rem;
+}
+.we_create_list li:nth-child(2):before {
+	content: url(../img/9.svg);
+}
+.we_create_list li:nth-child(3):before {
+	content: url(../img/7.svg);	
+}
+.we_create_list li:nth-child(4):before {
+	content: url(../img/6.svg);	
+}
+.second_form_section {
+	background-color: hsl(360, 85%, 62%);
+	overflow: hidden;
+	padding: 7rem 0;
+}
+.second_form_section .wrapper {
+  	background-color: hsl(360, 85%, 62%);
+}
+.second_form_header {
+	color: hsl(0, 0%, 0%);
+	font-family: Oswald, sans-serif;
+	font-size: 3.6rem;
+	font-weight: 700;
+	line-height: 7.2rem;
+	text-transform: uppercase;
+}
+.second_form {
+	float: left;
+	width: 87%;
+	margin-top: 4rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.second_form input,
+.second_form button {
+	width: 24%;
+	display: inline-block;
+	outline: none;
+	border: none;
+	background-color: hsla(360, 85%, 62%, 0)
+}
+.second_form input {
+	height: 4rem;
+	line-height: 4rem;
+	box-sizing: border-box;
+	text-indent: 1rem;
+	border: 2px solid hsl(0, 0%, 0%);
+	color: hsl(0, 100%, 0%);
+	font-family: Oswald, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+.second_form button {
+	text-align: center;
+	height: 4rem;
+	vertical-align: top;
+	background-color: black;
+	color: hsl(360, 85%, 62%);
+	font-family: Oswald, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 4rem;
+}
+.map {
+	display: inline-block;
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 25rem;
+	left: -50%;
+	background-color: grey;
+}
+.contacts {
+	width: 45%;
+	float: right;
+	margin-top: -250px;
+/*	margin-left: 55%;*/
+}
+.adress,
+.mail_phone {
+	width: 20rem;
+	color: hsl(0, 0%, 0%);
+	font-family: Lato, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 2.4rem;
+	margin-bottom: 4rem;
+}
+.networks {
+	height: 3.6rem;
+	display: inline-block;
+	line-height: 3.6rem;
+}
+.files {
+	height: 3.6rem;
+	display: inline-block;
+	margin-left: 2rem;
+	line-height: 3.6rem;
+	vertical-align: top;
+}
+.networks a {
+	margin-right: 1rem;
+}
+.networks a img {
+	width: 3.6rem;
+}
+.files a {
+	color: hsl(360, 85%, 62%);
+	font-family: Oswald, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 3.6rem;
+	text-decoration: none;
+}
+.files a:first-child {
+	margin-right: 4rem;
+}
+footer {
+	overflow: hidden;
+	padding: 3rem 1.5rem !important;
+}
+.copyright {
+	float: left;
+}
+.developed {
+	float: left;
+	margin-left: 50%;
+}
+.developed,
+.copyright {
+	color: hsl(0, 0%, 0%);
+	font-family: Lato, sans-serif;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 2.4rem;
+}
+.developed a {
+	color: hsl(360, 85%, 62%);
+	text-decoration: none;
 }

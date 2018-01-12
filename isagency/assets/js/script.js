@@ -18,7 +18,7 @@ var anim = function() {
     x = 0;
     $.beginPath();
     for (var j = 0; j < num; j++) {
-      x += .55 * Math.sin(11);
+      x += .60 * Math.sin(11) *1;
       y = x * Math.sin(i + 3.0 * t + x /15) / 15;
       _x = x * Math.cos(b) + y * Math.sin(i);
       _y = x * Math.sin(b) + y * Math.cos(i);
@@ -29,7 +29,7 @@ var anim = function() {
     var g = $.createLinearGradient(w / 2 + _x, h / 2.5 + _y,  
             1, w / 2 + _x, h / 2.5 + _y);
     g.addColorStop(0.2, 'hsla('+u+',100%,100%,1)');
-    g.addColorStop(0.5, 'hsla(0,0%,10%,1)');
+    g.addColorStop(0.5, 'hsla(5,50%,50%,1)');
     g.addColorStop(1, 'hsla(0,0%,0%,1)'); 
     $.strokeStyle = g;
     $.stroke();
