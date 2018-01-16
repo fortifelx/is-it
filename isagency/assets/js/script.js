@@ -1,4 +1,13 @@
-
+$(document).ready(function () {
+    $(".top_menu").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href')
+            , top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1000);
+    });
+});
 
 (function(){
  var par = document.querySelector('.stages_canvas');
@@ -430,6 +439,39 @@ new SineWaveGenerator({
         $eight_line.removeClass("active_line_width");
         $nine_line.removeClass("active_line_height");
     }
+    var punctPosition = [];
+    var punctHeight = [];
+    var i = 0;
+    var $menuLi = $(".top_menu li a");
+      $menuLi.each(function(){
+          var  punct = $(this).attr('href');
+          punctPosition[i] = $(punct).offset().top;
+          punctHeight[i] = parseInt($(punct).css("height"), 10);
+          i++;
+      });
+      if(scrolled < punctPosition[0]) {
+          $(".active").removeClass("active");
+      }
+      if (punctPosition[0] < scrolled && scrolled < punctPosition[1]) {
+          $(".active").removeClass("active");
+          $($menuLi[0]).addClass("active");
+      };
+      if (punctPosition[1] - 300 < scrolled && scrolled < punctPosition[2]) {
+          $(".active").removeClass("active");
+          $($menuLi[1]).addClass("active");
+      }
+      if (punctPosition[2] - 300 < scrolled && scrolled < punctPosition[3]) {
+          $(".active").removeClass("active");
+          $($menuLi[2]).addClass("active");
+      }
+      if (punctPosition[3] - 300 < scrolled && scrolled < punctPosition[4] - 300) {
+          $(".active").removeClass("active");
+          $($menuLi[3]).addClass("active");
+      }
+      if (punctPosition[4] - 300 < scrolled) {
+          $(".active").removeClass("active");
+          $($menuLi[4]).addClass("active");
+      }
 
 }
  })();
