@@ -343,28 +343,35 @@ new SineWaveGenerator({
 
  })();
  (function(){
-  $first_line = $(".about_first_line");
-  $second_line = $(".about_second_line");
-  $third_line = $(".about_third_line");
-  $forth_line = $(".about_fourth_line");
-  $fivth_line = $(".about_fivth_line");
-  $six_line = $(".about_six_line");
-  $seven_line = $(".about_seven_line");
-  $eight_line = $(".about_eight_line");
-  $nine_line = $(".about_nine_line");
-  first_line_status = false;
-  second_line_status = false;
-  third_line_status = false;
-  forth_line_status = false;
-  fivth_line_status = false;
-  six_line_status = false;
-  seven_line_status = false;
-  eight_line_status = false;
-  nine_line_status = false;
+$triangle_line = $(".triangle_line");
+$first_line = $(".about_first_line");
+$second_line = $(".about_second_line");
+$third_line = $(".about_third_line");
+$forth_line = $(".about_fourth_line");
+$fivth_line = $(".about_fivth_line");
+$six_line = $(".about_six_line");
+$seven_line = $(".about_seven_line");
+$eight_line = $(".about_eight_line");
+$nine_line = $(".about_nine_line");
+first_line_status = false;
+second_line_status = false;
+third_line_status = false;
+forth_line_status = false;
+fivth_line_status = false;
+six_line_status = false;
+seven_line_status = false;
+eight_line_status = false;
+nine_line_status = false;
 
   window.onscroll = function() {
   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
   var time = 400;
+  if(scrolled > 50) {
+      $triangle_line.addClass("active_line_triangle");
+  }
+  if(scrolled < 50) {
+      $triangle_line.removeClass("active_line_triangle");
+  };
     if($first_line.offset().top < scrolled*2) {
       $first_line.addClass("active_line_width");
       first_line_status = true;
@@ -417,7 +424,7 @@ new SineWaveGenerator({
       nine_line_status = true;
       }, time)
     }
-    if($nine_line.offset().top < scrolled*1.5) {
+    if($nine_line.offset().top < scrolled*1.2) {
         first_line_status = true;
         second_line_status = true;
         third_line_status = true;
@@ -451,14 +458,20 @@ new SineWaveGenerator({
       });
       if(scrolled < punctPosition[0]) {
           $(".active").removeClass("active");
+
       }
       if (punctPosition[0] < scrolled && scrolled < punctPosition[1]) {
           $(".active").removeClass("active");
           $($menuLi[0]).addClass("active");
+          $(".top_menu").removeClass("top_menu_active");
+
       };
       if (punctPosition[1] - 300 < scrolled && scrolled < punctPosition[2]) {
           $(".active").removeClass("active");
           $($menuLi[1]).addClass("active");
+          $(".top_menu").addClass("top_menu_active").velocity({
+              top : "0"
+          }, 800);
       }
       if (punctPosition[2] - 300 < scrolled && scrolled < punctPosition[3]) {
           $(".active").removeClass("active");
@@ -475,3 +488,21 @@ new SineWaveGenerator({
 
 }
  })();
+(function(){
+    var $puncts = $(".stages_punct_header");
+    $puncts.click(function (e) {
+        console.log("start");
+        var $target = $(this);
+        var $parent = $target.parent();
+        var $height = parseInt($target.next().css('height') , 10);
+        var $targetHeight = parseInt($target.css("height"), 10) ;
+        $height = $height + $targetHeight;
+
+        $(".stages_punct_active").removeClass("stages_punct_active").velocity({
+            height : $targetHeight
+        }, 600);
+        $parent.addClass("stages_punct_active").velocity({
+            height : $height
+        }, 600);
+    })
+})();
