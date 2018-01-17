@@ -1,18 +1,10 @@
-@media screen and (max-width: 768px), handheld and (max-width: 768px) {
-	html {
-		font-size: 10px;
-	}
-}
+
 /*@media handheld and (min-width: 768px), screen and (min-width: 768px) {*/
 	/*html {*/
 		/*font-size: 8px;*/
 	/*}*/
 /*}*/
-@media handheld and (max-width: 992px), screen and (max-width: 992px) {
-	html {
-		font-size: 10px;
-	}
-}
+
 @media handheld and (max-width: 1270px), screen and (max-width: 1270px) {
 	html {
 		font-size: 10px;
@@ -20,6 +12,130 @@
 	.wrapper,
 	.top_wrapper{
 		width: 100%;
+	}
+}
+@media handheld and (max-width: 992px), screen and (max-width: 992px) {
+	html {
+		font-size: 8px;
+	}
+}
+@media screen and (max-width: 768px), handheld and (max-width: 768px) {
+	html {
+		font-size: 10px;
+	}
+	.main_header {
+		font-size: 4.8rem;
+		max-width: 100%;
+	}
+
+	.top_menu a {
+		font-size: 14px;
+	}
+	.about_text {
+		font-size: 18px;
+	}
+	.text_about {
+		z-index: 21;
+	}
+	.about_text:nth-child(1):after {
+		right: 10%;
+		z-index: 20;
+	}
+	.about_text:nth-child(2) {
+		margin-left: 20%;
+	}
+	.about_text:nth-child(3) {
+		margin-left: 10%;
+	}
+	.about_fourth_line {
+		left: 90%;
+	}
+		.about_six_line {
+		left: 80%;
+	}
+	.stages_punct_header {
+		font-size: 24px;
+	}
+	.stages_puct_text {
+		padding: 2rem 0;
+	}
+	.first_form_header {
+		font-size: 24px;
+		width: 87%;
+		float: right;
+		text-indent: 0;
+	}
+	.first_form {
+		flex-direction: column;
+		padding-left: 10px;
+		padding-bottom: 70px;
+	}
+	.first_form input,
+	.first_form button {
+		margin-bottom: 10px;
+		width: 50%;
+	}
+	.we_create_header {
+		font-size: 24px;
+		margin-top: 90px;
+	}
+	.we_create_list li {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	#createsection {
+		top: auto;
+		bottom: -20%;
+	}
+	.second_form_section {
+		padding: 4rem 0;
+	}
+	.second_form_header {
+		font-size: 24px;
+	}
+	.second_form {
+		margin-top: 2rem;
+		flex-direction: column;
+	}
+	.second_form input,
+	.second_form button {
+		width: 50%;
+		margin-bottom: 10px;
+	}
+	.second_form button:after {
+		left: 0;
+		bottom: calc( 100% + 10px);
+		top: auto;
+	}
+	.second_form_first_line {
+		top: 80px;
+	}
+	.second_form_second_line {
+		top: 80px;
+		height: 220px;
+	}
+	.second_form_third_line {
+		top: 300px;
+		width: 30%;
+	}
+	.adress,
+	.mail_phone {
+		margin-bottom: 2rem;
+	}
+	.networks {
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+	.files {
+		margin-left: 0;
+	}
+	.developed {
+		margin-left: 36%;
+	}
+}
+@media handheld and (max-width: 480px), screen and (max-width: 480px) {
+	html {
+		font-size: 8px;
 	}
 }
 

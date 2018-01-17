@@ -524,7 +524,7 @@ forteen_line_status = false;
           $(".active").removeClass("active");
           $($menuLi[3]).addClass("active");
       }
-      if (punctPosition[4] - 300 < scrolled) {
+      if (punctPosition[4] - 600 < scrolled) {
           $(".active").removeClass("active");
           $($menuLi[4]).addClass("active");
       }
