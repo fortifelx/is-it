@@ -353,6 +353,11 @@ $six_line = $(".about_six_line");
 $seven_line = $(".about_seven_line");
 $eight_line = $(".about_eight_line");
 $nine_line = $(".about_nine_line");
+$ten_line = $(".first_form_first_line");
+$eleven_line = $(".first_form_second_line");
+$twelve_line = $(".second_form_first_line");
+$thirteen_line = $(".second_form_second_line");
+$forteen_line = $(".second_form_third_line");
 first_line_status = false;
 second_line_status = false;
 third_line_status = false;
@@ -362,6 +367,11 @@ six_line_status = false;
 seven_line_status = false;
 eight_line_status = false;
 nine_line_status = false;
+ten_line_status = false;
+eleven_line_status = false;
+twelve_line_status = false;
+thirteen_line_status = false;
+forteen_line_status = false;
 
   window.onscroll = function() {
   var scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -424,6 +434,38 @@ nine_line_status = false;
       nine_line_status = true;
       }, time)
     }
+    if($ten_line.offset().top < scrolled*1.3) {
+          setTimeout(function(){
+      $ten_line.addClass("active_line_height");
+      ten_line_status = true;
+      }, time);
+    }
+    if($eleven_line.offset().top < scrolled*1.3 && ten_line_status === true) {
+          setTimeout(function(){
+      $eleven_line.addClass("active_line_width");
+      }, time)
+    }
+        if($twelve_line.offset().top < scrolled*1.3) {
+          setTimeout(function(){
+      $twelve_line.addClass("active_line_width");
+      twelve_line_status = true;
+      }, time);
+    }
+        if($thirteen_line.offset().top < scrolled*1.3 && twelve_line_status === true) {
+          setTimeout(function(){
+      $thirteen_line.addClass("active_line_height");
+      thirteen_line_status = true;
+      }, time);
+    }
+        if($forteen_line.offset().top < scrolled*1.3 && thirteen_line_status === true) {
+          setTimeout(function(){
+      $forteen_line.addClass("active_line_width");
+      }, time);
+    }
+    if($forteen_line.offset().top < scrolled*1.15) {
+        $thirteen_line.addClass("active_line_height");
+        $forteen_line.addClass("active_line_width");
+    }
     if($nine_line.offset().top < scrolled*1.2) {
         first_line_status = true;
         second_line_status = true;
@@ -435,6 +477,7 @@ nine_line_status = false;
         eight_line_status = true;
         nine_line_status = true;
     }
+
     if($first_line.offset().top > scrolled*2) {
         $first_line.removeClass("active_line_width");
         $second_line.removeClass("active_line_width");
@@ -506,3 +549,182 @@ nine_line_status = false;
         }, 600);
     })
 })();
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 50.450670, lng: 30.586521},
+          zoom: 15,
+          styles: [
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    }
+]
+        });
+    var image = 'img/marker.png';
+    var beachMarker = new google.maps.Marker({
+    position: {lat: 50.451311, lng: 30.597912},
+    map: map,
+    icon: image
+  });
+      };
