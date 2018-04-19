@@ -1,4 +1,46 @@
 .header {
-  background-color: rgba(1, 1, 1, 0.2); }
+  background-color: rgba(1, 1, 1, 0.2);
+  overflow: hidden; }
+
+.nav_left_menu {
+  margin-top: 20px; }
+  .nav_left_menu li {
+    cursor: pointer; }
+
+.goods_table .custom-control-label::before {
+  width: 1.6rem;
+  height: 1.6rem; }
+.goods_table .custom-control-label::after {
+  width: 2rem;
+  height: 2rem; }
+.goods_table .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #1d2124; }
+.goods_table .custom-control {
+  padding-left: 3rem;
+  min-height: 3rem; }
+
+.shops_option {
+  margin-top: 20px; }
+
+.product_img {
+  width: 140px; }
+
+.goods_option {
+  margin-top: 20px; }
+
+.section_wrapper {
+  padding-bottom: 100px;
+  overflow: hidden; }
+
+.graphic_block {
+  margin-top: 20px; }
+
+.statistic_header {
+  margin-top: 50px; }
+
+.statistic_legend .input-group-prepend {
+  margin-bottom: 10px; }
+.statistic_legend input {
+  margin-right: 5px; }
 
 /*# sourceMappingURL=style.css.map */
