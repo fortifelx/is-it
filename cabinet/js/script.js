@@ -5,7 +5,7 @@ Vue.component('product-list', {
 var section = new Vue({
    el: "#section",
    data: {
-       status : 4,
+       status : 5,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -54,6 +54,9 @@ var section = new Vue({
            { id: 132, banned: true, avatar: 'img/users/avatar4.png', name: 'Калатай Инна', instagram: 'в разработку', comments: 7, favorites: 2, purchases: 11, email: 'kalatay@mail.ru', contacts: 'не указано'},
            { id: 132, banned: false, avatar: 'img/users/avatar5.png', name: 'Мрийна Елена', instagram: 'в разработку', comments: 1, favorites: 4, purchases: 2, email: 'elena@mail.ru', contacts: 'не указано'},
            { id: 132, banned: true, avatar: 'img/users/avatar6.jpg', name: 'Атифонова Оксана', instagram: 'в разработку', comments: 0, favorites: 0, purchases: 1, email: 'oksana@gmail.com', contacts: 'не указано'},
+       ],
+       articles: [
+           { id: 21, img: '', published: true, title: 'Как подобрать платье по размерной таблице', description: '', content:'', views: 165, like: 92, shares: 12, tags:'', create_date: '19.03.2018', published_date: '22.03.2018'}
        ],
    }
 });

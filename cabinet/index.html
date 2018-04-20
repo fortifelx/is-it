@@ -520,8 +520,97 @@
                 </div>
             </div>
             <div v-if="status === 5" class="section_wrapper">
-                <h1>Articles</h1>
+                <div class="row articles_option">
+                    <div class="col-2">
+                        <div class="btn btn-primary">Добавить Статью</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Выбрать действие</option>
+                                <option value="1">Опубликовать</option>
+                                <option value="2">Удалить</option>
+                                <option value="3">Востановить</option>
+                                <option value="3">Скрыть</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                            </div>
+                            <select class="custom-select">
+                                <option selected>Все</option>
+                                <option value="1">По дате добавления</option>
+                                <option value="2">Сначала удаленные</option>
+                                <option value="3">Сначала неопубликованые</option>
+                                <option value="3">Сначала популярные</option>
+                                <option value="3">Сначала непопулярные</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table  table-striped table-hover articles_table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">x</th>
+                                <th class="col-2" scope="col">Илюстрация</th>
+                                <th class="col-2" scope="col">Заголовок</th>
+                                <th class="col-3" scope="col">Описание</th>
+                                <th class="col-1" scope="col">Популярность</th>
+                                <th class="col-1" scope="col">Теги</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="product" v-for="article in articles">
+                                <th scope="row">{{ article.id }}</th>
+                                <td>
+                                    <div class="custom-control mr-sm-2 dark">
+                                        <input type="checkbox" class="custom-control-input"
+                                               :id="article.id+'customControlAutosizing'">
+                                        <label class="custom-control-label"
+                                               :for="article.id+'customControlAutosizing'"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <img class="product_img img-thumbnail img-fluid"
+                                         v-bind:src="article.img" alt="">
+                                </td>
+                                <td>{{ article.title }}</td>
+                                <td>{{ article.description }}</td>
+                                <td>{{ article.views }}<img src="iconic/svg/eye.svg" alt=""> <br>
+                                    {{ article.like }}<img src="iconic/svg/thumb-up.svg" alt=""> <br>
+                                    {{ article.shares }}<img src="iconic/svg/share.svg" alt=""></td>
+
+                                <td>{{ article.tags }}</td>
+                                <td>
+                                <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-info">Смотреть</button>
+                                    <button type="button" class="btn btn-warning">Редактировать</button>
+                                    <button v-if="!article.published" type="button" class="btn btn-success">
+                                        Опубликовать
+                                    </button>
+                                    <button v-if="article.published" type="button" class="btn btn-secondary">
+                                        Снять с публикации
+                                    </button>
+                                    <button type="button" class="btn btn-danger">Удалить</button>
+                                </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
             <div v-if="status === 6" class="section_wrapper">
                 <h1>Comments</h1>
             </div>
