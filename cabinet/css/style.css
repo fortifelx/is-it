@@ -22,8 +22,14 @@
 .shops_option {
   margin-top: 20px; }
 
+.users_option {
+  margin-top: 20px; }
+
 .product_img {
   width: 140px; }
+
+.user_img {
+  width: 100px; }
 
 .goods_option {
   margin-top: 20px; }

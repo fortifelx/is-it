@@ -1,439 +1,548 @@
 <html>
-	<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Goome | Главная</title>
-	<!--<link rel="stylesheet" href='css/reset.css'>-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goome | Главная</title>
+    <!--<link rel="stylesheet" href='css/reset.css'>-->
     <link rel="stylesheet" href='css/style.css'>
     <link rel="stylesheet" href='bootstrap4/css/bootstrap.min.css'>
     <link rel="stylesheet" href='css/mobile.css'>
-	<link href="iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
-	</head>
-	<body>
-	<header>
-		
-	</header>
-	<div class="wrapper">
-		<div class="header">
-			<div class="row">
-			<div class="col-2">
-				<h1>Dashboard</h1>
-			</div>
-			<div class="col-10" >
-				<div class="row justify-content-end">
-				<div class="col-1 letters">
-					<span>3</span>
-					<img src="iconic/svg/envelope-closed.svg" alt="">
-				</div>
-				<div class="col-1 messages">
-					<span>5</span>
-					<img src="iconic/svg/bell.svg" alt="">
-				</div>
-				<div class="col-1 orders">
-					<span>22</span>
-					<img src="iconic/svg/cart.svg" alt="">
-				</div>
-				<div class="col-3 profile_button">
-					<img src="iconic/svg/person.svg" alt="">
-					<p>Ivan Ivanov</p>
-				</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="row"  id="section">
-			<div class="col-2">
-				<ul class="list-group nav_left_menu">
-					<li
-							@click="status = 1"
-							:class="{ 'list-group-item-dark': status === 1 }"
-							class="list-group-item list-group-item-action lead">Мониторинг</li>
-					<li
-							@click="status = 2"
-							:class="{ 'list-group-item-dark': status === 2 }"
-							class="list-group-item list-group-item-action lead">Товары</li>
-					<li
-							@click="status = 3"
-							:class="{ 'list-group-item-dark': status === 3 }"
-							class="list-group-item list-group-item-action lead">Магазины
-						<span class="badge badge-primary badge-pill">2</span>
-					</li>
-					<li
-							@click="status = 4"
-							:class="{ 'list-group-item-dark': status === 4 }"
-							class="list-group-item list-group-item-action lead">Клиенты</li>
-					<li
-							@click="status = 5"
-							:class="{ 'list-group-item-dark': status === 5 }"
-							class="list-group-item list-group-item-action lead">Статьи</li>
-					<li
-							@click="status = 6"
-							:class="{ 'list-group-item-dark': status === 6 }"
-							class="list-group-item list-group-item-action lead">Коментарии
-						<span class="badge badge-primary badge-pill">14</span></li>
-					<li
-							@click="status = 7"
-							:class="{ 'list-group-item-dark': status === 7 }"
-							class="list-group-item list-group-item-action lead">Структура</li>
-					<li
-							@click="status = 8"
-							:class="{ 'list-group-item-dark': status === 8 }"
-							class="list-group-item list-group-item-action lead">Страницы</li>
-					<li
-							@click="status = 9"
-							:class="{ 'list-group-item-dark': status === 9 }"
-							class="list-group-item list-group-item-action lead">Фильтры</li>
-				</ul>
-			</div>
-			<div class="col-10">
-				<div v-if="status === 1" class="section_wrapper">
+</head>
+<body>
+<header>
 
-				<div class="row">
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
+</header>
+<div class="wrapper">
+    <div class="header">
+        <div class="row">
+            <div class="col-2">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="col-10">
+                <div class="row justify-content-end">
+                    <div class="col-1 letters">
+                        <span>3</span>
+                        <img src="iconic/svg/envelope-closed.svg" alt="">
+                    </div>
+                    <div class="col-1 messages">
+                        <span>5</span>
+                        <img src="iconic/svg/bell.svg" alt="">
+                    </div>
+                    <div class="col-1 orders">
+                        <span>22</span>
+                        <img src="iconic/svg/cart.svg" alt="">
+                    </div>
+                    <div class="col-3 profile_button">
+                        <img src="iconic/svg/person.svg" alt="">
+                        <p>Ivan Ivanov</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="section">
+        <div class="col-2">
+            <ul class="list-group nav_left_menu">
+                <li
+                        @click="status = 1"
+                        :class="{ 'list-group-item-dark': status === 1 }"
+                        class="list-group-item list-group-item-action lead">Мониторинг
+                </li>
+                <li
+                        @click="status = 2"
+                        :class="{ 'list-group-item-dark': status === 2 }"
+                        class="list-group-item list-group-item-action lead">Товары
+                </li>
+                <li
+                        @click="status = 3"
+                        :class="{ 'list-group-item-dark': status === 3 }"
+                        class="list-group-item list-group-item-action lead">Магазины
+                    <span class="badge badge-primary badge-pill">2</span>
+                </li>
+                <li
+                        @click="status = 4"
+                        :class="{ 'list-group-item-dark': status === 4 }"
+                        class="list-group-item list-group-item-action lead">Клиенты
+                </li>
+                <li
+                        @click="status = 5"
+                        :class="{ 'list-group-item-dark': status === 5 }"
+                        class="list-group-item list-group-item-action lead">Статьи
+                </li>
+                <li
+                        @click="status = 6"
+                        :class="{ 'list-group-item-dark': status === 6 }"
+                        class="list-group-item list-group-item-action lead">Коментарии
+                    <span class="badge badge-primary badge-pill">14</span></li>
+                <li
+                        @click="status = 7"
+                        :class="{ 'list-group-item-dark': status === 7 }"
+                        class="list-group-item list-group-item-action lead">Структура
+                </li>
+                <li
+                        @click="status = 8"
+                        :class="{ 'list-group-item-dark': status === 8 }"
+                        class="list-group-item list-group-item-action lead">Страницы
+                </li>
+                <li
+                        @click="status = 9"
+                        :class="{ 'list-group-item-dark': status === 9 }"
+                        class="list-group-item list-group-item-action lead">Фильтры
+                </li>
+            </ul>
+        </div>
+        <div class="col-10">
+            <div v-if="status === 1" class="section_wrapper">
 
-						<div class="col-6">
-						<span>70%</span>
-						<p>Активных клиентов</p>
-						</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
 
-						<div class="col-6">
-						<span>2 из 16</span>
-						<p>Пасивных магазина</p>
-						</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
-							<div class="col-6">
-						<span>7243</span>
-						<p>Товара на сайту</p>
-						</div>
-					</div>
-				</div>
-			</div>
-				<div class="row justify-content-center">
-					<h2 class="statistic_header">Статистика</h2>
-				</div>
-				<div class="row">
-					<div class="col-4">
-						<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="inputGroupSelect01">Период</label>
-						</div>
-						<select class="custom-select" id="inputGroupSelect01">
-							<option selected>Неделя</option>
-							<option value="1">Месяц</option>
-							<option value="2">Квартал</option>
-							<option value="3">Год</option>
-						</select>
-					</div>
-					</div>
-					<div class="col-4">
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<label class="input-group-text" for="inputGroupSelect01">Месяц</label>
-							</div>
-							<select class="custom-select" id="inputGroupSelect01">
-								<option selected>Текущий</option>
-								<option value="1">Январь</option>
-								<option value="2">Февраль</option>
-								<option value="3">Март</option>
-								<option value="3">Апрель</option>
-								<option value="3">Май</option>
-								<option value="3">Июнь</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<label class="input-group-text" for="inputGroupSelect01">Свой период</label>
-							</div>
-							<select class="custom-select" id="inputGroupSelect01">
-								<option selected>Плагин даты не подключен</option>
-								<option value="1">19/02/2018 - 23/05/2018</option>
-								<option value="2">31/06/2018 - 02/09/2018</option>
-								<option value="3">22/08/2018 - 26/11/2018</option>
-								<option value="3">06/09/2018 - 01/12/2018</option>
-								<option value="3">11/02/2018 - 31/08/2018</option>
-								<option value="3">26/01/2018 - 15/03/2018</option>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="row align-items-center">
-					<div class="col-9">
-					<img class="img-fluid img-thumbnail" src="img/statistic.jpg" alt="">
-					</div>
-					<div class="col-3">
-						<div class="input-group d-block mb-3  statistic_legend">
-							<div class="input-group-prepend">
-								<div class="input-group-text badge-primary">
-									<input type="checkbox" aria-label="Checkbox for following text input">Просмотры
-								</div>
-							</div>
-						    <div class="input-group-prepend">
-								<div class="input-group-text badge-warning">
-									<input type="checkbox" aria-label="Checkbox for following text input">Продажи
-								</div>
-						     </div>
-						     <div class="input-group-prepend">
-								<div class="input-group-text  badge-info">
-									<input type="checkbox" aria-label="Checkbox for following text input">Клиенты
-								</div>
-						     </div>
-							 <div class="input-group-prepend">
-								<div class="input-group-text badge-success">
-									<input type="checkbox" aria-label="Checkbox for following text input">Магазины
-								</div>
-						     </div>
-							</div>
+                            <div class="col-6">
+                                <span>70%</span>
+                                <p>Активных клиентов</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
 
-						</div>
-					</div>
-				<div class="row">
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
+                            <div class="col-6">
+                                <span>2 из 16</span>
+                                <p>Пасивных магазина</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
+                            <div class="col-6">
+                                <span>7243</span>
+                                <p>Товара на сайту</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <h2 class="statistic_header">Статистика</h2>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Период</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Неделя</option>
+                                <option value="1">Месяц</option>
+                                <option value="2">Квартал</option>
+                                <option value="3">Год</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Месяц</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Текущий</option>
+                                <option value="1">Январь</option>
+                                <option value="2">Февраль</option>
+                                <option value="3">Март</option>
+                                <option value="3">Апрель</option>
+                                <option value="3">Май</option>
+                                <option value="3">Июнь</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Свой период</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Плагин даты не подключен</option>
+                                <option value="1">19/02/2018 - 23/05/2018</option>
+                                <option value="2">31/06/2018 - 02/09/2018</option>
+                                <option value="3">22/08/2018 - 26/11/2018</option>
+                                <option value="3">06/09/2018 - 01/12/2018</option>
+                                <option value="3">11/02/2018 - 31/08/2018</option>
+                                <option value="3">26/01/2018 - 15/03/2018</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <img class="img-fluid img-thumbnail" src="img/statistic.jpg" alt="">
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group d-block mb-3  statistic_legend">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text badge-primary">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">Просмотры
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text badge-warning">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">Продажи
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text  badge-info">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">Клиенты
+                                </div>
+                            </div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text badge-success">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">Магазины
+                                </div>
+                            </div>
+                        </div>
 
-							<div class="col-6">
-								<span>1365</span>
-								<p>Заказов</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
 
-							<div class="col-6">
-								<span>2</span>
-								<p>Магазина на модерацию</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="row align-items-center graphic_block">
-							<div class="col-6">
-								<img class="img-fluid img-thumbnail"   src="img/graph.svg" alt="">
-							</div>
-							<div class="col-6">
-								<span>32</span>
-								<p>Коментария на модерацию</p>
-							</div>
-						</div>
-					</div>
-				</div>
+                            <div class="col-6">
+                                <span>1365</span>
+                                <p>Заказов</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
 
-				</div>
-				<div v-if="status === 2" class="section_wrapper">
-					<div class="row goods_option">
-						<div class="col-2">
-							<div class="btn btn-primary">Добавить товар</div>
-						</div>
-						<div class="col-3">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
-								</div>
-								<select class="custom-select" id="inputGroupSelect01">
-									<option selected>Выбрать действие</option>
-									<option value="1">Опубликовать</option>
-									<option value="2">Удалить</option>
-									<option value="3">Востановить</option>
-									<option value="3">Скрыть</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<label class="input-group-text" for="inputGroupSelect01">Отображать</label>
-								</div>
-								<select class="custom-select">
-									<option selected>Все</option>
-									<option value="1">По дате добавления</option>
-									<option value="2">Сначала удаленные</option>
-									<option value="3">Сначала скрытые</option>
-									<option value="3">Сначала дорогие</option>
-									<option value="3">Сначала дешевые</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<table class="table  table-striped table-hover goods_table">
-								<thead  class="thead-dark">
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">x</th>
-									<th class="col-2" scope="col">Изображение и цена</th>
-									<th class="col-3"  scope="col">Название</th>
-									<th class="col-3"  scope="col">Магазин</th>
-									<th class="col-2"  scope="col">Доппараметры</th>
-									<th class="col-2"  scope="col">Рейтинг и лайки</th>
-									<th scope="col">Действия</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr class="product" v-for="product in products">
-									<th scope="row">{{ product.id }}</th>
-									<td>
-										<div class="custom-control mr-sm-2 dark">
-											<input type="checkbox" class="custom-control-input" :id="product.id+'customControlAutosizing'">
-											<label class="custom-control-label" :for="product.id+'customControlAutosizing'"></label>
-										</div>
-									</td>
-									<td>
-										<figure class="figure">
-											<img class="product_img img-thumbnail img-fluid figure-img" v-bind:src="product.img" alt="">
-											<figcaption class="figure-caption">Цена: от {{ product.price }} руб.</figcaption>
-										</figure></td>
-									<td>{{ product.name }}</td>
-									<td>{{ product.shop }}</td>
-									<td>{{ product.options }}</td>
-									<td><img v-for="n in product.rating" src="iconic/svg/star.svg" alt=""><br>
-										{{ product.like }}<img src="iconic/svg/thumb-up.svg" alt=""></td>
-									<td>
-										<div class="btn-group-vertical" role="group" aria-label="Basic example">
-											<button type="button" class="btn btn-info">Смотреть</button>
-											<button type="button" class="btn btn-warning">Редактировать</button>
-											<button v-if="product.published"  type="button" class="btn btn-success">Разрешить</button>
-											<button v-if="!product.published" type="button" class="btn btn-secondary">Запретить</button>
-											<button type="button" class="btn btn-danger">Удалить</button>
-										</div>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div v-if="status === 3" class="section_wrapper">
-					<div class="row shops_option">
-						<div class="col-2">
-							<div class="btn btn-primary">Добавить магазин</div>
-						</div>
-						<div class="col-3">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<label class="input-group-text" for="inputGroupSelect02">Масовые действия</label>
-								</div>
-								<select class="custom-select" id="inputGroupSelect02">
-									<option selected>Выбрать действие</option>
-									<option value="1">Разрешить</option>
-									<option value="2">Удалить</option>
-									<option value="3">Востановить</option>
-									<option value="3">Запретить</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-3">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<label class="input-group-text" for="inputGroupSelect01">Отображать</label>
-								</div>
-								<select class="custom-select" id="inputGroupSelect01">
-									<option selected>Все</option>
-									<option value="1">По дате добавления</option>
-									<option value="2">Сначала удаленные</option>
-									<option value="3">Сначала запрещенные</option>
-									<option value="3">По алфавиту</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-12">
-							<table class="table  table-striped table-hover shops_table">
-								<thead  class="thead-dark">
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">x</th>
-									<th class="col-2"  scope="col">Название</th>
-									<th class="col-1"  scope="col">Товаров <br>/разрешено</th>
-									<th class="col-1"  scope="col">Продажи</th>
-									<th class="col-2"  scope="col">Контакты</th>
-									<th class="col-6"  scope="col">Краткое описание</th>
-									<th scope="col">Действия</th>
-								</tr>
-								</thead>
-								<tbody>
-								<tr class="shop" v-for="shop in shops">
-									<th scope="row">{{ shop.id }}</th>
-									<td>
-										<div class="custom-control mr-sm-2 dark">
-											<input type="checkbox" class="custom-control-input" :id="shop.id+'customControlAutosizing'">
-											<label class="custom-control-label" :for="shop.id+'customControlAutosizing'"></label>
-										</div>
-									</td>
-									<td>{{ shop.name }}</td>
-									<td>{{shop.goods}}<br>/{{ shop.allow_goods }}</td>
-									<td>{{ shop.sales }}</td>
-									<td>{{ shop.contacts }}</td>
-									<td>Instagram:{{ shop.instagram }} <br><br>{{ shop.description }}</td>
-									<td>
-										<div class="btn-group-vertical" role="group" aria-label="Basic example">
-											<button type="button" class="btn btn-info">Смотреть</button>
-											<button type="button" class="btn btn-warning">Редактировать</button>
-											<button v-if="shop.published" type="button" class="btn btn-success">Разрешить</button>
-											<button v-if="!shop.published" type="button" class="btn btn-secondary">Запретить</button>
-											<button type="button" class="btn btn-danger">Удалить</button>
-										</div>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div v-if="status === 4" class="section_wrapper">
-					<h1>Clients</h1>
-				</div>
-				<div v-if="status === 5" class="section_wrapper">
-					<h1>Articles</h1>
-				</div>
-				<div v-if="status === 6" class="section_wrapper">
-					<h1>Comments</h1>
-				</div>
-				<div v-if="status === 7" class="section_wrapper">
-					<h1>Structure</h1>
-				</div>
-				<div v-if="status === 8" class="section_wrapper">
-					<h1>Pages</h1>
-				</div>
-				<div v-if="status === 9" class="section_wrapper">
-					<h1>Filter</h1>
-				</div>
-				</div>
-		</div>
-	</div>
-	<footer>
-		
-	</footer>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/vue.min.js"></script>
-	<script src="js/velocity.js"></script>
-    <script src="js/script.js"></script>	
-	</body>
+                            <div class="col-6">
+                                <span>2</span>
+                                <p>Магазина на модерацию</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row align-items-center graphic_block">
+                            <div class="col-6">
+                                <img class="img-fluid img-thumbnail" src="img/graph.svg" alt="">
+                            </div>
+                            <div class="col-6">
+                                <span>32</span>
+                                <p>Коментария на модерацию</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div v-if="status === 2" class="section_wrapper">
+                <div class="row goods_option">
+                    <div class="col-2">
+                        <div class="btn btn-primary">Добавить товар</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Выбрать действие</option>
+                                <option value="1">Опубликовать</option>
+                                <option value="2">Удалить</option>
+                                <option value="3">Востановить</option>
+                                <option value="3">Скрыть</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                            </div>
+                            <select class="custom-select">
+                                <option selected>Все</option>
+                                <option value="1">По дате добавления</option>
+                                <option value="2">Сначала удаленные</option>
+                                <option value="3">Сначала скрытые</option>
+                                <option value="3">Сначала дорогие</option>
+                                <option value="3">Сначала дешевые</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table  table-striped table-hover goods_table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">x</th>
+                                <th class="col-2" scope="col">Изображение и цена</th>
+                                <th class="col-3" scope="col">Название</th>
+                                <th class="col-3" scope="col">Магазин</th>
+                                <th class="col-2" scope="col">Доппараметры</th>
+                                <th class="col-2" scope="col">Рейтинг и лайки</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="product" v-for="product in products">
+                                <th scope="row">{{ product.id }}</th>
+                                <td>
+                                    <div class="custom-control mr-sm-2 dark">
+                                        <input type="checkbox" class="custom-control-input"
+                                               :id="product.id+'customControlAutosizing'">
+                                        <label class="custom-control-label"
+                                               :for="product.id+'customControlAutosizing'"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <figure class="figure">
+                                        <img class="product_img img-thumbnail img-fluid figure-img"
+                                             v-bind:src="product.img" alt="">
+                                        <figcaption class="figure-caption">Цена: от {{ product.price }} руб.
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>{{ product.name }}</td>
+                                <td>{{ product.shop }}</td>
+                                <td>{{ product.options }}</td>
+                                <td><img v-for="n in product.rating" src="iconic/svg/star.svg" alt=""><br>
+                                    {{ product.like }}<img src="iconic/svg/thumb-up.svg" alt=""></td>
+                                <td>
+                                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info">Смотреть</button>
+                                        <button type="button" class="btn btn-warning">Редактировать</button>
+                                        <button v-if="product.published" type="button" class="btn btn-success">
+                                            Разрешить
+                                        </button>
+                                        <button v-if="!product.published" type="button" class="btn btn-secondary">
+                                            Запретить
+                                        </button>
+                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div v-if="status === 3" class="section_wrapper">
+                <div class="row shops_option">
+                    <div class="col-2">
+                        <div class="btn btn-primary">Добавить магазин</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect02">Масовые действия</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect02">
+                                <option selected>Выбрать действие</option>
+                                <option value="1">Разрешить</option>
+                                <option value="2">Удалить</option>
+                                <option value="3">Востановить</option>
+                                <option value="3">Запретить</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Все</option>
+                                <option value="1">По дате добавления</option>
+                                <option value="2">Сначала удаленные</option>
+                                <option value="3">Сначала запрещенные</option>
+                                <option value="3">По алфавиту</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table  table-striped table-hover shops_table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">x</th>
+                                <th class="col-2" scope="col">Название</th>
+                                <th class="col-1" scope="col">Товаров <br>/разрешено</th>
+                                <th class="col-1" scope="col">Продажи</th>
+                                <th class="col-2" scope="col">Контакты</th>
+                                <th class="col-6" scope="col">Краткое описание</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="shop" v-for="shop in shops">
+                                <th scope="row">{{ shop.id }}</th>
+                                <td>
+                                    <div class="custom-control mr-sm-2 dark">
+                                        <input type="checkbox" class="custom-control-input"
+                                               :id="shop.id+'customControlAutosizing'">
+                                        <label class="custom-control-label"
+                                               :for="shop.id+'customControlAutosizing'"></label>
+                                    </div>
+                                </td>
+                                <td>{{ shop.name }}</td>
+                                <td>{{shop.goods}}<br>/{{ shop.allow_goods }}</td>
+                                <td>{{ shop.sales }}</td>
+                                <td>{{ shop.contacts }}</td>
+                                <td>Instagram:{{ shop.instagram }} <br><br>{{ shop.description }}</td>
+                                <td>
+                                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info">Смотреть</button>
+                                        <button type="button" class="btn btn-warning">Редактировать</button>
+                                        <button v-if="shop.published" type="button" class="btn btn-success">Разрешить
+                                        </button>
+                                        <button v-if="!shop.published" type="button" class="btn btn-secondary">
+                                            Запретить
+                                        </button>
+                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div v-if="status === 4" class="section_wrapper">
+                <div class="row users_option">
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Выбрать действие</option>
+                                <option value="1">Разблокировать</option>
+                                <option value="2">Удалить</option>
+                                <option value="3">Востановить</option>
+                                <option value="3">Заблокировать</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                            </div>
+                            <select class="custom-select">
+                                <option selected>Все</option>
+                                <option value="1">По дате регистрации</option>
+                                <option value="2">Сначала удаленные</option>
+                                <option value="3">Сначала заблокированые</option>
+                                <option value="3">Сначала с покупками</option>
+                                <option value="3">Сначала без покупок</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table  table-striped table-hover users_table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">x</th>
+                                <th class="col-2" scope="col">Аватар</th>
+                                <th class="col-3" scope="col">Instagram</th>
+                                <th class="col-1" scope="col">Коментариев</th>
+                                <th class="col-1" scope="col">Избранные</th>
+                                <th class="col-1" scope="col">Покупки</th>
+                                <th class="col-1" scope="col">Контакты</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="user" v-for="user in users">
+                                <th scope="row">{{ user.id }}</th>
+                                <td>
+                                    <div class="custom-control mr-sm-2 dark">
+                                        <input type="checkbox" class="custom-control-input"
+                                               :id="user.id+'customControlAutosizing'">
+                                        <label class="custom-control-label"
+                                               :for="user.id+'customControlAutosizing'"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <figure class="figure">
+                                        <img class="user_img img-thumbnail img-fluid figure-img"
+                                             v-bind:src="user.avatar" alt="">
+                                        <figcaption class="figure-caption">{{ user.name }}
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>{{ user.instagram }}</td>
+                                <td>{{ user.comments }}</td>
+                                <td>{{ user.favorites }}</td>
+                                <td>{{ user.purchases }}</td>
+                                <td>{{ user.email }} <br><br> {{ user.contacts }}</td>
+                                <td>
+                                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info">Открыть</button>
+                                        <button type="button" class="btn btn-warning">Редактировать</button>
+                                        <button v-if="user.banned" type="button" class="btn btn-success">
+                                            Разблокировать
+                                        </button>
+                                        <button v-if="!user.banned" type="button" class="btn btn-secondary">
+                                            Заблокировать
+                                        </button>
+                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div v-if="status === 5" class="section_wrapper">
+                <h1>Articles</h1>
+            </div>
+            <div v-if="status === 6" class="section_wrapper">
+                <h1>Comments</h1>
+            </div>
+            <div v-if="status === 7" class="section_wrapper">
+                <h1>Structure</h1>
+            </div>
+            <div v-if="status === 8" class="section_wrapper">
+                <h1>Pages</h1>
+            </div>
+            <div v-if="status === 9" class="section_wrapper">
+                <h1>Filter</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+
+</footer>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/velocity.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>
