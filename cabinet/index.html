@@ -558,14 +558,14 @@
                     <div class="col-12">
                         <table class="table  table-striped table-hover articles_table">
                             <thead class="thead-dark">
-                            <tr>
+                            <tr class="articles_table_header">
                                 <th scope="col">#</th>
                                 <th scope="col">x</th>
-                                <th class="col-2" scope="col">Илюстрация</th>
-                                <th class="col-2" scope="col">Заголовок</th>
-                                <th class="col-3" scope="col">Описание</th>
-                                <th class="col-1" scope="col">Популярность</th>
-                                <th class="col-1" scope="col">Теги</th>
+                                <th scope="col">Илюстрация</th>
+                                <th scope="col">Заголовок</th>
+                                <th scope="col">Описание</th>
+                                <th scope="col">Популярность</th>
+                                <th scope="col">Теги</th>
                                 <th scope="col">Действия</th>
                             </tr>
                             </thead>
@@ -581,7 +581,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <img class="product_img img-thumbnail img-fluid"
+                                    <img class="article_img img-thumbnail img-fluid"
                                          v-bind:src="article.img" alt="">
                                 </td>
                                 <td>{{ article.title }}</td>

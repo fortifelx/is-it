@@ -49,4 +49,23 @@
 .statistic_legend input {
   margin-right: 5px; }
 
+.articles_table .articles_table_header th:nth-child(1) {
+  width: 3%; }
+.articles_table .articles_table_header th:nth-child(2) {
+  width: 3%; }
+.articles_table .articles_table_header th:nth-child(3) {
+  width: 15%; }
+.articles_table .articles_table_header th:nth-child(4) {
+  width: 15%; }
+.articles_table .articles_table_header th:nth-child(5) {
+  width: 34%; }
+.articles_table .articles_table_header th:nth-child(6) {
+  width: 7%; }
+.articles_table .articles_table_header th:nth-child(7) {
+  width: 20%; }
+.articles_table .articles_table_header th:nth-child(8) {
+  width: 10%; }
+.articles_table .article_img {
+  width: 140px; }
+
 /*# sourceMappingURL=style.css.map */
