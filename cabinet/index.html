@@ -612,7 +612,111 @@
             </div>
 
             <div v-if="status === 6" class="section_wrapper">
-                <h1>Comments</h1>
+                <div class="row comments_option">
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Выбрать действие</option>
+                                <option value="1">Опубликовать</option>
+                                <option value="2">Удалить</option>
+                                <option value="3">Востановить</option>
+                                <option value="3">Скрыть</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                            </div>
+                            <select class="custom-select">
+                                <option selected>Все</option>
+                                <option value="1">По дате добавления</option>
+                                <option value="2">Сначала удаленные</option>
+                                <option value="3">Сначала скрытые</option>
+                                <option value="3">Сначала дорогие</option>
+                                <option value="3">Сначала дешевые</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table  table-striped table-hover comments_table">
+                            <thead class="thead-dark">
+                            <tr class="comments_table_header">
+                                <th scope="col">#</th>
+                                <th scope="col">x</th>
+                                <th scope="col">Товар</th>
+                                <th scope="col">Пользователь</th>
+                                <th scope="col">Дата</th>
+                                <th scope="col">Текст коментария</th>
+                                <th scope="col">Рейтинг</th>
+                                <th scope="col">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="comment" v-for="comment in comments">
+                                <th scope="row">{{ comment.id }}</th>
+                                <td>
+                                    <div class="custom-control mr-sm-2 dark">
+                                        <input type="checkbox" class="custom-control-input"
+                                               :id="comment.id+'customControlAutosizing'">
+                                        <label class="custom-control-label"
+                                               :for="comment.id+'customControlAutosizing'"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <figure class="figure">
+                                        <figcaption class="figure-caption">Магазин: {{ comment.productShop }}
+                                        </figcaption>
+                                        <img class="product_img img-thumbnail img-fluid figure-img"
+                                             v-bind:src="comment.productImg" alt="">
+                                        <figcaption class="figure-caption">{{ comment.productName }}
+                                        </figcaption>
+                                        <figcaption class="figure-caption">Цена: от {{ comment.productPrice }} руб.
+                                        </figcaption>
+                                        <figcaption class="figure-caption">
+                                            <img v-for="n in comment.productRating" src="iconic/svg/star.svg" alt="">
+                                                  {{ comment.productLike }}<img src="iconic/svg/thumb-up.svg" alt="">
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <figure class="figure">
+                                        <figcaption class="figure-caption">
+                                            {{ comment.name}}
+                                        </figcaption>
+                                        <img class="comment_img img-thumbnail img-fluid figure-img"
+                                             v-bind:src="comment.avatar" alt="">
+                                        <figcaption class="figure-caption">Instagram: {{ comment.instagram }}
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>{{ comment.date }}</td>
+                                <td>{{ comment.content }}</td>
+                                <td><img v-for="n in comment.rating" src="iconic/svg/star.svg" alt=""></td>
+                                <td>
+                                    <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info">Смотреть</button>
+                                        <button type="button" class="btn btn-warning">Редактировать</button>
+                                        <button v-if="!comment.published" type="button" class="btn btn-success">
+                                            Разрешить
+                                        </button>
+                                        <button v-if="comment.published" type="button" class="btn btn-secondary">
+                                            Запретить
+                                        </button>
+                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <div v-if="status === 7" class="section_wrapper">
                 <h1>Structure</h1>

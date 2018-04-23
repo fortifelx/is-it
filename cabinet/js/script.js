@@ -5,7 +5,7 @@ Vue.component('product-list', {
 var section = new Vue({
    el: "#section",
    data: {
-       status : 5,
+       status : 6,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -61,5 +61,15 @@ var section = new Vue({
            { id: 23, img: 'img/articles/size2.jpg', published: true, title: 'Как подобрать платье по размерной таблице', description: 'Для того чтобы удачно и хорошо подобрать платье на самом деле нужно знать всего пару вещей, и вы будете удивлены а заодно и поймете как некоторые продавцы сразу глядя на человека понимают что нем будет как влитое', content:'', views: 165, like: 92, shares: 12, tags:'платья, таблица, размер, выбрать, подобрать, сидеть, хорошо', create_date: '19.03.2018', published_date: '22.03.2018'},
            { id: 28, img: 'img/articles/size3.jpg', published: true, title: 'Как подобрать платье по размерной таблице', description: 'Для того чтобы удачно и хорошо подобрать платье на самом деле нужно знать всего пару вещей, и вы будете удивлены а заодно и поймете как некоторые продавцы сразу глядя на человека понимают что нем будет как влитое', content:'', views: 165, like: 92, shares: 12, tags:'платья, таблица, размер, выбрать, подобрать, сидеть, хорошо', create_date: '19.03.2018', published_date: '22.03.2018'}
        ],
+       comments: [
+           { id: 64, published: false, avatar: 'img/users/avatar1.jpg', name: 'Иванов Иван', instagram: 'в разработку', productImg:'img/goods/1.jpg', productName: 'Комплект "ковбой"', productPrice: 600, productRating: 3, productLike: 124, productShop: 'Техас и джинсы', rating: 4, date: '28/06/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 63, published: true, avatar: 'img/users/avatar2.png', name: 'Асалан Валентин', instagram: 'в разработку', productImg:'img/goods/2.jpg', productName: 'Кофта "плебей"', productPrice: 120, productRating: 4, productLike: 224, productShop: 'Штаны и кофты', rating: 4, date: '21/05/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 122, published: true, avatar: 'img/users/avatar3.jpg', name: 'Маришкина Валерия', instagram: 'в разработку', productImg:'img/goods/3.jpg', productName: 'Штаны "Мачо"', productPrice: 500, productRating: 3, productLike: 510, productShop: 'Ляля и Диля', rating: 4, date: '12/05/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 61, published: true, avatar: 'img/users/avatar4.png', name: 'Калатай Инна', instagram: 'в разработку', productImg:'img/goods/4.jpg', productName: 'Ремень "Мачо"', productPrice: 1600, productRating: 4, productLike: 92, productShop: 'Мачо и Версачо', rating: 4, date: '28/04/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 26, published: false, avatar: 'img/users/avatar3.jpg', name: 'Маришкина Валерия', instagram: 'в разработку', productImg:'img/goods/5.jpg', productName: 'Топанки "Мачо"', productPrice: 2600, productRating: 5, productLike: 21, productShop: 'Мачо и Версачо', rating: 4, date: '21/04/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 164, published: false, avatar: 'img/users/avatar6.jpg', name: 'Атифонова Оксана', instagram: 'в разработку', productImg:'img/goods/5.jpg', productName: 'Топанки "Мачо"', productPrice: 600, productRating: 5, productLike: 5, productShop: 'Техас и джинсы', rating: 4, date: '28/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 92, published: true, avatar: 'img/users/avatar3.jpg', name: 'Маришкина Валерия', instagram: 'в разработку', productImg:'img/goods/6.jpg', productName: 'Туфли "Ляля"', productPrice: 600, productRating: 2, productLike: 687, productShop: 'Ляля и Диля', rating: 4, date: '22/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+           { id: 36, published: true, avatar: 'img/users/avatar5.png', name: 'Мрийна Елена', instagram: 'в разработку', productImg:'img/goods/1.jpg', productName: 'Комплект "ковбой"', productPrice: 600, productRating: 3, productLike: 512, productShop: 'Техас и джинсы', rating: 4, date: '08/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+       ]
    }
 });
