@@ -5,8 +5,13 @@ Vue.component('product-list', {
 var section = new Vue({
    el: "#section",
    data: {
-       status : 9,
+       status : 1,
        filter: 0,
+       createProduct: false,
+       newProduct: {
+         id: 0, img: '', price: 0, name: '', shop: '', options: 'в разработке', rating: 0, like: 0, published: false
+       },
+       newProductStatus: 1,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -101,5 +106,11 @@ var section = new Vue({
            { id: 6, name: 'XXL', description: 'description', published: true }
        ]
 
-   }
+   },
+    methods: {
+       create: function(){
+           this.createProduct = true;
+         console.log('start');
+       },
+    }
 });
