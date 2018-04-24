@@ -5,7 +5,8 @@ Vue.component('product-list', {
 var section = new Vue({
    el: "#section",
    data: {
-       status : 6,
+       status : 9,
+       filter: 0,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -70,6 +71,35 @@ var section = new Vue({
            { id: 164, published: false, avatar: 'img/users/avatar6.jpg', name: 'Атифонова Оксана', instagram: 'в разработку', productImg:'img/goods/5.jpg', productName: 'Топанки "Мачо"', productPrice: 600, productRating: 5, productLike: 5, productShop: 'Техас и джинсы', rating: 4, date: '28/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
            { id: 92, published: true, avatar: 'img/users/avatar3.jpg', name: 'Маришкина Валерия', instagram: 'в разработку', productImg:'img/goods/6.jpg', productName: 'Туфли "Ляля"', productPrice: 600, productRating: 2, productLike: 687, productShop: 'Ляля и Диля', rating: 4, date: '22/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
            { id: 36, published: true, avatar: 'img/users/avatar5.png', name: 'Мрийна Елена', instagram: 'в разработку', productImg:'img/goods/1.jpg', productName: 'Комплект "ковбой"', productPrice: 600, productRating: 3, productLike: 512, productShop: 'Техас и джинсы', rating: 4, date: '08/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
+       ],
+       categories: [
+           { id: 1, published: true, illustration: 'img/categories/cat1.jpg', sectionName: 'Section1', sectionDescription:'section description, give short description about section', title: 'Category 1', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 2, published: true, illustration: 'img/categories/cat2.jpg', sectionName: 'Section name 2', sectionDescription:'section description, give short description about section', title: 'Category name', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 31, published: true, illustration: 'img/categories/cat3.jpg', sectionName: 'Section type 3', sectionDescription:'section description, give short description about section', title: 'Long category name', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 12, published: false, illustration: 'img/categories/cat4.jpg', sectionName: 'Test long name', sectionDescription:'section description, give short description about section', title: 'Short title', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 13, published: false, illustration: 'img/categories/cat5.jpg', sectionName: 'Section interesting name', sectionDescription:'section description, give short description about section', title: 'and title or name', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 22, published: true, illustration: 'img/categories/cat6.jpg', sectionName: 'Try long name 4', sectionDescription:'section description, give short description about section', title: 'Trying', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 11, published: true, illustration: 'img/categories/cat7.jpg', sectionName: 'Section first try 1', sectionDescription:'section description, give short description about section', title: 'Testing progress', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 8, published: true, illustration: 'img/categories/cat8.jpg', sectionName: 'Section simple', sectionDescription:'section description, give short description about section', title: 'Category are done', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 7, published: false, illustration: 'img/categories/cat2.jpg', sectionName: 'Good boot', sectionDescription:'section description, give short description about section', title: 'One more category', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 82, published: true, illustration: 'img/categories/cat3.jpg', sectionName: 'Pants for mans', sectionDescription:'section description, give short description about section', title: 'Clocks', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+           { id: 123, published: false, illustration: 'img/categories/cat7.jpg', sectionName: 'Iam a last for now', sectionDescription:'section description, give short description about section', title: 'Pants', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+
+       ],
+       colors: [
+           { id: 1, name: 'Red', code: 'red', published: true },
+           { id: 2, name: 'Green', code: 'green', published: true },
+           { id: 3, name: 'Black', code: 'black', published: false },
+           { id: 4, name: 'Yellow', code: 'yellow', published: true }
+       ],
+       sizes: [
+           { id: 1, name: 'S', description: 'description for size', published: true },
+           { id: 2, name: 'L', description: 'some description', published: true },
+           { id: 3, name: 'XS', description: 'description' },
+           { id: 4, name: 'SL', description: 'some description', published: true },
+           { id: 5, name: 'XL', description: 'description for size', published: true },
+           { id: 6, name: 'XXL', description: 'description', published: true }
        ]
+
    }
 });
