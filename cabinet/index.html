@@ -440,15 +440,15 @@
                                                 </div>
                                                 <div class="col-4">
                                                 <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="Название параметра" aria-label="Имя получателя" aria-describedby="basic-addon2">
+                                                    <input type="text" class="form-control" placeholder="Название параметра" aria-label="Имя получателя" aria-describedby="basic-addon2" v-model="newOption" >
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-outline-info" type="button">Добавить параметр</button>
+                                                        <button @click="addOption" class="btn btn-info" type="button">Добавить параметр</button>
                                                     </div>
                                                 </div>
                                                 </div>
                                                 </div>
                                                 <div  class="product_options">
-                                                    <div v-for="option in newProduct.options" class="input-group mb-3 product_color_input">
+                                                    <div v-for="(option, id) in newProduct.options" class="input-group mb-3 product_color_input">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
                                                                 <input name="size" v-bind:value="option.id" type="checkbox" aria-label="Checkbox for following text input">
@@ -456,7 +456,8 @@
                                                         </div>
                                                         <input name="price_mod" type="text" class="form-control" aria-label="price">
                                                         <div class="input-group-append">
-                                                        <span class="input-group-text">{{ option.name }}</span>
+                                                        <span class="input-group-text">{{ option }}</span>
+                                                            <button v-bind:data-id="id" @click="removeOption($event)" class="btn btn-outline-danger" type="button">X</button>
                                                         </div>
                                                     </div>
                                                 </div>

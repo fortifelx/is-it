@@ -9,8 +9,9 @@ var section = new Vue({
        filter: 0,
        activeSection: false,
        createProduct: true,
+       newOption: '',
        newProduct: {
-         id: 0, img: '', price: 0, name: '', shop: '', options: [], rating: 0, like: 0, published: false
+         id: 0, img: '', price: 0, name: '', shop: '', options: ['test', 'test2'], rating: 0, like: 0, published: false
        },
        newProductStatus: 1,
        products : [
@@ -147,5 +148,15 @@ var section = new Vue({
            this.createProduct = true;
          console.log('start');
        },
+       addOption: function(){
+            this.newProduct.options.push(this.newOption);
+            this.newOption = '';
+       },
+        removeOption: function(e){
+           console.log(e.target);
+           var i = e.target.dataset.id;
+           this.newProduct.options.splice(i, 1);
+            console.log(this.newProduct.options);
+        }
     }
 });
