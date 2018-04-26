@@ -2,6 +2,9 @@
   background-color: rgba(1, 1, 1, 0.2);
   overflow: hidden; }
 
+.wrapper {
+  overflow: hidden; }
+
 .nav_left_menu {
   margin-top: 20px; }
   .nav_left_menu li {
@@ -127,7 +130,7 @@
 .create_product_form {
   margin-top: 20px; }
   .create_product_form textarea {
-    min-height: 30vh; }
+    min-height: 35vh; }
 
 .product_colors .form-control,
 .product_sizes .form-control,
@@ -146,5 +149,16 @@
 
 .product_structure {
   width: 100%; }
+
+.ckeditor {
+  width: 100%;
+  min-height: 35vh; }
+
+.cke_editor_editor {
+  height: 100%; }
+
+.product_section_wrapper {
+  margin-top: 20px;
+  padding-right: 10px; }
 
 /*# sourceMappingURL=style.css.map */

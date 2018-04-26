@@ -9,6 +9,7 @@
     <link rel="stylesheet" href='css/mobile.css'>
     <link href="iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 
+
 </head>
 <body>
 <header>
@@ -306,7 +307,7 @@
                                     <button
                                             @click="newProductStatus = 2"
                                             :class="{ 'btn-dark': newProductStatus === 2 }"
-                                            type="button" class="btn btn-secondary">Цены и акции</button>
+                                            type="button" class="btn btn-secondary">Цены и Дополнительные параметры</button>
                                     <button
                                             @click="newProductStatus = 3"
                                             :class="{ 'btn-dark': newProductStatus === 3 }"
@@ -361,10 +362,11 @@
                                         </div>
                                         <div class="row">
                                         <div class="input-group col-9">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Описание товара</span>
-                                            </div>
-                                            <textarea class="form-control" aria-label="Описание товара"></textarea>
+                                            <!--<div class="input-group-prepend">-->
+                                                <!--<span class="input-group-text">Описание товара</span>-->
+                                            <!--</div>-->
+                                            <!--<textarea name="product_description" id="product_description" class="form-control" aria-label="Описание товара"></textarea>-->
+                                            <ckeditor></ckeditor>
                                         </div>
                                             <div class="col-3">
                                                 <!--<h5>Секция</h5>-->
@@ -399,73 +401,90 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
-                                                <h5>Доступные размеры</h5>
-                                                <div  class="product_sizes">
-                                                    <div v-for="size in sizes" class="input-group mb-3 product_color_input">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="size" v-bind:value="size.id" type="checkbox" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input title="Модификатор цены" name="price_mod" type="text" class="form-control" aria-label="price">
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text">{{ size.name }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h5>Доступные цвета</h5>
-                                                <div  class="product_colors">
-                                                    <div v-for="color in colors" class="input-group mb-3 product_color_input">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text" v-bind:style="{'background-color': color.code }">
-                                                                <input name="color" v-bind:value="color.id" type="checkbox" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input name="price_mod" type="text" class="form-control" aria-label="price">
-                                                        <div class="input-group-append">
-                                                            <span class="input-group-text">{{ color.name }}</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h5>Дополнительные параметры</h5>
-                                                <div class="row">
-                                                <div class="col-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="name">Название</span>
-                                                    </div>
-                                                    <input name="name" type="text" class="form-control" placeholder="Название групы параметров" aria-label="Название товара" aria-describedby="basic-addon1">
-                                                </div>
-                                                </div>
-                                                <div class="col-4">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control" placeholder="Название параметра" aria-label="Имя получателя" aria-describedby="basic-addon2" v-model="newOption" >
-                                                    <div class="input-group-append">
-                                                        <button @click="addOption" class="btn btn-info" type="button">Добавить параметр</button>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                </div>
-                                                <div  class="product_options">
-                                                    <div v-for="(option, id) in newProduct.options" class="input-group mb-3 product_color_input">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="size" v-bind:value="option.id" type="checkbox" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input name="price_mod" type="text" class="form-control" aria-label="price">
-                                                        <div class="input-group-append">
-                                                        <span class="input-group-text">{{ option }}</span>
-                                                            <button v-bind:data-id="id" @click="removeOption($event)" class="btn btn-outline-danger" type="button">X</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </form>
                             </div>
-                            <div v-show="newProductStatus === 2" class="product_section_wrapper">Цены и акции</div>
+                            <div v-show="newProductStatus === 2" class="product_section_wrapper">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="name">Основная цена</span>
+                                            </div>
+                                            <input name="name" type="text" class="form-control" placeholder="Основная цена товара (минимальная)" aria-label="Название товара" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                <h5>Доступные размеры</h5>
+                                <div  class="product_sizes">
+                                    <div v-for="size in sizes" class="input-group mb-3 product_color_input">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input name="size" v-bind:value="size.id" type="checkbox" aria-label="Checkbox for following text input">
+                                            </div>
+                                        </div>
+                                        <input title="Модификатор цены" name="price_mod" type="text" class="form-control" aria-label="price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">{{ size.name }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                    <div class="col-5">
+                                <h5>Доступные цвета</h5>
+                                <div  class="product_colors">
+                                    <div v-for="color in colors" class="input-group mb-3 product_color_input">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text" v-bind:style="{'background-color': color.code }">
+                                                <input name="color" v-bind:value="color.id" type="checkbox" aria-label="Checkbox for following text input">
+                                            </div>
+                                        </div>
+                                        <input name="price_mod" type="text" class="form-control" aria-label="price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">{{ color.name }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                    <div class="col-4">
+                                <h5>Дополнительные параметры</h5>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="name">Название</span>
+                                            </div>
+                                            <input name="name" type="text" class="form-control" placeholder="Название групы параметров" aria-label="Название товара" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Название параметра" aria-label="Имя получателя" aria-describedby="basic-addon2" v-model="newOption" >
+                                            <div class="input-group-append">
+                                                <button @click="addOption" class="btn btn-info" type="button">Добавить параметр</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div  class="product_options">
+                                    <div v-for="(option, id) in newProduct.options" class="input-group mb-3 product_color_input">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">
+                                                <input name="size" v-bind:value="option.id" type="checkbox" aria-label="Checkbox for following text input">
+                                            </div>
+                                        </div>
+                                        <input name="price_mod" type="text" class="form-control" aria-label="price">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">{{ option }}</span>
+                                            <button v-bind:data-id="id" @click="removeOption($event)" class="btn btn-outline-danger" type="button">X</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                            </div></div>
                             <div v-show="newProductStatus === 3" class="product_section_wrapper">Представление</div>
                             <div v-show="newProductStatus === 4" class="product_section_wrapper">SEO</div>
                         </div>
@@ -1119,9 +1138,11 @@
 <footer>
 
 </footer>
+
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/vue.min.js"></script>
 <script src="js/velocity.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
