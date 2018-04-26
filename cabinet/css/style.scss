@@ -167,3 +167,30 @@
     max-height: 150px;
   }
 }
+.new_product_controls {
+  margin-top: 30px;
+}
+.create_product_form {
+  margin-top: 20px;
+  textarea {
+    min-height: 30vh;
+  }
+}
+.product_colors .form-control,
+.product_sizes .form-control,
+.product_options .form-control {
+  max-width: 40px !important;
+}
+.product_color_input {
+  display: inline-flex !important;
+  width: auto !important;
+  padding: 5px 10px;
+}
+.product_color_name {
+  margin-left: 5px;
+  line-height: 2;
+  vertical-align: middle;
+}
+.product_structure {
+  width: 100%;
+}
