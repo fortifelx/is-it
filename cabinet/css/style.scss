@@ -211,3 +211,39 @@
   margin-top: 20px;
   padding-right: 10px;
 }
+.option_name_input {
+  padding: 5px 10px;
+}
+.ilu_table {
+
+  .ilu_table_header th {
+    &:nth-child(1){
+      width: 2%;
+    }
+    &:nth-child(2){
+      width: 3%;
+    }
+    &:nth-child(3){
+      width: 10%;
+    }
+    &:nth-child(4){
+      width: 20%;
+    }
+    &:nth-child(5){
+      width: 20%;
+    }
+    &:nth-child(6){
+      width: 35%;
+    }
+    &:nth-child(7){
+      width: 10%;
+    }
+  }
+  .ilu_img {
+    max-width: 100%;
+    max-height: 150px;
+  }
+  .controls_btn {
+    width: 100%;
+  }
+}

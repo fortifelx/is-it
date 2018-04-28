@@ -38,24 +38,24 @@ Vue.component('ckeditor', {
 },
 mounted () {
     const ckeditorId = this.id
-    console.log(this.value)
+    console.log(this.value);
     const ckeditorConfig = {
         toolbar: this.toolbar,
         language: this.language,
         height: this.height,
         extraPlugins: this.extraplugins
-    }
-    CKEDITOR.replace(ckeditorId, ckeditorConfig)
-    CKEDITOR.instances[ckeditorId].setData(this.value)
+    };
+    CKEDITOR.replace(ckeditorId, ckeditorConfig);
+    CKEDITOR.instances[ckeditorId].setData(this.value);
     CKEDITOR.instances[ckeditorId].on('change', () => {
         let ckeditorData = CKEDITOR.instances[ckeditorId].getData()
         if (ckeditorData !== this.value) {
         this.$emit('input', ckeditorData)
-    }
+    };
 })
 },
 destroyed () {
-    const ckeditorId = this.id
+    const ckeditorId = this.id;
     if (CKEDITOR.instances[ckeditorId]) {
         CKEDITOR.instances[ckeditorId].destroy()
     }
@@ -71,9 +71,23 @@ var section = new Vue({
        createProduct: true,
        newOption: '',
        newProduct: {
-         id: 0, img: '', price: 0, name: '', shop: '', options: ['test', 'test2'], rating: 0, like: 0, published: false
+         id: 0, img: '', price: 0, name: '', shop: '', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], rating: 0, like: 0, published: false,
+           colors: [],
+           sizes: [],
+           activeOptions: [],
+         images: [
+             { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+             { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+             { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+             { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+             { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+             { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+             { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+             { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+         ],
        },
-       newProductStatus: 1,
+       newProductStatus: 2,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -187,11 +201,12 @@ var section = new Vue({
            { id: 1, name: 'Red', code: 'red', categories: '', published: true },
            { id: 2, name: 'Green', code: 'green', published: true },
            { id: 3, name: 'Black', code: 'black', published: false },
-           { id: 3, name: 'Purple', code: 'purple', published: false },
-           { id: 3, name: 'Gray', code: 'grey', published: false },
-           { id: 3, name: 'White', code: 'white', published: false },
-           { id: 3, name: 'Blue', code: 'blue', published: false },
-           { id: 4, name: 'Yellow', code: 'yellow', published: true }
+           { id: 4, name: 'Purple', code: 'purple', published: false },
+           { id: 5, name: 'Gray', code: 'grey', published: false },
+           { id: 6, name: 'White', code: 'white', published: false },
+           { id: 7, name: 'Blue', code: 'blue', published: false },
+           { id: 8, name: 'Yellow', code: 'yellow', published: true },
+           { id: 9, name: 'Brown', code: 'brown', published: true },
        ],
        sizes: [
            { id: 1, name: 'S', description: 'description for size', published: true },
@@ -215,6 +230,37 @@ var section = new Vue({
         removeOption: function(e){
            var i = e.target.dataset.id;
            this.newProduct.options.splice(i, 1);
+        },
+        addSizeToProduct: function(){
+            var sizes = this.$refs.new_product_size;
+            this.newProduct.sizes.length = 0;
+            for(var i = 0; i < sizes.length; i++){
+                if(sizes[i].checked){
+                    this.newProduct.sizes.push(sizes[i].value);
+                }
+            }
+        },
+        addColorToProduct: function(){
+            var colors = this.$refs.new_product_color;
+            this.newProduct.colors.length = 0;
+            for(var i = 0; i < colors.length; i++){
+                if(colors[i].checked){
+                    this.newProduct.colors.push(colors[i].value);
+                }
+            }
+        },
+        addOptionToProduct: function(){
+            var options = this.$refs.new_product_option;
+            this.newProduct.activeOptions.length = 0;
+            for(var i = 0; i < options.length; i++){
+                if(options[i].checked){
+                    this.newProduct.activeOptions.push(options[i].value);
+                    console.log(this.newProduct.activeOptions);
+                }
+            }
         }
+    },
+    computed: {
+
     }
 });
