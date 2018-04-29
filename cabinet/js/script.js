@@ -71,7 +71,7 @@ var section = new Vue({
        createProduct: true,
        newOption: '',
        newProduct: {
-         id: 0, img: '', price: 0, name: '', shop: '', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], rating: 0, like: 0, published: false,
+         id: 0, img: false, price: 0, name: '', shop: '', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], rating: 0, like: 0, published: false,
            colors: [],
            sizes: [],
            activeOptions: [],
@@ -87,7 +87,7 @@ var section = new Vue({
              { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
          ],
        },
-       newProductStatus: 2,
+       newProductStatus: 1,
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
            { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
@@ -257,6 +257,20 @@ var section = new Vue({
                     this.newProduct.activeOptions.push(options[i].value);
                     console.log(this.newProduct.activeOptions);
                 }
+            }
+        },
+        previewThumbnail: function(event) {
+            var input = event.target;
+
+            if (input.files && input.files[0]) {
+                console.log(input.files);
+                var reader = new FileReader();
+                var vm = this;
+                reader.onload = function(e) {
+                    vm.newProduct.img = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
             }
         }
     },
