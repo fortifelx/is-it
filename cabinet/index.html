@@ -351,7 +351,7 @@
                                     </div>
                                 </div>
                                 <div v-show="newProductStatus === 1" class="product_section_wrapper">
-                                    <form class="create_product_form">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
                                         <div class="row">
                                             <div class="col-3">
                                                 <figure class="figure new_product_ilu">
@@ -618,7 +618,10 @@
                                 <div v-show="newProductStatus === 3" class="product_section_wrapper">
                                     <div class="row articles_option">
                                         <div class="col-2">
-                                            <div class="btn btn-primary">Добавить Фото</div>
+                                            <div class="input-group mb-3 product_upload_image">
+                                                     <input name="sliderImg" @change="showThumbnail" type="file" class="custom-file-input" id="inputGroupFile02" multiple>
+                                                    <label class="custom-file-label" for="inputGroupFile02"> Добавить Фото</label>
+                                            </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="input-group mb-3">
@@ -733,10 +736,10 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group-vertical controls_btn" role="group" aria-label="Basic example">
-                                                            <button v-if="!image.published" @click="image.published = true" type="button" class="btn btn-success">
+                                                            <button v-if="image.published" @click="image.published = true" type="button" class="btn btn-success">
                                                                 Опубликовать
                                                             </button>
-                                                            <button v-if="image.published" @click="image.published = false" type="button" class="btn btn-secondary">
+                                                            <button v-if="!image.published" @click="image.published = false" type="button" class="btn btn-secondary">
                                                                 Снять с публикации
                                                             </button>
                                                             <button type="button" class="btn btn-danger">Удалить</button>

@@ -60,7 +60,6 @@ destroyed () {
         CKEDITOR.instances[ckeditorId].destroy()
     }
 }
-
 });
 var section = new Vue({
    el: "#section",
@@ -70,31 +69,89 @@ var section = new Vue({
        activeSection: false,
        createProduct: true,
        newOption: '',
+       newProductStatus: 3,
        newProduct: {
          id: 0, img: false, price: 0, name: '', shop: '', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], rating: 0, like: 0, published: false,
-           colors: [],
-           sizes: [],
-           activeOptions: [],
+         colors: [], sizes: [], activeOptions: [],
          images: [
-             { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-             { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-             { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-             { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-             { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-             { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-             { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-             { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+             // { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+             // { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+             // { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+             // { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+             // { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+             // { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+             // { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+             // { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+             // { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
          ],
        },
-       newProductStatus: 1,
        products : [
-           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true},
-           { id: 2, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true},
-           { id: 3, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', shop: 'Мачо и Версачо', options: 'в разработке', rating: 4, like: 263, published: false},
-           { id: 4, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 2, like: 123, published: false},
-           { id: 5, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 5, like: 73, published: true},
-           { id: 6, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', shop: 'Ляля и Диля', options: 'в разработке', rating: 3, like: 523, published: false}
+           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true, colors: [], sizes: [1,2,3,4], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],},
+           { id: 21, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],},
+           { id: 32, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', shop: 'Мачо и Версачо', options: 'в разработке', rating: 4, like: 263, published: false, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],},
+           { id: 43, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 2, like: 123, published: false, colors: [], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],},
+           { id: 55, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 5, like: 73, published: true, colors: [], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],},
+           { id: 63, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', shop: 'Ляля и Диля', options: 'в разработке', rating: 3, like: 523, published: false, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+               ],}
        ],
        shops : [
            { id: 1, name: 'Техас и понты', goods: 167, allow_goods: 200,
@@ -263,7 +320,6 @@ var section = new Vue({
             var input = event.target;
 
             if (input.files && input.files[0]) {
-                console.log(input.files);
                 var reader = new FileReader();
                 var vm = this;
                 reader.onload = function(e) {
@@ -272,6 +328,51 @@ var section = new Vue({
 
                 reader.readAsDataURL(input.files[0]);
             }
+        },
+        showThumbnail: function(event) {
+            var input = event.target;
+            var reader = [];
+            if (input.files && input.files[0]) {
+                for(var i = 0; i <input.files.length; i++) {
+                    reader[i] = new FileReader();
+                    reader[i].readAsDataURL(input.files[i]);
+                    console.log(reader[i]);
+                }
+
+                var length = this.newProduct.images.length;
+
+                var x = 0;
+                var pictures = [];
+                for(var i = length; i < input.files.length + length; i++) {
+
+                    var img = {};
+                    img.id = i;
+                    img.colors = [];
+                    img.sizes = [];
+                    img.options = [];
+                    img.public = true;
+                    var vm = this;
+                    var readerLength = reader.length;
+                    reader[x].onload = function(e) {
+                      //  var images = vm.newProduct.images;
+                        for(var i = length; i < pictures.length+length; i++){
+                            console.log(length);
+                            pictures[i].url = reader[i].result;
+                        }
+                        vm.newProduct.images = pictures;
+                        };
+                   // vm.newProduct.images.push(img);
+                    pictures.push(img);
+
+                    x++;
+
+                }
+                // for(var i = 0; i < 5; i++) {
+                //  //   console.log(i);
+                // //    reader.readAsDataURL(input.files[i]);
+                // }
+
+                };
         }
     },
     computed: {
