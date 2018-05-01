@@ -273,9 +273,9 @@
                 <!--todo Верхння плашка Товары-->
                 <div class="row goods_option">
                     <div class="col-2">
-                        <div @click="create" class="btn btn-primary">Добавить товар</div>
+                        <div @click="createProduct" class="btn btn-primary">Новый товар</div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" v-if="!createProductBlock">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
@@ -289,7 +289,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" v-if="!createProductBlock">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
@@ -299,8 +299,8 @@
                                 <option value="1">По дате добавления</option>
                                 <option value="2">Сначала удаленные</option>
                                 <option value="3">Сначала скрытые</option>
-                                <option value="3">Сначала дорогие</option>
-                                <option value="3">Сначала дешевые</option>
+                                <option value="3">По убыванию цены</option>
+                                <option value="3">По возрастанию цены</option>
                             </select>
                         </div>
                     </div>
@@ -308,7 +308,7 @@
                 <div class="row">
                     <div class="col-12">
                         <!--todo Создание товара-->
-                        <div v-if="createProduct === true" class="create_product_wrapper">
+                        <div v-if="createProductBlock === true" class="create_product_wrapper">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -335,7 +335,7 @@
                                     </div>
                                     <div v-if="newProduct.id != 0" class="btn-group mr-2 offset-1" role="group"
                                          aria-label="Second group">
-                                        <button type="button" class="btn btn-info">Показать</button>
+                                        <button type="button" class="btn btn-info">Посмотреть</button>
                                         <button v-if="!newProduct.published" type="button" class="btn btn-success">
                                             Публиковать
                                         </button>
@@ -643,9 +643,8 @@
                                                     <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
                                                 </div>
                                                 <select class="custom-select">
-                                                    <option selected>Все</option>
-                                                    <option value="1">По дате добавления</option>
-                                                    <option value="2">Сначала удаленные</option>
+                                                    <option selected>По дате добавления</option>
+                                                    <option value="1">Сначала опубликованые</option>
                                                     <option value="3">Сначала неопубликованые</option>
                                                 </select>
                                             </div>
@@ -666,7 +665,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="product" v-for="image in newProduct.images">
+                                                <tr class="product" v-for="image in newProduct.images" v-if="!image.deleted">
                                                     <th scope="row">{{ image.id }}</th>
                                                     <td>
                                                         <div class="custom-control mr-sm-2 dark">
@@ -691,8 +690,6 @@
                                                                            aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
-                                                            <!--<input title="Модификатор цены" name="price_mod" type="text"-->
-                                                                   <!--class="form-control" aria-label="price">-->
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">{{ size.name }}</span>
                                                             </div>
@@ -709,8 +706,6 @@
                                                                            aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
-                                                            <!--<input name="price_mod" type="text" class="form-control"-->
-                                                                   <!--aria-label="price">-->
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">{{ color.name }}</span>
                                                             </div>
@@ -726,8 +721,6 @@
                                                                            aria-label="Checkbox for following text input">
                                                                 </div>
                                                             </div>
-                                                            <!--<input title="Модификатор цены" name="price_mod" type="text"-->
-                                                            <!--class="form-control" aria-label="price">-->
                                                             <div class="input-group-append">
                                                                 <span class="input-group-text">{{ option }}</span>
                                                             </div>
@@ -736,13 +729,13 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group-vertical controls_btn" role="group" aria-label="Basic example">
-                                                            <button v-if="image.published" @click="image.published = true" type="button" class="btn btn-success">
+                                                            <button v-if="!image.published" @click="image.published = true" type="button" class="btn btn-success">
                                                                 Опубликовать
                                                             </button>
-                                                            <button v-if="!image.published" @click="image.published = false" type="button" class="btn btn-secondary">
+                                                            <button v-if="image.published" @click="image.published = false" type="button" class="btn btn-secondary">
                                                                 Снять с публикации
                                                             </button>
-                                                            <button type="button" class="btn btn-danger">Удалить</button>
+                                                            <button type="button" @click="image.deleted = true" class="btn btn-danger">Удалить</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -758,16 +751,15 @@
                             </div>
                         </div>
                         <!--todo Таблица товаров-->
-                        <table v-if="createProduct === false" class="table  table-striped table-hover goods_table">
+                        <table v-if="createProductBlock === false" class="table  table-striped table-hover goods_table">
                             <thead class="thead-dark">
-                            <tr>
+                            <tr class="goods_table_header">
                                 <th scope="col">#</th>
                                 <th scope="col">x</th>
-                                <th class="col-2" scope="col">Изображение и цена</th>
-                                <th class="col-3" scope="col">Название</th>
-                                <th class="col-3" scope="col">Магазин</th>
-                                <th class="col-2" scope="col">Доппараметры</th>
-                                <th class="col-2" scope="col">Рейтинг и лайки</th>
+                                <th scope="col">Изображение и цена</th>
+                                <th scope="col">Название и магазин</th>
+                                <th scope="col">Доппараметры</th>
+                                <th scope="col">Рейтинг и лайки</th>
                                 <th scope="col">Действия</th>
                             </tr>
                             </thead>
@@ -790,22 +782,46 @@
                                         </figcaption>
                                     </figure>
                                 </td>
-                                <td>{{ product.name }}</td>
-                                <td>{{ product.shop }}</td>
-                                <td>{{ product.options }}</td>
+                                <td>{{ product.name }}  <br><br> Магазин: <br> {{ product.shop }} <br> </td>
+                                <td> {{ product.optionsName }} <br>
+                                    <div class="input-group mb-3">
+                                    <div v-for="opt in product.options" class="input-group-append">
+                                        <span class="input-group-text">{{ opt }}</span>
+                                    </div>
+                                    </div>
+                                Размер: <br>
+
+                                        <div class="input-group mb-3">
+                                            <div  class="input-group-append">
+                                                <template v-for="productSize in product.sizes">
+                                                <span v-for="size in sizes" v-if="size.id == productSize" class="input-group-text">{{ size.name }}</span>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    Цвет: <br>
+                                    <div class="input-group mb-3">
+                                        <div  class="input-group-append">
+                                            <template v-for="productColor in product.colors">
+                                                <span v-for="color in colors" v-if="color.id == productColor" class="input-group-text" :style="{'background-color': color.code}"><span style="color: rgb(0,255,255);mix-blend-mode: hard-light;">{{ color.name }}</span></span>
+                                            </template>
+                                        </div>
+                                    </div>
+
+                                </td>
                                 <td><img v-for="n in product.rating" src="iconic/svg/star.svg" alt=""><br>
                                     {{ product.like }}<img src="iconic/svg/thumb-up.svg" alt=""></td>
                                 <td>
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-info">Смотреть</button>
-                                        <button type="button" class="btn btn-warning">Редактировать</button>
-                                        <button v-if="product.published" type="button" class="btn btn-success">
+                                        <button @click="changeProduct(product)" type="button" class="btn btn-warning">Редактировать</button>
+                                        <button v-if="product.published" @click="publishProduct(product)" type="button" class="btn btn-success">
                                             Разрешить
                                         </button>
-                                        <button v-if="!product.published" type="button" class="btn btn-secondary">
+                                        <button v-if="!product.published" @click="publishProduct(product)" type="button" class="btn btn-secondary">
                                             Запретить
                                         </button>
-                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                        <button v-if="!product.deleted" @click="deleteProduct(product)" type="button" class="btn btn-outline-danger">Удалить</button>
+                                        <button v-if="product.deleted" @click="deleteProduct(product)" type="button" class="btn btn-outline-success">Востановить</button>
                                     </div>
                                 </td>
                             </tr>

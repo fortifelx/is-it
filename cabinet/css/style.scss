@@ -73,6 +73,35 @@
     margin-right: 5px;
   }
 }
+.goods_table {
+
+  .goods_table_header th {
+    &:nth-child(1){
+      width: 3%;
+    }
+    &:nth-child(2){
+      width: 3%;
+    }
+    &:nth-child(3){
+      width: 15%;
+    }
+    &:nth-child(4){
+      width: 19%;
+    }
+    &:nth-child(5){
+      width: 40%;
+    }
+    &:nth-child(6){
+      width: 8%;
+    }
+    &:nth-child(7){
+      width: 12%;
+    }
+  }
+  .article_img {
+    width: 140px;
+  }
+}
 .articles_table {
 
   .articles_table_header th {

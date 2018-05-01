@@ -64,6 +64,23 @@
 .statistic_legend input {
   margin-right: 5px; }
 
+.goods_table .goods_table_header th:nth-child(1) {
+  width: 3%; }
+.goods_table .goods_table_header th:nth-child(2) {
+  width: 3%; }
+.goods_table .goods_table_header th:nth-child(3) {
+  width: 15%; }
+.goods_table .goods_table_header th:nth-child(4) {
+  width: 19%; }
+.goods_table .goods_table_header th:nth-child(5) {
+  width: 40%; }
+.goods_table .goods_table_header th:nth-child(6) {
+  width: 8%; }
+.goods_table .goods_table_header th:nth-child(7) {
+  width: 12%; }
+.goods_table .article_img {
+  width: 140px; }
+
 .articles_table .articles_table_header th:nth-child(1) {
   width: 3%; }
 .articles_table .articles_table_header th:nth-child(2) {

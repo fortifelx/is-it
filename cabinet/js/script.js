@@ -67,91 +67,94 @@ var section = new Vue({
        status : 2,
        filter: 0,
        activeSection: false,
-       createProduct: true,
+       createProductBlock: false,
        newOption: '',
-       newProductStatus: 3,
+       newProductStatus: 1,
        newProduct: {
-         id: 0, img: false, price: 0, name: '', shop: '', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], rating: 0, like: 0, published: false,
-         colors: [], sizes: [], activeOptions: [],
+         id: 0, img: false, price: 0, name: '', shop: '', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
+         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3],
          images: [
-             // { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-             // { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-             // { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-             // { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-             // { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-             // { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-             // { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-             // { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-             // { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
+             { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
+             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
+             { id: 2, url: 'img/newProduct/black3.jpg', colors: [], sizes: [], options: [], published: true, deleted: false}
+         ],
+       },
+       productTemplate: {
+         id: 0, img: false, price: 0, name: '', shop: '', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
+         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3], description: '',
+         images: [
+             { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
+             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
+             { id: 2, url: 'img/newProduct/black3.jpg', colors: [], sizes: [], options: [], published: true, deleted: false}
          ],
        },
        products : [
-           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 223, published: true, colors: [], sizes: [1,2,3,4], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],},
-           { id: 21, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', shop: 'Техас и джинсы', options: 'в разработке', rating: 3, like: 323, published: true, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],},
-           { id: 32, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', shop: 'Мачо и Версачо', options: 'в разработке', rating: 4, like: 263, published: false, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],},
-           { id: 43, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 2, like: 123, published: false, colors: [], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],},
-           { id: 55, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', shop: 'Техас и джинсы', options: 'в разработке', rating: 5, like: 73, published: true, colors: [], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],},
-           { id: 63, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', shop: 'Ляля и Диля', options: 'в разработке', rating: 3, like: 523, published: false, colors: [], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
-                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true},
-                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true},
-                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false},
-                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false},
-                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true},
-                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true},
-                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true},
-                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false},
-               ],}
+           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', description: '', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: false},
+           { id: 21, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 3, like: 323, published: true, colors: [5,2,1], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: true},
+           { id: 32, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', description: '', shop: 'Мачо и Версачо', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 4, like: 263, published: false, colors: [3,2], sizes: [3,4,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: false},
+           { id: 43, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 2, like: 123, published: false, colors: [9,8,7], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: true},
+           { id: 55, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 5, like: 73, published: true, colors: [5,3,4], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: true},
+           { id: 63, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', description: '', shop: 'Ляля и Диля', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 523, published: false, colors: [2,4,7], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+                   { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
+                   { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
+                   { id: 3, url: 'img/newProduct/white1.jpg', colors: [6], sizes: [3,4,6], options: [0], published: false, deleted: false},
+                   { id: 4, url: 'img/newProduct/white2.jpg', colors: [6], sizes: [3,4,6], options: [3], published: false, deleted: false},
+                   { id: 5, url: 'img/newProduct/white3.jpg', colors: [6], sizes: [3,4,6], options: [1], published: true, deleted: false},
+                   { id: 6, url: 'img/newProduct/broun1.jpg', colors: [9], sizes: [2,5,6], options: [0], published: true, deleted: false},
+                   { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
+                   { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
+               ], deleted: false}
        ],
        shops : [
            { id: 1, name: 'Техас и понты', goods: 167, allow_goods: 200,
@@ -276,11 +279,7 @@ var section = new Vue({
 
    },
     methods: {
-       create: function(){
-           this.createProduct = true;
-         console.log('start');
-       },
-       addOption: function(){
+        addOption: function(){
             this.newProduct.options.push(this.newOption);
             this.newOption = '';
        },
@@ -312,7 +311,6 @@ var section = new Vue({
             for(var i = 0; i < options.length; i++){
                 if(options[i].checked){
                     this.newProduct.activeOptions.push(options[i].value);
-                    console.log(this.newProduct.activeOptions);
                 }
             }
         },
@@ -350,7 +348,8 @@ var section = new Vue({
                     img.colors = [];
                     img.sizes = [];
                     img.options = [];
-                    img.public = true;
+                    img.published = true;
+                    img.deleted = false;
                     var vm = this;
                     pictures.push(img);
                     reader[x].onload = function(e) {
@@ -366,7 +365,31 @@ var section = new Vue({
                     x++;
                 }
                 };
-        }
+        },
+        updateProduct: function(product){
+           console.log('send data to server');
+        },
+        deleteProduct: function(product){
+           product.deleted = !product.deleted;
+           this.updateProduct(product);
+        },
+        publishProduct: function(product){
+           product.published = !product.published;
+           this.updateProduct(product);
+        },
+        createProduct: function(){
+           this.newProduct = this.productTemplate;
+           this.createProductBlock = true;
+        },
+        changeProduct: function(product){
+            this.newProduct = product;
+            this.createProductBlock = true;
+        },
+        saveProduct: function(){
+            this.updateProduct(this.newProduct);
+            this.createProductBlock = false;
+        },
+
     },
     computed: {
 
