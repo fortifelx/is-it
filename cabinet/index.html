@@ -311,99 +311,127 @@
                         <div v-if="createProductBlock === true" class="create_product_wrapper">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                                    <div class="btn-group mr-2" role="group" aria-label="First group">
-                                        <button
-                                                @click="newProductStatus = 1"
-                                                :class="{ 'btn-dark': newProductStatus === 1 }"
-                                                type="button" class="btn btn-secondary">Общие
-                                        </button>
-                                        <button
-                                                @click="newProductStatus = 2"
-                                                :class="{ 'btn-dark': newProductStatus === 2 }"
-                                                type="button" class="btn btn-secondary">Цены и Дополнительные параметры
-                                        </button>
-                                        <button
-                                                @click="newProductStatus = 3"
-                                                :class="{ 'btn-dark': newProductStatus === 3 }"
-                                                type="button" class="btn btn-secondary">Представление
-                                        </button>
-                                        <button
-                                                @click="newProductStatus = 4"
-                                                :class="{ 'btn-dark': newProductStatus === 4 }"
-                                                type="button" class="btn btn-secondary">SEO
-                                        </button>
-                                    </div>
-                                    <div v-if="newProduct.id != 0" class="btn-group mr-2 offset-1" role="group"
-                                         aria-label="Second group">
-                                        <button type="button" class="btn btn-info">Посмотреть</button>
-                                        <button v-if="!newProduct.published" type="button" class="btn btn-success">
-                                            Публиковать
-                                        </button>
-                                        <button v-if="newProduct.published" type="button" class="btn btn-secondary">
-                                            Скрыть
-                                        </button>
-                                        <button type="button" class="btn btn-danger">Удалить</button>
-                                    </div>
-                                    <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                        <button type="button" @click="createProduct = false" class="btn btn-primary">
-                                            Сохранить
-                                        </button>
-                                    </div>
+                                    <!--<div class="row">-->
+                                        <div class="col-10" style="padding-left: 0">
+                                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                <button
+                                                        @click="newProductStatus = 1"
+                                                        :class="{ 'btn-dark': newProductStatus === 1 }"
+                                                        type="button" class="btn btn-secondary">Общие
+                                                </button>
+                                                <button
+                                                        @click="newProductStatus = 2"
+                                                        :class="{ 'btn-dark': newProductStatus === 2 }"
+                                                        type="button" class="btn btn-secondary">Цены и Дополнительные
+                                                    параметры
+                                                </button>
+                                                <button
+                                                        @click="newProductStatus = 3"
+                                                        :class="{ 'btn-dark': newProductStatus === 3 }"
+                                                        type="button" class="btn btn-secondary">Представление
+                                                </button>
+                                                <button
+                                                        @click="newProductStatus = 4"
+                                                        :class="{ 'btn-dark': newProductStatus === 4 }"
+                                                        type="button" class="btn btn-secondary">SEO
+                                                </button>
+                                            </div>
+                                            <div v-if="newProduct.id != 0" class="btn-group mr-2 offset-1" role="group"
+                                                 aria-label="Second group">
+                                                <button type="button" class="btn btn-info">Посмотреть</button>
+                                                <button @click="newProduct.published = !newProduct.published"
+                                                        v-if="!newProduct.published" type="button"
+                                                        class="btn btn-success">
+                                                    Публиковать
+                                                </button>
+                                                <button @click="newProduct.published = !newProduct.published"
+                                                        v-if="newProduct.published" type="button"
+                                                        class="btn btn-secondary">
+                                                    Скрыть
+                                                </button>
+                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
+                                                        v-if="!newProduct.deleted" class="btn btn-outline-danger">
+                                                    Удалить
+                                                </button>
+                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
+                                                        v-if="newProduct.deleted" class="btn btn-outline-success">
+                                                    Востановить
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-1">
+                                            <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                                <button type="button" @click="saveProduct" class="btn btn-primary">
+                                                    Сохранить
+                                                </button>
+                                            </div>
+                                        </div>
+                                    <!--</div>-->
                                 </div>
                                 <div v-show="newProductStatus === 1" class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
                                         <div class="row">
                                             <div class="col-3">
                                                 <figure class="figure new_product_ilu">
-                                                <img  v-show="newProduct.img" alt="Основное фото товара" class="img-thumbnail" :src="newProduct.img">
-                                                <img  v-show="!newProduct.img" src="iconic/svg/aperture.svg" alt="Загрузите первое фото" class="img-thumbnail" >
-                                                <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                    <img v-show="newProduct.img" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="newProduct.img">
+                                                    <img v-show="!newProduct.img" src="iconic/svg/aperture.svg"
+                                                         alt="Загрузите первое фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
                                                 </figure>
                                                 <div class="input-group mb-3 product_upload_image">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewThumbnail" type="file" class="custom-file-input" id="inputGroupFile01">
-                                                        <label class="custom-file-label" for="inputGroupFile01"> Выбрать файл </label>
+                                                        <input @change="previewThumbnail" type="file"
+                                                               class="custom-file-input" id="inputGroupFile01">
+                                                        <label class="custom-file-label" for="inputGroupFile01">Выбрать
+                                                            файл </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-9">
                                                 <div class="row">
-                                            <div class="col-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="product_name">Название</span>
+                                                    <div class="col-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="product_name">Название</span>
+                                                            </div>
+                                                            <input name="product_name" type="text" class="form-control"
+                                                                   v-model="newProduct.name"
+                                                                   placeholder="Название товара"
+                                                                   aria-label="Название товара"
+                                                                   aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input name="product_name" type="text" class="form-control"
-                                                           placeholder="Название товара" aria-label="Название товара"
-                                                           aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="brand">Бренд</span>
+                                                    <div class="col-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="brand">Бренд</span>
+                                                            </div>
+                                                            <input name="brand" type="text" class="form-control"
+                                                                   v-model="newProduct.brand"
+                                                                   placeholder="Название бренда"
+                                                                   aria-label="Название бренда"
+                                                                   aria-describedby="basic-addon1">
+                                                        </div>
                                                     </div>
-                                                    <input name="brand" type="text" class="form-control"
-                                                           placeholder="Название бренда" aria-label="Название бренда"
-                                                           aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <label class="input-group-text" for="shops">Магазин</label>
+                                                    <div class="col-4">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <label class="input-group-text"
+                                                                       for="shops">Магазин</label>
+                                                            </div>
+                                                            <select class="custom-select" id="shops"
+                                                                    v-model="newProduct.shop">
+                                                                <option selected>Техас и джинсы</option>
+                                                                <option value="1">Мачо и Версачо</option>
+                                                                <option value="2">Ляля и Диля</option>
+                                                                <option value="3">Аосртиментос</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                    <select class="custom-select" id="shops">
-                                                        <option selected>Техас и джинсы</option>
-                                                        <option value="1">Мачо и Версачо</option>
-                                                        <option value="2">Ляля и Диля</option>
-                                                        <option value="3">Аосртиментос</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="input-group col-8">
@@ -417,37 +445,48 @@
                                                         <!--<h5>Секция</h5>-->
                                                         <div class="input-group mb-3">
                                                             <div class="input-group-prepend">
-                                                                <label class="input-group-text" for="shops">Секция</label>
+                                                                <label class="input-group-text"
+                                                                       for="shops">Секция</label>
                                                             </div>
                                                             <select class="custom-select" id="sections" name="section">
-                                                                <option value="section.id" @click="activeSection = section.id"
-                                                                        v-for="section in sections">{{ section.title }}
-                                                                </option>
+                                                                <template v-for="section in sections">
+                                                                    <option value="section.id"
+                                                                            @click="activeSection = section.id"
+                                                                            v-if="activeSection != section.id"
+                                                                    >{{ section.title }}
+                                                                    </option>
+                                                                    <option value="section.id"
+                                                                            @click="activeSection = section.id"
+                                                                            v-else selected
+                                                                    >{{ section.title }}
+                                                                    </option>
+                                                                </template>
                                                             </select>
                                                         </div>
-                                                        <!--<div class="products_structure">-->
-                                                        <!--<div v-for="section in sections" class="input-group">-->
-                                                        <!--<div class="input-group-prepend">-->
-                                                        <!--<div class="input-group-text" style="background-color: #4e555b">-->
-                                                        <!--<input name="section" @click="activeSection = section.id" v-bind:value="section.id" type="radio" aria-label="Radio button for following text input">-->
-                                                        <!--</div>-->
-                                                        <!--</div>-->
-                                                        <!--<div class="product_color_name">{{ section.title }}</div>-->
-                                                        <!--</div>-->
-                                                        <!--</div>-->
                                                         <h5 v-if="activeSection != 0">Категория</h5>
                                                         <div class="product_structure">
                                                             <div v-for="category in categories"
-                                                                 v-if="category.sectionId == activeSection" class="input-group">
+                                                                 v-if="category.sectionId == activeSection"
+                                                                 class="input-group">
                                                                 <div class="input-group-prepend">
-                                                                    <div class="input-group-text">
-                                                                        <input name="category" v-bind:value="category.id"
+                                                                    <div class="input-group-text"
+                                                                         v-if="category.id != newProduct.categoryId">
+                                                                        <input name="category"
+                                                                               v-bind:value="category.id"
+                                                                               v-model="newProduct.categoryId"
+                                                                               type="radio"
+                                                                               aria-label="Radio button for following text input">
+                                                                        &nbsp;{{ category.title }}
+                                                                    </div>
+                                                                    <div class="input-group-text" v-else>
+                                                                        <input name="category"
+                                                                               v-bind:value="category.id"
+                                                                               v-model="newProduct.categoryId" checked
                                                                                type="radio"
                                                                                aria-label="Radio button for following text input">
                                                                         &nbsp;{{ category.title }}
                                                                     </div>
                                                                 </div>
-                                                                <!--<div class="product_color_name">{{ category.title }}</div>-->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -534,6 +573,7 @@
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
                                                             <input name="size" class="new_product_size"
+                                                                   v-model="newProduct.sizes"
                                                                    v-bind:value="size.id"
                                                                    @click="addSizeToProduct"
                                                                    ref="new_product_size"
@@ -561,6 +601,7 @@
                                                                    v-bind:value="color.id"
                                                                    @click="addColorToProduct"
                                                                    ref="new_product_color"
+                                                                   v-model="newProduct.colors"
                                                                    type="checkbox"
                                                                    aria-label="Checkbox for following text input">
                                                         </div>
@@ -583,6 +624,7 @@
                                                         </div>
                                                         <input name="name" type="text" class="form-control"
                                                                placeholder=""
+                                                               v-model="newProduct.optionsName"
                                                                aria-label="Название групы параметров"
                                                                aria-describedby="basic-addon1">
                                                     </div>
@@ -590,27 +632,29 @@
                                             </div>
 
                                             <div class="product_options">
-                                                <div v-for="(option, id) in newProduct.options"
-                                                     class="input-group mb-3 product_color_input">
-                                                    <div class="input-group-prepend">
-                                                        <div class="input-group-text">
-                                                            <input name="option"
-                                                                   v-bind:value="id"
-                                                                   @click="addOptionToProduct"
-                                                                   ref="new_product_option"
-                                                                   type="checkbox"
-                                                                   aria-label="Checkbox for following text input">
+                                                <template v-for="(option, id) in newProduct.options">
+                                                    <div class="input-group mb-3 product_color_input">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text">
+
+                                                                <input name="option"
+                                                                       v-bind:value="id"
+                                                                       @click="addOptionToProduct"
+                                                                       ref="new_product_option"
+                                                                       type="checkbox"
+                                                                       aria-label="Checkbox for following text input">
+                                                            </div>
+                                                        </div>
+                                                        <input name="option" type="text" class="form-control"
+                                                               aria-label="price">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">{{ option }}</span>
+                                                            <button v-bind:data-id="id" @click="removeOption($event)"
+                                                                    class="btn btn-outline-danger" type="button">X
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                    <input name="option" type="text" class="form-control"
-                                                           aria-label="price">
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">{{ option }}</span>
-                                                        <button v-bind:data-id="id" @click="removeOption($event)"
-                                                                class="btn btn-outline-danger" type="button">X
-                                                        </button>
-                                                    </div>
-                                                </div>
+                                                </template>
                                             </div>
                                         </div>
                                     </div>
@@ -619,14 +663,17 @@
                                     <div class="row articles_option">
                                         <div class="col-2">
                                             <div class="input-group mb-3 product_upload_image">
-                                                     <input name="sliderImg" @change="showThumbnail" type="file" class="custom-file-input" id="inputGroupFile02" multiple>
-                                                    <label class="custom-file-label" for="inputGroupFile02"> Добавить Фото</label>
+                                                <input name="sliderImg" @change="showThumbnail" type="file"
+                                                       class="custom-file-input" id="inputGroupFile02" multiple>
+                                                <label class="custom-file-label" for="inputGroupFile02"> Добавить
+                                                    Фото</label>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Масовые действия</label>
+                                                    <label class="input-group-text" for="inputGroupSelect01">Масовые
+                                                        действия</label>
                                                 </div>
                                                 <select class="custom-select" id="inputGroupSelect01">
                                                     <option selected>Выбрать действие</option>
@@ -640,7 +687,8 @@
                                         <div class="col-3">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
+                                                    <label class="input-group-text"
+                                                           for="inputGroupSelect01">Отображать</label>
                                                 </div>
                                                 <select class="custom-select">
                                                     <option selected>По дате добавления</option>
@@ -665,7 +713,8 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                <tr class="product" v-for="image in newProduct.images" v-if="!image.deleted">
+                                                <tr class="product" v-for="image in newProduct.images"
+                                                    v-if="!image.deleted">
                                                     <th scope="row">{{ image.id }}</th>
                                                     <td>
                                                         <div class="custom-control mr-sm-2 dark">
@@ -681,61 +730,74 @@
                                                     </td>
                                                     <td>
                                                         <template v-for="imgSize in newProduct.sizes">
-                                                        <div v-for="size in sizes" v-if="size.id == imgSize" class="input-group mb-3 product_color_input">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">
-                                                                    <input name="size"
-                                                                           v-bind:value="size.id"
-                                                                           type="checkbox"
-                                                                           aria-label="Checkbox for following text input">
+                                                            <div v-for="size in sizes" v-if="size.id == imgSize"
+                                                                 class="input-group mb-3 product_color_input">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="size"
+                                                                               v-bind:value="size.id"
+                                                                               type="checkbox"
+                                                                               aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">{{ size.name }}</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text">{{ size.name }}</span>
-                                                            </div>
-                                                        </div>
                                                         </template>
                                                     </td>
                                                     <td>
                                                         <template v-for="imgColor in newProduct.colors">
-                                                        <div v-for="color in colors" v-if="color.id == imgColor" class="input-group mb-3 product_color_input">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"
-                                                                     v-bind:style="{'background-color': color.code }">
-                                                                    <input name="color" v-bind:value="color.id" type="checkbox"
-                                                                           aria-label="Checkbox for following text input">
+                                                            <div v-for="color in colors" v-if="color.id == imgColor"
+                                                                 class="input-group mb-3 product_color_input">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text"
+                                                                         v-bind:style="{'background-color': color.code }">
+                                                                        <input name="color" v-bind:value="color.id"
+                                                                               type="checkbox"
+                                                                               aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">{{ color.name }}</span>
                                                                 </div>
                                                             </div>
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text">{{ color.name }}</span>
-                                                            </div>
-                                                        </div>
-                                                    </template>
-                                                    </td>
-                                                    <td>
-                                                        <template v-for="(option, x) in newProduct.options">
-                                                        <div v-for="activeOption in newProduct.activeOptions" v-if="x == activeOption" class="input-group mb-3 product_color_input">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text">
-                                                                    <input name="option" v-bind:value="option" type="checkbox"
-                                                                           aria-label="Checkbox for following text input">
-                                                                </div>
-                                                            </div>
-                                                            <div class="input-group-append">
-                                                                <span class="input-group-text">{{ option }}</span>
-                                                            </div>
-                                                        </div>
                                                         </template>
                                                     </td>
                                                     <td>
-                                                        <div class="btn-group-vertical controls_btn" role="group" aria-label="Basic example">
-                                                            <button v-if="!image.published" @click="image.published = true" type="button" class="btn btn-success">
+                                                        <template v-for="(option, x) in newProduct.options">
+                                                            <div v-for="activeOption in newProduct.activeOptions"
+                                                                 v-if="x == activeOption"
+                                                                 class="input-group mb-3 product_color_input">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="option" v-bind:value="option"
+                                                                               type="checkbox"
+                                                                               aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">{{ option }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group-vertical controls_btn" role="group"
+                                                             aria-label="Basic example">
+                                                            <button v-if="!image.published"
+                                                                    @click="image.published = true" type="button"
+                                                                    class="btn btn-success">
                                                                 Опубликовать
                                                             </button>
-                                                            <button v-if="image.published" @click="image.published = false" type="button" class="btn btn-secondary">
+                                                            <button v-if="image.published"
+                                                                    @click="image.published = false" type="button"
+                                                                    class="btn btn-secondary">
                                                                 Снять с публикации
                                                             </button>
-                                                            <button type="button" @click="image.deleted = true" class="btn btn-danger">Удалить</button>
+                                                            <button type="button" @click="image.deleted = true"
+                                                                    class="btn btn-danger">Удалить
+                                                            </button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -743,7 +805,6 @@
                                             </table>
                                         </div>
                                     </div>
-
 
 
                                 </div>
@@ -782,27 +843,31 @@
                                         </figcaption>
                                     </figure>
                                 </td>
-                                <td>{{ product.name }}  <br><br> Магазин: <br> {{ product.shop }} <br> </td>
+                                <td>{{ product.name }} <br><br> Магазин: <br> {{ product.shop }} <br></td>
                                 <td> {{ product.optionsName }} <br>
                                     <div class="input-group mb-3">
-                                    <div v-for="opt in product.options" class="input-group-append">
-                                        <span class="input-group-text">{{ opt }}</span>
-                                    </div>
-                                    </div>
-                                Размер: <br>
-
-                                        <div class="input-group mb-3">
-                                            <div  class="input-group-append">
-                                                <template v-for="productSize in product.sizes">
-                                                <span v-for="size in sizes" v-if="size.id == productSize" class="input-group-text">{{ size.name }}</span>
-                                                </template>
-                                            </div>
+                                        <div v-for="opt in product.options" class="input-group-append">
+                                            <span class="input-group-text">{{ opt }}</span>
                                         </div>
+                                    </div>
+                                    Размер: <br>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <template v-for="productSize in product.sizes">
+                                                <span v-for="size in sizes" v-if="size.id == productSize"
+                                                      class="input-group-text">{{ size.name }}</span>
+                                            </template>
+                                        </div>
+                                    </div>
                                     Цвет: <br>
                                     <div class="input-group mb-3">
-                                        <div  class="input-group-append">
+                                        <div class="input-group-append">
                                             <template v-for="productColor in product.colors">
-                                                <span v-for="color in colors" v-if="color.id == productColor" class="input-group-text" :style="{'background-color': color.code}"><span style="color: rgb(0,255,255);mix-blend-mode: hard-light;">{{ color.name }}</span></span>
+                                                <span v-for="color in colors" v-if="color.id == productColor"
+                                                      class="input-group-text"
+                                                      :style="{'background-color': color.code}"><span
+                                                        style="color: rgb(0,255,255);mix-blend-mode: hard-light;">{{ color.name }}</span></span>
                                             </template>
                                         </div>
                                     </div>
@@ -813,15 +878,23 @@
                                 <td>
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-info">Смотреть</button>
-                                        <button @click="changeProduct(product)" type="button" class="btn btn-warning">Редактировать</button>
-                                        <button v-if="product.published" @click="publishProduct(product)" type="button" class="btn btn-success">
+                                        <button @click="changeProduct(product)" type="button" class="btn btn-warning">
+                                            Редактировать
+                                        </button>
+                                        <button v-if="product.published" @click="publishProduct(product)" type="button"
+                                                class="btn btn-success">
                                             Разрешить
                                         </button>
-                                        <button v-if="!product.published" @click="publishProduct(product)" type="button" class="btn btn-secondary">
+                                        <button v-if="!product.published" @click="publishProduct(product)" type="button"
+                                                class="btn btn-secondary">
                                             Запретить
                                         </button>
-                                        <button v-if="!product.deleted" @click="deleteProduct(product)" type="button" class="btn btn-outline-danger">Удалить</button>
-                                        <button v-if="product.deleted" @click="deleteProduct(product)" type="button" class="btn btn-outline-success">Востановить</button>
+                                        <button v-if="!product.deleted" @click="deleteProduct(product)" type="button"
+                                                class="btn btn-outline-danger">Удалить
+                                        </button>
+                                        <button v-if="product.deleted" @click="deleteProduct(product)" type="button"
+                                                class="btn btn-outline-success">Востановить
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

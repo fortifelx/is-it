@@ -66,13 +66,13 @@ var section = new Vue({
    data: {
        status : 2,
        filter: 0,
-       activeSection: false,
+       activeSection: 1,
        createProductBlock: false,
        newOption: '',
        newProductStatus: 1,
        newProduct: {
-         id: 0, img: false, price: 0, name: '', shop: '', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
-         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3],
+         id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
+         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3], description: '', categoryId: 22,
          images: [
              { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
              { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
@@ -81,7 +81,7 @@ var section = new Vue({
        },
        productTemplate: {
          id: 0, img: false, price: 0, name: '', shop: '', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
-         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3], description: '',
+         colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3], description: '', categoryId: 22,
          images: [
              { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
              { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
@@ -89,7 +89,7 @@ var section = new Vue({
          ],
        },
        products : [
-           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', description: '', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 1, img: 'img/goods/1.jpg', price: 600, name: 'Комплект "ковбой"', description: '', categoryId: 6, brand:'Dolge Gabana', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: [0, 2, 3], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -100,7 +100,7 @@ var section = new Vue({
                    { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
                    { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
                ], deleted: false},
-           { id: 21, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 3, like: 323, published: true, colors: [5,2,1], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 21, img: 'img/goods/2.jpg', price: 1200, name: 'Кофта "плебей"', description: '', categoryId: 22, brand:'Green wave', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 3, like: 323, published: true, colors: [5,2,1], sizes: [3,4,6], activeOptions: [2, 0], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -111,7 +111,7 @@ var section = new Vue({
                    { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
                    { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
                ], deleted: true},
-           { id: 32, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', description: '', shop: 'Мачо и Версачо', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 4, like: 263, published: false, colors: [3,2], sizes: [3,4,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 32, img: 'img/goods/3.jpg', price: 900, name: 'Штаны "Мачо"', description: '', categoryId: 5, brand:'Hugo Boss', shop: 'Мачо и Версачо', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 4, like: 263, published: false, colors: [3,2], sizes: [3,4,6,5], activeOptions: [1, 2, 3], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -122,7 +122,7 @@ var section = new Vue({
                    { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
                    { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
                ], deleted: false},
-           { id: 43, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 2, like: 123, published: false, colors: [9,8,7], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 43, img: 'img/goods/4.jpg', price: 1900, name: 'Ремень "Мачо"', description: '', categoryId: 9, brand:'Red type', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 2, like: 123, published: false, colors: [9,8,7], sizes: [2,6,5], activeOptions: [1, 2, 0], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -133,7 +133,7 @@ var section = new Vue({
                    { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
                    { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
                ], deleted: true},
-           { id: 55, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', description: '', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 5, like: 73, published: true, colors: [5,3,4], sizes: [2,6,5], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 55, img: 'img/goods/5.jpg', price: 2200, name: 'Топанки "Мачо"', description: '', categoryId: 31, brand:'Waykiki', shop: 'Техас и джинсы', optionsName: 'Пошив', options: ['slimFit', 'Regular', 'Huge'], rating: 5, like: 73, published: true, colors: [5,3,4], sizes: [2,6,5], activeOptions: [1, 2], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -144,7 +144,7 @@ var section = new Vue({
                    { id: 7, url: 'img/newProduct/broun2.jpg', colors: [9], sizes: [2,6,5], options: [0], published: true, deleted: false},
                    { id: 8, url: 'img/newProduct/broun3.jpg', colors: [9], sizes: [6,2,5], options: [3], published: false, deleted: false},
                ], deleted: true},
-           { id: 63, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', description: '', shop: 'Ляля и Диля', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 523, published: false, colors: [2,4,7], sizes: [3,4,6], activeOptions: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'еще что-то'], images: [
+           { id: 63, img: 'img/goods/6.jpg', price: 1600, name: 'Туфли "Ляля"', description: '', categoryId: 33, brand:'Waykiki', shop: 'Ляля и Диля', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 523, published: false, colors: [2,4,7], sizes: [3,4,6], activeOptions: [0, 1, 2, 3], images: [
                    { id: 0, url: 'img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
                    { id: 1, url: 'img/newProduct/balck2.jpg', colors: [3], sizes: [1,2,3,4], options: [2], published: true, deleted: false},
                    { id: 2, url: 'img/newProduct/black3.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -383,12 +383,21 @@ var section = new Vue({
         },
         changeProduct: function(product){
             this.newProduct = product;
+            for(var i = 0; i < this.categories.length; i++){
+                if(product.categoryId == this.categories[i].id){
+                    this.activeSection = this.categories[i].sectionId;
+                }
+            }
             this.createProductBlock = true;
         },
         saveProduct: function(){
             this.updateProduct(this.newProduct);
+            this.getProducts();
             this.createProductBlock = false;
         },
+        getProducts: function(options){
+            console.log('get product list');
+        }
 
     },
     computed: {
