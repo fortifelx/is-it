@@ -336,15 +336,15 @@ var section = new Vue({
                 for(var i = 0; i <input.files.length; i++) {
                     reader[i] = new FileReader();
                     reader[i].readAsDataURL(input.files[i]);
-                    console.log(reader[i]);
                 }
-
                 var length = this.newProduct.images.length;
-
+                var filesLength = input.files.length;
                 var x = 0;
                 var pictures = [];
-                for(var i = length; i < input.files.length + length; i++) {
-
+                if(this.newProduct.images.length > 0) {
+                    pictures = this.newProduct.images;
+                }
+                for(var i = length; i < filesLength + length; i++) {
                     var img = {};
                     img.id = i;
                     img.colors = [];
@@ -352,26 +352,19 @@ var section = new Vue({
                     img.options = [];
                     img.public = true;
                     var vm = this;
-                    var readerLength = reader.length;
-                    reader[x].onload = function(e) {
-                      //  var images = vm.newProduct.images;
-                        for(var i = length; i < pictures.length+length; i++){
-                            console.log(length);
-                            pictures[i].url = reader[i].result;
-                        }
-                        vm.newProduct.images = pictures;
-                        };
-                   // vm.newProduct.images.push(img);
                     pictures.push(img);
+                    reader[x].onload = function(e) {
+                        var y = 0;
+                        for(var x = length; x < filesLength+length; x++){
+                            pictures[x].url = reader[y].result;
+                            vm.$set(vm.newProduct.images, x, pictures[x]);
+                            y++;
+                        }
+                       // vm.newProduct.images = pictures;
 
+                    };
                     x++;
-
                 }
-                // for(var i = 0; i < 5; i++) {
-                //  //   console.log(i);
-                // //    reader.readAsDataURL(input.files[i]);
-                // }
-
                 };
         }
     },
