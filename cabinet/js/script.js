@@ -72,9 +72,9 @@ var section = new Vue({
        status : 2,
        filter: 0,
        activeSection: 1,
-       createProductBlock: true,
+       createProductBlock: false,
        newOption: '',
-       newProductStatus: 2,
+       newProductStatus: 1,
        newProduct: {
          id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
          colors: [3,4,5], sizes: [1,2,3], activeOptions: [1,2,3], description: '', categoryId: 22,
@@ -88,6 +88,7 @@ var section = new Vue({
        productTemplate: {
          id: 0, img: false, price: 0, name: '', shop: '', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
          colors: [1,2,3], sizes: [2,3,4], activeOptions: [1,2,3], description: '', categoryId: 22,
+           sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223],
          images: [
              { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
              { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
