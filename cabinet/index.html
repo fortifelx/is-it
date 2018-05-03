@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -309,6 +310,7 @@
                     <div class="col-12">
                         <!--todo Создание товара-->
                         <div v-if="createProductBlock === true" class="create_product_wrapper">
+                            <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                     <!--<div class="row">-->
@@ -572,17 +574,17 @@
                                                 <div v-for="size in sizes" class="input-group mb-3 product_color_input">
                                                     <div class="input-group-prepend">
                                                         <div class="input-group-text">
-                                                            <input name="size" class="new_product_size"
+                                                            <input class="new_product_size"
                                                                    v-model="newProduct.sizes"
-                                                                   v-bind:value="size.id"
                                                                    @click="addSizeToProduct"
                                                                    ref="new_product_size"
                                                                    type="checkbox"
-                                                                   aria-label="Checkbox for following text input">
+                                                                   name="size"
+                                                                   v-bind:value="size.id">
                                                         </div>
                                                     </div>
-                                                    <input title="Модификатор цены" name="price_mod" type="text"
-                                                           class="form-control" aria-label="price">
+                                                    <input v-model="newProduct.sizePrices[size.id]" ref="new_product_size_price" title="Модификатор цены" name="size_price_mod" type="text"
+                                                           class="form-control" aria-label="price" value="0">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">{{ size.name }}</span>
                                                     </div>
@@ -606,7 +608,7 @@
                                                                    aria-label="Checkbox for following text input">
                                                         </div>
                                                     </div>
-                                                    <input name="price_mod" type="text" class="form-control"
+                                                    <input v-model="newProduct.colorPrices[color.id]" name="color_price_mod" type="text" class="form-control"
                                                            aria-label="price">
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">{{ color.name }}</span>
@@ -645,7 +647,7 @@
                                                                        aria-label="Checkbox for following text input">
                                                             </div>
                                                         </div>
-                                                        <input name="option" type="text" class="form-control"
+                                                        <input v-model="newProduct.optionPrices[id]" name="option_price_mod" type="text" class="form-control"
                                                                aria-label="price">
                                                         <div class="input-group-append">
                                                             <span class="input-group-text">{{ option }}</span>
@@ -810,6 +812,7 @@
                                 </div>
                                 <div v-show="newProductStatus === 4" class="product_section_wrapper">SEO</div>
                             </div>
+                            </form>
                         </div>
                         <!--todo Таблица товаров-->
                         <table v-if="createProductBlock === false" class="table  table-striped table-hover goods_table">
