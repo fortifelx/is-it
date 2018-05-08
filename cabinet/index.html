@@ -991,22 +991,22 @@
                                             <div v-if="newShop.id != 0" class="btn-group mr-2 offset-1" role="group"
                                                  aria-label="Second group">
                                                 <button type="button" class="btn btn-info">Посмотреть</button>
-                                                <button @click="newProduct.published = !newProduct.published"
-                                                        v-if="!newProduct.published" type="button"
+                                                <button @click="newShop.published = !newShop.published"
+                                                        v-if="!newShop.published" type="button"
                                                         class="btn btn-success">
                                                     Публиковать
                                                 </button>
-                                                <button @click="newProduct.published = !newProduct.published"
-                                                        v-if="newProduct.published" type="button"
+                                                <button @click="newShop.published = !newShop.published"
+                                                        v-if="newShop.published" type="button"
                                                         class="btn btn-secondary">
                                                     Скрыть
                                                 </button>
-                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
-                                                        v-if="!newProduct.deleted" class="btn btn-outline-danger">
+                                                <button @click="newShop.deleted = !newProduct.deleted" type="button"
+                                                        v-if="!newShop.deleted" class="btn btn-outline-danger">
                                                     Удалить
                                                 </button>
-                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
-                                                        v-if="newProduct.deleted" class="btn btn-outline-success">
+                                                <button @click="newShop.deleted = !newShop.deleted" type="button"
+                                                        v-if="newShop.deleted" class="btn btn-outline-success">
                                                     Востановить
                                                 </button>
                                             </div>
@@ -1029,7 +1029,7 @@
                                                                     <span class="input-group-text" id="shop_name">Название</span>
                                                                 </div>
                                                                 <input name="shop_name" type="text" class="form-control"
-                                                                       v-model="newProduct.name"
+                                                                       v-model="newShop.name"
                                                                        placeholder="Название магазина"
                                                                        aria-label="Название магазина"
                                                                        aria-describedby="basic-addon1">
@@ -1098,8 +1098,6 @@
                                                         </button>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12">
                                                     <div v-for="(phone, id) in newShop.phones" class="input-group mb-3 product_color_input">
                                                         <input v-model="newShop.phones[id]" name="phone" type="text" class="form-control">
                                                         <div class="input-group-append">
@@ -1108,7 +1106,6 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
                                             <div class="col-2">
                                                 <h4>Emails:</h4>
@@ -1123,8 +1120,6 @@
                                                         </button>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-12">
                                                     <div v-for="(email, id) in newShop.emails" class="input-group mb-3 product_color_input">
                                                         <input v-model="newShop.emails[id]" name="phone" type="text" class="form-control">
                                                         <div class="input-group-append">
@@ -1133,7 +1128,6 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <h4>Адреса</h4>
@@ -1192,18 +1186,19 @@
                                 <td>{{ shop.name }}</td>
                                 <td>{{shop.goods}}<br>/{{ shop.allow_goods }}</td>
                                 <td>{{ shop.sales }}</td>
-                                <td>{{ shop.contacts }}</td>
+                                <td>{{ shop.emails[0] }} <br> {{ shop.phones[0] }}</td>
                                 <td>Instagram:{{ shop.instagram }} <br><br>{{ shop.description }}</td>
                                 <td>
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-info">Смотреть</button>
-                                        <button type="button" class="btn btn-warning">Редактировать</button>
-                                        <button v-if="shop.published" type="button" class="btn btn-success">Разрешить
+                                        <button type="button" @click="changeShop(shop)" class="btn btn-warning">Редактировать</button>
+                                        <button @click="publishShop(shop)" v-if="shop.published" type="button" class="btn btn-success">Разрешить
                                         </button>
-                                        <button v-if="!shop.published" type="button" class="btn btn-secondary">
+                                        <button @click="publishShop(shop)"  v-if="!shop.published" type="button" class="btn btn-secondary">
                                             Запретить
                                         </button>
-                                        <button type="button" class="btn btn-danger">Удалить</button>
+                                        <button @click="deleteShop(shop)"  v-if="!shop.deleted" type="button" class="btn btn-outline-danger">Удалить</button>
+                                        <button @click="deleteShop(shop)"  v-if="shop.deleted" type="button" class="btn btn-outline-success">Востановить</button>
                                     </div>
                                 </td>
                             </tr>

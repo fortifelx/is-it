@@ -111,7 +111,7 @@ var section = new Vue({
        },
        shopTemplate: {
          id: 0, name: '', description: '', email: '', emails: [], delivery: '', take_back: '',
-           instagram: '', phones: [], addresses: [], stock_description: '',
+           instagram: '', phones: [], addresses: '', stock_description: '', published: false,
            goods: 222, allow_goods: 250, discounts: 25, allow_discounts: 25, stock: 10, allow_stocks: 15,
            sales: 112, published: false, deleted: false,
        },
@@ -184,37 +184,31 @@ var section = new Vue({
                ], deleted: false}
        ],
        shops : [
-           { id: 1, name: 'Техас и понты', goods: 167, allow_goods: 200,
+           { id: 1, name: 'Техас и понты', goods: 167, allow_goods: 200, discounts: 12, allow_discounts: 25, stock: 10, allow_stocks: 15,
                description: 'Описание нашего магазина содержит краткий но информативный текст, ' +
-               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!',
-               sales: 131, instagram: 'В разработке',
-               published: true,
-               contacts: 'nelia.belorus@gmail.com <br> +7 987 698 32 10 <br>+7 987 654 32 22'},
-           { id: 12, name: 'Штаны и кофты', goods: 118, allow_goods: 120,
+               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!', deleted: false,
+               sales: 131, instagram: 'В разработке', phones: ['+7 987 698 21 10', '+7 987 698 32 44'], addresses: '', stock_description: '',
+               published: true, email: '', emails: ['fortifelx@gmail.com', 'fortifelx2@gmail.com'], delivery: '', take_back: '',},
+           { id: 12, name: 'Штаны и кофты', goods: 118, allow_goods: 120, discounts: 22, allow_discounts: 35, stock: 12, allow_stocks: 15,
                description: 'Описание нашего магазина содержит краткий но информативный текст, ' +
-               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!',
-               sales: 232, instagram: 'В разработке',
-               published: false,
-               contacts: 'fortifelx@gmail.com <br> +7 890 654 32 10 <br>+7 917 654 32 10'},
-           { id: 18, name: 'Понты и джинсы', goods: 43, allow_goods: 100,
+               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!', deleted: false,
+               sales: 232, instagram: 'В разработке', phones: ['+7 987 243 28 96', '+7 987 698 32 44'], addresses: '', stock_description: '',
+               published: false, email: '', emails: ['nelia.belorus@gmail.com', 'nelia2.belorus@gmail.com'], delivery: '', take_back: '', },
+           { id: 18, name: 'Понты и джинсы', goods: 43, allow_goods: 100, discounts: 25, allow_discounts: 35, stock: 13, allow_stocks: 15,
                description: 'Описание нашего магазина содержит краткий но информативный текст, ' +
-               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!',
-               sales: 30, instagram: 'В разработке',
-               published: true,
-               contacts: 'nelia.belorus@gmail.com <br> +7 987 654 32 10 <br>+7 927 234 32 10'},
-           { id: 21, name: 'Ляля и Даля', goods: 156, allow_goods: 500,
+               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!', deleted: false,
+               sales: 30, instagram: 'В разработке', phones: ['+7 987 698 32 41', '+7 987 698 33 22'], addresses: '', stock_description: '',
+               published: true, email: '', emails: ['ktara@gmail.com', 'ktara2@gmail.com'], delivery: '', take_back: '',},
+           { id: 21, name: 'Ляля и Даля', goods: 156, allow_goods: 500, discounts: 15, allow_discounts: 55, stock: 11, allow_stocks: 25,
                description: 'Описание нашего магазина содержит краткий но информативный текст, ' +
-               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!',
-               sales: 73, instagram: 'В разработке',
-               published: false,
-               contacts: 'aagrich@gmail.com <br> +7 987 654 32 10 <br>+7 987 354 32 10'},
-           { id: 22, name: 'Аосртиментос', goods: 289, allow_goods: 1000,
+               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!', deleted: false,
+               sales: 73, instagram: 'В разработке', phones: ['+7 987 755 99 62', '+7 987 698 32 44'], addresses: '', stock_description: '',
+               published: false, email: '', emails: ['agrich@gmail.com', 'agrich3@gmail.com'], delivery: '', take_back: '',},
+           { id: 22, name: 'Аосртиментос', goods: 289, allow_goods: 1000, discounts: 36, allow_discounts: 65, stock: 20, allow_stocks: 35,
                description: 'Описание нашего магазина содержит краткий но информативный текст, ' +
-               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!',
-               sales: 112, instagram: 'В разработке',
-               published: true,
-               contacts: 'nelia.belorus@gmail.com <br> +7 987 484 72 10 <br>+7 987 654 32 99'},
-
+               'в достаточном обьеме чтобы понять что мы круче и лучше всех, в нашей области!', deleted: false,
+               sales: 112, instagram: 'В разработке', phones: ['+7 987 543 32 55', '+7 987 698 32 44'], addresses: '', stock_description: '',
+               published: true, email: '', emails: ['nelia.belorus@gmail.com', 'nelia2.belorus@gmail.com'], delivery: '', take_back: '',},
        ],
        users: [
            { id: 244, banned: false, avatar: 'img/users/avatar1.jpg', name: 'Иванов Иван', instagram: 'в разработку', comments: 23, favorites: 9, purchases: 8, email: 'fortifelx@gmail.com', contacts: 'не указано'},
@@ -424,6 +418,14 @@ var section = new Vue({
            product.published = !product.published;
            this.updateProduct(product);
         },
+        deleteShop: function(shop){
+            shop.deleted = !shop.deleted;
+           this.updateProduct(shop);
+        },
+        publishShop: function(shop){
+            shop.published = !shop.published;
+           this.updateProduct(shop);
+        },
         createProduct: function(){
            this.newProduct = this.productTemplate;
            this.createProductBlock = true;
@@ -441,15 +443,19 @@ var section = new Vue({
             }
             this.createProductBlock = true;
         },
+        changeShop: function(shop){
+            this.newShop = shop;
+            this.createShopBlock = true;
+        },
         saveProduct: function(){
             this.updateProduct(this.newProduct);
             this.getProducts();
             this.createProductBlock = false;
         },
         saveShop: function(){
-            this.updateShop(this.newProduct);
+            this.updateShop(this.newShop);
             this.getShops();
-            this.createShopBlock = true;
+            this.createShopBlock = false;
         },
         getProducts: function(options){
             console.log('get product list');
