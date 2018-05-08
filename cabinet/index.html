@@ -335,6 +335,11 @@
                                                 <button
                                                         @click="newProductStatus = 4"
                                                         :class="{ 'btn-dark': newProductStatus === 4 }"
+                                                        type="button" class="btn btn-secondary">Отзывы
+                                                </button>
+                                                <button
+                                                        @click="newProductStatus = 5"
+                                                        :class="{ 'btn-dark': newProductStatus === 5 }"
                                                         type="button" class="btn btn-secondary">SEO
                                                 </button>
                                             </div>
@@ -739,6 +744,7 @@
                                                                     <div class="input-group-text">
                                                                         <input name="size"
                                                                                v-bind:value="size.id"
+                                                                               v-model="newProduct.images[image.id].sizes"
                                                                                type="checkbox"
                                                                                aria-label="Checkbox for following text input">
                                                                     </div>
@@ -757,6 +763,7 @@
                                                                     <div class="input-group-text"
                                                                          v-bind:style="{'background-color': color.code }">
                                                                         <input name="color" v-bind:value="color.id"
+                                                                               v-model="newProduct.images[image.id].colors"
                                                                                type="checkbox"
                                                                                aria-label="Checkbox for following text input">
                                                                     </div>
@@ -774,7 +781,9 @@
                                                                  class="input-group mb-3 product_color_input">
                                                                 <div class="input-group-prepend">
                                                                     <div class="input-group-text">
-                                                                        <input name="option" v-bind:value="option"
+                                                                        <input :name="image.id"
+                                                                               v-bind:value="option"
+                                                                               v-model="newProduct.images[image.id].options"
                                                                                type="checkbox"
                                                                                aria-label="Checkbox for following text input">
                                                                     </div>
@@ -811,7 +820,8 @@
 
 
                                 </div>
-                                <div v-show="newProductStatus === 4" class="product_section_wrapper">SEO</div>
+                                <div v-show="newProductStatus === 4" class="product_section_wrapper">Отзывы</div>
+                                <div v-show="newProductStatus === 5" class="product_section_wrapper">SEO</div>
                             </div>
                             </form>
                         </div>
@@ -911,9 +921,9 @@
             <div v-if="status === 3" class="section_wrapper">
                 <div class="row shops_option">
                     <div class="col-2">
-                        <div class="btn btn-primary">Добавить магазин</div>
+                        <div @click="createShop" class="btn btn-primary">Добавить магазин</div>
                     </div>
-                    <div class="col-3">
+                    <div v-if="createShopBlock === false" class="col-3">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect02">Масовые действия</label>
@@ -927,7 +937,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div v-if="createShopBlock === false" class="col-3">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="inputGroupSelect01">Отображать</label>
@@ -944,7 +954,218 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table  table-striped table-hover shops_table">
+                        <!--todo Создание магазина -->
+                        <div v-if="createShopBlock === true" class="create_product_wrapper">
+                            <form action="" method="post">
+                                <div class="new_product_controls">
+                                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="col-10" style="padding-left: 0">
+                                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                                <button
+                                                        @click="newShopStatus = 1"
+                                                        :class="{ 'btn-dark': newShopStatus === 1 }"
+                                                        type="button" class="btn btn-secondary">Общие
+                                                </button>
+                                                <button
+                                                        @click="newShopStatus = 2"
+                                                        :class="{ 'btn-dark': newShopStatus === 2 }"
+                                                        type="button" class="btn btn-secondary">Контакты
+
+                                                </button>
+                                                <button
+                                                        @click="newShopStatus = 3"
+                                                        :class="{ 'btn-dark': newShopStatus === 3 }"
+                                                        type="button" class="btn btn-secondary">Условия
+                                                </button>
+                                                <button
+                                                        @click="newShopStatus = 4"
+                                                        :class="{ 'btn-dark': newShopStatus === 4 }"
+                                                        type="button" class="btn btn-secondary">SEO
+                                                </button>
+                                                <button
+                                                        @click="newShopStatus = 5"
+                                                        :class="{ 'btn-dark': newShopStatus === 5 }"
+                                                        type="button" class="btn btn-secondary">Товары
+                                                </button>
+                                            </div>
+                                            <div v-if="newShop.id != 0" class="btn-group mr-2 offset-1" role="group"
+                                                 aria-label="Second group">
+                                                <button type="button" class="btn btn-info">Посмотреть</button>
+                                                <button @click="newProduct.published = !newProduct.published"
+                                                        v-if="!newProduct.published" type="button"
+                                                        class="btn btn-success">
+                                                    Публиковать
+                                                </button>
+                                                <button @click="newProduct.published = !newProduct.published"
+                                                        v-if="newProduct.published" type="button"
+                                                        class="btn btn-secondary">
+                                                    Скрыть
+                                                </button>
+                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
+                                                        v-if="!newProduct.deleted" class="btn btn-outline-danger">
+                                                    Удалить
+                                                </button>
+                                                <button @click="newProduct.deleted = !newProduct.deleted" type="button"
+                                                        v-if="newProduct.deleted" class="btn btn-outline-success">
+                                                    Востановить
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-1">
+                                            <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                                <button type="button" @click="saveShop" class="btn btn-primary">
+                                                    Сохранить
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div v-show="newShopStatus === 1" class="product_section_wrapper">
+                                        <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 shop_first_input_group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="shop_name">Название</span>
+                                                                </div>
+                                                                <input name="shop_name" type="text" class="form-control"
+                                                                       v-model="newProduct.name"
+                                                                       placeholder="Название магазина"
+                                                                       aria-label="Название магазина"
+                                                                       aria-describedby="basic-addon1">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 shop_first_input_group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Разрешено товаров:</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" name="alow_goods" value="200">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">Использовано:</span>
+                                                                    <span class="input-group-text"><b>120</b></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 shop_first_input_group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Разрешено скидок:</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" name="alow_goods" value="40">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">Использовано:</span>
+                                                                    <span class="input-group-text"><b>35</b></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="input-group mb-3 shop_first_input_group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Разрешено акций:</span>
+                                                                </div>
+                                                                <input type="text" class="form-control" name="alow_goods" value="40">
+                                                                <div class="input-group-append">
+                                                                    <span class="input-group-text">Использовано:</span>
+                                                                    <span class="input-group-text"><b>5</b></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="input-group col-8">
+                                                            <h4>О магазине:</h4>
+                                                            <!--<div class="input-group-prepend">-->
+                                                            <!--<span class="input-group-text">Описание товара</span>-->
+                                                            <!--</div>-->
+                                                            <!--<textarea name="product_description" id="product_description" class="form-control" aria-label="Описание товара"></textarea>-->
+                                                            <ckeditor></ckeditor>
+                                                        </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div v-show="newShopStatus === 2" class="product_section_wrapper">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <h4>Телефоны:</h4>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" class="form-control"
+                                                           placeholder="Телефон"
+                                                           v-model="newPhone"
+                                                           >
+                                                    <div class="input-group-append">
+                                                        <button @click="addPhone" class="btn btn-info"
+                                                                type="button">+
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div v-for="(phone, id) in newShop.phones" class="input-group mb-3 product_color_input">
+                                                        <input v-model="newShop.phones[id]" name="phone" type="text" class="form-control">
+                                                        <div class="input-group-append">
+                                                            <button v-bind:data-id="id" @click="removePhone($event)"
+                                                                    class="btn btn-outline-danger" type="button">X
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <h4>Emails:</h4>
+                                                <div class="input-group mb-3">
+                                                    <input type="email" class="form-control"
+                                                           placeholder="email"
+                                                           v-model="newEmail"
+                                                           >
+                                                    <div class="input-group-append">
+                                                        <button @click="addEmail" class="btn btn-info"
+                                                                type="button">+
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div v-for="(email, id) in newShop.emails" class="input-group mb-3 product_color_input">
+                                                        <input v-model="newShop.emails[id]" name="phone" type="text" class="form-control">
+                                                        <div class="input-group-append">
+                                                            <button v-bind:data-id="id" @click="removeEmail($event)"
+                                                                    class="btn btn-outline-danger" type="button">X
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <h4>Адреса</h4>
+                                                <ckeditor v-bind:id.default="'editor01'"></ckeditor>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div v-show="newShopStatus === 3" class="product_section_wrapper">
+                                        <div class="row">
+                                        <div class="col-4">
+                                            <h4>Условия акции</h4>
+                                            <ckeditor v-bind:id.default="'editor3'"></ckeditor>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4>Доставка</h4>
+                                            <ckeditor  v-bind:id.default="'editor4'"></ckeditor>
+                                        </div>
+                                        <div class="col-4">
+                                            <h4>Политика возврата</h4>
+                                            <ckeditor  v-bind:id.default="'editor5'"></ckeditor>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div v-show="newShopStatus === 4" class="product_section_wrapper">
+                                        SEO
+                                    </div>
+                                    <div v-show="newShopStatus === 5" class="product_section_wrapper">Товары</div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--todo таблица магазинов -->
+                        <table v-if="createShopBlock === false" class="table  table-striped table-hover shops_table">
                             <thead class="thead-dark">
                             <tr>
                                 <th scope="col">#</th>

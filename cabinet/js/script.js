@@ -63,18 +63,20 @@ destroyed () {
 });
 
 
-
-
-
 var section = new Vue({
    el: "#section",
    data: {
-       status : 2,
+       status : 3,
        filter: 0,
        activeSection: 1,
        createProductBlock: false,
+       createShopBlock: false,
        newOption: '',
+       newPhone: '',
+       newEmail: '',
        newProductStatus: 1,
+       newShopStatus: 1,
+
        newProduct: {
          id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
          colors: [3,4,5], sizes: [1,2,3], activeOptions: [1,2,3], description: '', categoryId: 22,
@@ -91,9 +93,27 @@ var section = new Vue({
            sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223],
          images: [
              { id: 0, url: 'img/newProduct/black.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
-             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [], sizes: [], options: [], published: true, deleted: false},
-             { id: 2, url: 'img/newProduct/black3.jpg', colors: [], sizes: [], options: [], published: true, deleted: false}
+             { id: 1, url: 'img/newProduct/balck2.jpg', colors: [1], sizes: [3], options: [1,2], published: true, deleted: false},
+             { id: 2, url: 'img/newProduct/black3.jpg', colors: [2], sizes: [2], options: [], published: true, deleted: false},
+             { id: 3, url: 'img/newProduct/white1.jpg', colors: [], sizes: [4], options: [], published: true, deleted: false},
+             { id: 4, url: 'img/newProduct/white2.jpg', colors: [2,3], sizes: [], options: [3], published: true, deleted: false},
+             { id: 5, url: 'img/newProduct/white3.jpg', colors: [], sizes: [2,3], options: [], published: true, deleted: false},
+             { id: 6, url: 'img/newProduct/broun1.jpg', colors: [], sizes: [2,4], options: [], published: true, deleted: false},
+             { id: 7, url: 'img/newProduct/broun2.jpg', colors: [], sizes: [2,3,4], options: [], published: true, deleted: false},
+             { id: 8, url: 'img/newProduct/broun3.jpg', colors: [], sizes: [3,4], options: [], published: true, deleted: false},
          ],
+       },
+       newShop: {
+         id: 0, name: '', description: '', email: '', emails: [], delivery: '', take_back: '',
+           instagram: '', phones: [], addresses: [], stock_description: '',
+           goods: 222, allow_goods: 250, discounts: 25, allow_discounts: 25, stock: 10, allow_stocks: 15,
+           sales: 112, published: false, deleted: false,
+       },
+       shopTemplate: {
+         id: 0, name: '', description: '', email: '', emails: [], delivery: '', take_back: '',
+           instagram: '', phones: [], addresses: [], stock_description: '',
+           goods: 222, allow_goods: 250, discounts: 25, allow_discounts: 25, stock: 10, allow_stocks: 15,
+           sales: 112, published: false, deleted: false,
        },
        products : [
            { id: 1, img: 'img/goods/1.jpg', price: 600, sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223, 543], name: 'Комплект "ковбой"', description: '', categoryId: 6, brand:'Dolge Gabana', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: [0, 2, 3], images: [
@@ -290,9 +310,25 @@ var section = new Vue({
             this.newProduct.options.push(this.newOption);
             this.newOption = '';
        },
+        addPhone: function(){
+            this.newShop.phones.push(this.newPhone);
+            this.newPhone = '';
+       },
+        addEmail: function(){
+            this.newShop.emails.push(this.newEmail);
+            this.newEmail = '';
+       },
         removeOption: function(e){
            var i = e.target.dataset.id;
            this.newProduct.options.splice(i, 1);
+        },
+        removePhone: function(e){
+           var i = e.target.dataset.id;
+           this.newShop.phones.splice(i, 1);
+        },
+        removeEmail: function(e){
+           var i = e.target.dataset.id;
+           this.newShop.emails.splice(i, 1);
         },
         addSizeToProduct: function(){
             var sizes = this.$refs.new_product_size;
@@ -377,6 +413,9 @@ var section = new Vue({
         updateProduct: function(product){
            console.log('send data to server');
         },
+        updateShop: function(product){
+           console.log('send shop data to server');
+        },
         deleteProduct: function(product){
            product.deleted = !product.deleted;
            this.updateProduct(product);
@@ -388,6 +427,10 @@ var section = new Vue({
         createProduct: function(){
            this.newProduct = this.productTemplate;
            this.createProductBlock = true;
+        },
+        createShop: function(){
+           this.newShop = this.shopTemplate;
+           this.createShopBlock = true;
         },
         changeProduct: function(product){
             this.newProduct = product;
@@ -403,8 +446,16 @@ var section = new Vue({
             this.getProducts();
             this.createProductBlock = false;
         },
+        saveShop: function(){
+            this.updateShop(this.newProduct);
+            this.getShops();
+            this.createShopBlock = true;
+        },
         getProducts: function(options){
             console.log('get product list');
+        },
+        getShops: function(options){
+            console.log('get shop list');
         }
 
     },
