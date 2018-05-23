@@ -98,7 +98,7 @@
           </li>
           <li
                   @click="status = 11"
-                  :class="{ 'list-group-item-dark': status === 10 }"
+                  :class="{ 'list-group-item-dark': status === 11 }"
                   class="list-group-item list-group-item-action lead">Таблица размеров
           </li>
         </ul>
@@ -1600,7 +1600,7 @@
         <div v-if="status === 7" class="section_wrapper">
           <div class="row filter_option">
             <div class="col-1">
-              <div class="btn btn-primary">Добавить Категорию</div>
+              <div @click="createCategory" class="btn btn-primary">Добавить Категорию</div>
             </div>
             <div class="col-3 offset-1">
               <div class="input-group mb-3">
@@ -1616,8 +1616,8 @@
                 </select>
               </div>
             </div>
-            <div class="col-2 offset-1">
-              <div class="btn btn-primary">Добавить Секцию</div>
+            <div class="col-2 ">
+              <div @click="createSection" class="btn btn-primary">Добавить Секцию</div>
             </div>
             <div class="col-2">
               <div class="input-group mb-3">
@@ -1625,22 +1625,221 @@
                   <label class="input-group-text" for="inputGroupSelect02">Секция</label>
                 </div>
                 <select class="custom-select">
-                  <option selected>Все</option>
-                  <option value="1">Section 1</option>
-                  <option value="2">Long name section</option>
-                  <option value="3">Short name</option>
-                  <option value="3">Men</option>
-                  <option value="3">Women</option>
+                  <option @click="sectionStatus = 0" selected>Все</option>
+                    <template v-for="section in sections">
+                  <option @click="sectionStatus = section.id" value="section.id">{{ section.title }}</option>
+                    </template>
                 </select>
               </div>
             </div>
             <div class="col-2">
-              <div class="btn btn-danger">Удалить выбраную секцию</div>
+              <div v-if="sectionStatus != 0" class="btn btn-outline-warning">Редактировать выбраную секцию</div>
             </div>
           </div>
-          <div class="row">
             <div class="col-12">
-              <table class="table  table-striped table-hover structure_table">
+              <div v-if="createStructureBlock === 1" class="row">
+                <div class="new_product_controls">
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                      <div class="col-4" style="padding-left: 0">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect02">Секция</label>
+                              </div>
+                              <select class="custom-select" v-model="newCategory.sectionId" @change="chooseSection">
+                                  <template v-for="section in sections">
+                                      <option  :value="section.id">{{ section.title }}</option>
+                                  </template>
+                              </select>
+                          </div>
+                      </div>
+                    <div class="col-7" >
+
+                      <div v-if="newCategory.id != 0" class="btn-group mr-2 offset-1" role="group"
+                           aria-label="Second group">
+                        <button type="button" class="btn btn-info">Посмотреть</button>
+                        <button @click="newCategory.published = !newCategory.published"
+                                v-if="!newCategory.published" type="button"
+                                class="btn btn-success">
+                          Публиковать
+                        </button>
+                        <button @click="newCategory.published = !newCategory.published"
+                                v-if="newCategory.published" type="button"
+                                class="btn btn-secondary">
+                          Скрыть
+                        </button>
+                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
+                                v-if="!newCategory.deleted" class="btn btn-outline-danger">
+                          Удалить
+                        </button>
+                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
+                                v-if="newCategory.deleted" class="btn btn-outline-success">
+                          Востановить
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="btn-group offset-1" role="group" aria-label="Third group">
+                        <button type="button" @click="saveCategory" class="btn btn-primary">
+                          Сохранить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product_section_wrapper">
+                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="article_name">Название</span>
+                            </div>
+                            <input name="article_name" type="text" class="form-control"
+                                   v-model="newCategory.title"
+                                   placeholder="Название"
+                                   aria-label="Название"
+                                   aria-describedby="basic-addon1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-4">
+                          <figure class="figure new_product_ilu">
+                            <img v-show="newCategory.illustration" alt="Основное фото товара"
+                                 class="img-thumbnail" :src="newCategory.illustration">
+                            <img v-show="!newCategory.illustration" src="/static/iconic/svg/aperture.svg"
+                                 alt="Загрузите фото" class="img-thumbnail">
+                            <figcaption class="figure-caption">Илюстрация</figcaption>
+                          </figure>
+                          <div class="input-group mb-3 product_upload_image">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Загрузить</span>
+                            </div>
+                            <div class="custom-file">
+                              <input @change="previewCategoryImg" type="file"
+                                     class="custom-file-input" id="inputGroupFile001">
+                              <label class="custom-file-label" for="inputGroupFile001">
+                                Выбрать файл </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-8">
+                          <div class="row">
+
+                            <div class="input-group col-12">
+                              Описание:
+                              <ckeditor type="classic" v-model="newCategory.description"></ckeditor>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--</div>-->
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div v-if="createStructureBlock === 2" class="row">
+                <div class="new_product_controls">
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                      <div class="col-4" style="padding-left: 0">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect02">Секция</label>
+                              </div>
+                              <select class="custom-select" v-model="newCategory.sectionId" @change="chooseSection">
+                                  <template v-for="section in sections">
+                                      <option  :value="section.id">{{ section.title }}</option>
+                                  </template>
+                              </select>
+                          </div>
+                      </div>
+                    <div class="col-7" >
+
+                      <div v-if="newCategory.id != 0" class="btn-group mr-2 offset-1" role="group"
+                           aria-label="Second group">
+                        <button type="button" class="btn btn-info">Посмотреть</button>
+                        <button @click="newCategory.published = !newCategory.published"
+                                v-if="!newCategory.published" type="button"
+                                class="btn btn-success">
+                          Публиковать
+                        </button>
+                        <button @click="newCategory.published = !newCategory.published"
+                                v-if="newCategory.published" type="button"
+                                class="btn btn-secondary">
+                          Скрыть
+                        </button>
+                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
+                                v-if="!newCategory.deleted" class="btn btn-outline-danger">
+                          Удалить
+                        </button>
+                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
+                                v-if="newCategory.deleted" class="btn btn-outline-success">
+                          Востановить
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="btn-group offset-1" role="group" aria-label="Third group">
+                        <button type="button" @click="saveCategory" class="btn btn-primary">
+                          Сохранить
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product_section_wrapper">
+                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="article_name">Название</span>
+                            </div>
+                            <input name="article_name" type="text" class="form-control"
+                                   v-model="newCategory.title"
+                                   placeholder="Название"
+                                   aria-label="Название"
+                                   aria-describedby="basic-addon1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-4">
+                          <figure class="figure new_product_ilu">
+                            <img v-show="newCategory.illustration" alt="Основное фото товара"
+                                 class="img-thumbnail" :src="newCategory.illustration">
+                            <img v-show="!newCategory.illustration" src="/static/iconic/svg/aperture.svg"
+                                 alt="Загрузите фото" class="img-thumbnail">
+                            <figcaption class="figure-caption">Илюстрация</figcaption>
+                          </figure>
+                          <div class="input-group mb-3 product_upload_image">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Загрузить</span>
+                            </div>
+                            <div class="custom-file">
+                              <input @change="previewCategoryImg" type="file"
+                                     class="custom-file-input" id="inputGroupFile001">
+                              <label class="custom-file-label" for="inputGroupFile001">
+                                Выбрать файл </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-8">
+                          <div class="row">
+
+                            <div class="input-group col-12">
+                              Описание:
+                              <ckeditor type="classic" v-model="newCategory.description"></ckeditor>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--</div>-->
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <table v-if="createStructureBlock === 0" class="table  table-striped table-hover structure_table">
                 <thead class="thead-dark">
                 <tr class="structure_table_header">
                   <th scope="col">#</th>
@@ -1654,7 +1853,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="structure" v-for="category in categories">
+                <tr class="structure" v-for="category in categories" v-if="sectionStatus === 0 || sectionStatus === category.sectionId">
                   <th scope="row">{{ category.id }}</th>
                   <td>
                     <div class="custom-control mr-sm-2 dark">
@@ -1677,21 +1876,21 @@
                   <td>
                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info">Смотреть</button>
-                      <button type="button" class="btn btn-warning">Редактировать</button>
-                      <button v-if="!category.published" type="button" class="btn btn-success">
+                      <button @click="changeCategory(category)" type="button" class="btn btn-warning">Редактировать</button>
+                      <button @click="category.published = !category.published" v-if="!category.published" type="button" class="btn btn-success">
                         Публиковать
                       </button>
-                      <button v-if="category.published" type="button" class="btn btn-secondary">
+                      <button @click="category.published = !category.published" v-if="category.published" type="button" class="btn btn-secondary">
                         Скрыть
                       </button>
-                      <button type="button" class="btn btn-danger">Удалить</button>
+                      <button v-if="!category.deleted" @click="deleteCategory(category)" type="button" class="btn btn-danger">Удалить</button>
+                      <button v-if="category.deleted" @click="deleteCategory(category)" type="button" class="btn btn-outline-success">Востановить</button>
                     </div>
                   </td>
                 </tr>
                 </tbody>
               </table>
             </div>
-          </div>
         </div>
         <!--todo Страницы-->
         <div v-if="status === 8" class="section_wrapper">

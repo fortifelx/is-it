@@ -35,7 +35,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#section',
     data: {
-        status : 6,
+        status : 7,
         filter: 0,
         activeSection: 1,
         createProductBlock: false,
@@ -47,7 +47,9 @@ new Vue({
         newProductStatus: 1,
         newShopStatus: 1,
         newArticleStatus: 1,
-
+        newCommentStatus: 1,
+        sectionStatus: 0,
+        createStructureBlock: 0,
         newProduct: {
             id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
             colors: [3,4,5], sizes: [1,2,3], activeOptions: [1,2,3], description: '', categoryId: 22,
@@ -88,6 +90,8 @@ new Vue({
         },
         newArticle:{id:0, img: "", published: false, deleted: false, title: "", description: "Здесь краткое описание", content: "Здесь текст статьи", views: 0, like: 0, shares: 0, tags: 0, create_date: '', published_date: ''},
         articleTemplate:{id:0, img: "", published: false, deleted: false, title: "", description: "Здесь краткое описание", content: "Здесь текст статьи", views: 0, like: 0, shares: 0, tags: 0, create_date: '', published_date: ''},
+        newCategory:{ id: 0, published: false, illustration: '', sectionId: 0, title: '', description: '', deleted: false},
+        categoryTemplate: {id: 0, published: false, illustration: '', sectionId: 0, title: '', description: '', deleted: false},
         products : [
             { id: 1, img: '/static/img/goods/1.jpg', price: 600, sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223, 543], name: 'Комплект "ковбой"', description: '', categoryId: 6, brand:'Dolge Gabana', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: [0, 2, 3], images: [
                     { id: 0, url: '/static/img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -217,38 +221,38 @@ new Vue({
             { id: 7, published: true, description:'section description, give short description about section', title: 'Украшения'},
         ],
         categories: [
-            { id: 1, published: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Верхняя одежда', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 2, published: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Толстовки и худи', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 3, published: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Свитеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 4, published: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Топы и рубашки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 5, published: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Платья', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 6, published: true, illustration: '/static/img/categories/cat2.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Забота о себе', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 7, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Брюки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 8, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Свитеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 9, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Рубашки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 10, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Верхняя одежда', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 11, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Обувь', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 12, published: false, illustration: '/static/img/categories/cat4.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Домашний декор', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 13, published: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Сумки, рюкзаки и кошельки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 15, published: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Головные уборы', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 16, published: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Очки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 17, published: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Ремни', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 18, published: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Галстуки и запонки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 19, published: true, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Колье', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 20, published: true, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Кулоны и цепочки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 21, published: true, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Чокеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 22, published: true, illustration: '/static/img/categories/cat7.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'section description, give short description about section', title: 'Юбки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 23, published: true, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Бакалея', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 24, published: true, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Сладости и снеки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 25, published: true, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Масла, соусы и специи', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 26, published: false, illustration: '/static/img/categories/cat2.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Обувь для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 27, published: false, illustration: '/static/img/categories/cat2.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Обувь для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 28, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Наматрасники', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 29, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Аксесуары', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 30, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для девочек', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 31, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для младенцев', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 32, published: true, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
-            { id: 33, published: false, illustration: '/static/img/categories/cat7.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Аксесуары для електроники', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 1, published: true, deleted: false, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Верхняя одежда', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 2, published: true, deleted: true, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Толстовки и худи', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 3, published: true, deleted: false, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Свитеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 4, published: true, deleted: false, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Топы и рубашки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 5, published: true, deleted: false, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Платья', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 6, published: true, deleted: false, illustration: '/static/img/categories/cat2.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Забота о себе', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 7, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Брюки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 8, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Свитеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 9, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Рубашки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 10, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Верхняя одежда', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 11, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 2, sectionName: 'Мужчинам', sectionDescription:'Одежда и обувь для мужчин', title: 'Обувь', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 12, published: false, deleted: false, illustration: '/static/img/categories/cat4.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Домашний декор', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 13, published: false, deleted: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Сумки, рюкзаки и кошельки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 15, published: false, deleted: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Головные уборы', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 16, published: false, deleted: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Очки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 17, published: false, deleted: false, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Ремни', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 18, published: false, deleted: true, illustration: '/static/img/categories/cat5.jpg', sectionId: 4, sectionName: 'Аксесуары', sectionDescription:'section description, give short description about section', title: 'Галстуки и запонки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 19, published: true, deleted: false, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Колье', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 20, published: true, deleted: false, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Кулоны и цепочки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 21, published: true, deleted: true, illustration: '/static/img/categories/cat6.jpg', sectionId: 7, sectionName: 'Украшения', sectionDescription:'section description, give short description about section', title: 'Чокеры', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 22, published: true, deleted: false, illustration: '/static/img/categories/cat7.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'section description, give short description about section', title: 'Юбки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 23, published: true, deleted: false, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Бакалея', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 24, published: true, deleted: true, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Сладости и снеки', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 25, published: true, deleted: false, illustration: '/static/img/categories/cat8.jpg', sectionId: 6, sectionName: 'Еда и напитки', sectionDescription:'section description, give short description about section', title: 'Масла, соусы и специи', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 26, published: false, deleted: false, illustration: '/static/img/categories/cat2.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Обувь для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 27, published: false, deleted: true, illustration: '/static/img/categories/cat2.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Обувь для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 28, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Наматрасники', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 29, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Аксесуары', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 30, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для девочек', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 31, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для младенцев', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 32, published: true, deleted: false, illustration: '/static/img/categories/cat3.jpg', sectionId: 3, sectionName: 'Детям', sectionDescription:'Все для детей и младенцев', title: 'Одежда для мальчиков', description: 'Category description give as short description about category, and about its goods and maybe something else '},
+            { id: 33, published: false, deleted: false, illustration: '/static/img/categories/cat7.jpg', sectionId: 5, sectionName: 'Дом и быт', sectionDescription:'Все для дома', title: 'Аксесуары для електроники', description: 'Category description give as short description about category, and about its goods and maybe something else '},
 
         ],
         colors: [
@@ -351,6 +355,19 @@ new Vue({
                 reader.readAsDataURL(input.files[0]);
             }
         },
+        previewCategoryImg: function(event) {
+            var input = event.target;
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                var vm = this;
+                reader.onload = function(e) {
+                    vm.newCategory.illustration = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
         showThumbnail: function(event) {
             var input = event.target;
             var reader = [];
@@ -399,16 +416,24 @@ new Vue({
         updateArticle: function(article){
             console.log('send article data to server');
         },
-        updateComment: function(article){
+        updateComment: function(comment){
             console.log('send article data to server');
+        },
+        updateCategory: function(category){
+            category = this.newCategory;
+            console.log('send category data to server');
         },
         deleteProduct: function(product){
             product.deleted = !product.deleted;
             this.updateProduct(product);
         },
         deleteArticle: function(article){
-            article.deleted = !product.article;
+            article.deleted = !article.deleted;
             this.updateArticle(article);
+        },
+        deleteCategory: function(category){
+            category.deleted = !category.deleted;
+            this.updateCategory(category);
         },
         publishProduct: function(product){
             product.published = !product.published;
@@ -442,6 +467,10 @@ new Vue({
             this.newShop = this.shopTemplate;
             this.createShopBlock = true;
         },
+        createCategory: function(){
+            this.newCategory = this.categoryTemplate;
+            this.createStructureBlock = 1;
+        },
         changeProduct: function(product){
             this.newProduct = product;
             for(var i = 0; i < this.categories.length; i++){
@@ -459,6 +488,10 @@ new Vue({
             this.newArticle = article;
             this.createArticleBlock = true;
         },
+        changeCategory: function(category){
+            this.newCategory = category;
+            this.createStructureBlock = 1;
+        },
         saveProduct: function(){
             this.updateProduct(this.newProduct);
             this.getProducts();
@@ -474,6 +507,11 @@ new Vue({
             this.getArticles();
             this.createArticleBlock = false;
         },
+        saveCategory: function(){
+            this.updateCategory(this.newCategory);
+            this.getCategorys();
+            this.createStructureBlock = 0;
+        },
         getProducts: function(options){
             console.log('get product list');
         },
@@ -482,6 +520,20 @@ new Vue({
         },
         getArticles: function(options){
             console.log('get article list');
+        },
+        getCategorys: function(options){
+            console.log('get category list');
+        },
+        chooseSection: function(){
+            var category = this.newCategory;
+            var sections = this.sections;
+            var sectionID = category.sectionId;
+            for(var i = 0; i < this.sections.length; i++){
+                if(sections[i].id == sectionID){
+                    category.sectionName = sections[i].title;
+                    category.sectionDescription = sections[i].description;
+                }
+            }
         },
 
     },
