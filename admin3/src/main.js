@@ -48,7 +48,7 @@ new Vue({
         newShopStatus: 1,
         newArticleStatus: 1,
         newCommentStatus: 1,
-        sectionStatus: 0,
+        sectionStatus: { id: 0 },
         createStructureBlock: 0,
         newProduct: {
             id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
@@ -92,6 +92,8 @@ new Vue({
         articleTemplate:{id:0, img: "", published: false, deleted: false, title: "", description: "Здесь краткое описание", content: "Здесь текст статьи", views: 0, like: 0, shares: 0, tags: 0, create_date: '', published_date: ''},
         newCategory:{ id: 0, published: false, illustration: '', sectionId: 0, title: '', description: '', deleted: false},
         categoryTemplate: {id: 0, published: false, illustration: '', sectionId: 0, title: '', description: '', deleted: false},
+        newSection: { id: 0, published: false, description:'', title: '', deleted: false},
+        sectionTemplate: { id: 0, published: false, description:'', title: '', deleted: false},
         products : [
             { id: 1, img: '/static/img/goods/1.jpg', price: 600, sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223, 543], name: 'Комплект "ковбой"', description: '', categoryId: 6, brand:'Dolge Gabana', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: [0, 2, 3], images: [
                     { id: 0, url: '/static/img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -212,13 +214,13 @@ new Vue({
             { id: 36, published: true, avatar: '/static/img/users/avatar5.png', name: 'Мрийна Елена', instagram: 'в разработку', productImg:'/static/img/goods/1.jpg', productName: 'Комплект "ковбой"', productPrice: 600, productRating: 3, productLike: 512, productShop: 'Техас и джинсы', rating: 4, date: '08/03/2018', content: 'Самый отличный комплект за такую цену, подходит для всего, просто универсал'},
         ],
         sections: [
-            { id: 1, published: true, description:'Одежда и обувь для женщин', title: 'Женщинам'},
-            { id: 2, published: true, description:'Одежда и обувь для мужчин', title: 'Мужчинам'},
-            { id: 3, published: true, description:'Все для детей и младенцев', title: 'Детям'},
-            { id: 4, published: false, description:'section description, give short description about section', title: 'Аксесуары'},
-            { id: 5, published: false, description:'Все для дома', title: 'Дом и быт'},
-            { id: 6, published: true, description:'section description, give short description about section', title: 'Еда и напитки'},
-            { id: 7, published: true, description:'section description, give short description about section', title: 'Украшения'},
+            { id: 1, published: true, description:'Одежда и обувь для женщин', title: 'Женщинам', deleted: false},
+            { id: 2, published: true, description:'Одежда и обувь для мужчин', title: 'Мужчинам', deleted: false},
+            { id: 3, published: true, description:'Все для детей и младенцев', title: 'Детям', deleted: false},
+            { id: 4, published: false, description:'section description, give short description about section', title: 'Аксесуары', deleted: false},
+            { id: 5, published: false, description:'Все для дома', title: 'Дом и быт', deleted: false},
+            { id: 6, published: true, description:'section description, give short description about section', title: 'Еда и напитки', deleted: false},
+            { id: 7, published: true, description:'section description, give short description about section', title: 'Украшения', deleted: false},
         ],
         categories: [
             { id: 1, published: true, deleted: false, illustration: '/static/img/categories/cat1.jpg', sectionId: 1, sectionName: 'Женщинам', sectionDescription:'Одежда и обувь для женщин', title: 'Верхняя одежда', description: 'Category description give as short description about category, and about its goods and maybe something else '},
@@ -273,7 +275,7 @@ new Vue({
             { id: 4, name: 'SL', description: 'some description', published: true },
             { id: 5, name: 'XL', description: 'description for size', published: true },
             { id: 6, name: 'XXL', description: 'description', published: true }
-        ]
+        ],
 
     },
     methods: {
@@ -435,6 +437,10 @@ new Vue({
             category.deleted = !category.deleted;
             this.updateCategory(category);
         },
+        deleteSection: function(section){
+            section.deleted = !section.deleted;
+            this.updateCategory(section);
+        },
         publishProduct: function(product){
             product.published = !product.published;
             this.updateProduct(product);
@@ -455,6 +461,14 @@ new Vue({
             shop.published = !shop.published;
             this.updateProduct(shop);
         },
+        publishCategory: function(category){
+            category.published = !category.published;
+            this.updateCategory(category);
+        },
+        publishSection: function(section){
+            section.published = !section.published;
+            this.updateSection(section);
+        },
         createProduct: function(){
             this.newProduct = this.productTemplate;
             this.createProductBlock = true;
@@ -470,6 +484,10 @@ new Vue({
         createCategory: function(){
             this.newCategory = this.categoryTemplate;
             this.createStructureBlock = 1;
+        },
+        createSection: function(){
+            this.newSection = this.sectionTemplate;
+            this.createStructureBlock = 2;
         },
         changeProduct: function(product){
             this.newProduct = product;
@@ -492,6 +510,14 @@ new Vue({
             this.newCategory = category;
             this.createStructureBlock = 1;
         },
+        changeSection: function(section){
+            if(section === false) {
+                this.newSection = this.sectionStatus;
+            } else {
+                this.newSection = section;
+            }
+            this.createStructureBlock = 2;
+        },
         saveProduct: function(){
             this.updateProduct(this.newProduct);
             this.getProducts();
@@ -512,6 +538,11 @@ new Vue({
             this.getCategorys();
             this.createStructureBlock = 0;
         },
+        saveSection: function(){
+            this.updateSection(this.newSection);
+            this.getSections();
+            this.createStructureBlock = 0;
+        },
         getProducts: function(options){
             console.log('get product list');
         },
@@ -523,6 +554,9 @@ new Vue({
         },
         getCategorys: function(options){
             console.log('get category list');
+        },
+        getSections: function(options){
+            console.log('get sections list');
         },
         chooseSection: function(){
             var category = this.newCategory;

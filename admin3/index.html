@@ -1625,15 +1625,15 @@
                   <label class="input-group-text" for="inputGroupSelect02">Секция</label>
                 </div>
                 <select class="custom-select">
-                  <option @click="sectionStatus = 0" selected>Все</option>
+                  <option @click="sectionStatus.id = 0" selected>Все</option>
                     <template v-for="section in sections">
-                  <option @click="sectionStatus = section.id" value="section.id">{{ section.title }}</option>
+                  <option @click="sectionStatus = section" value="section.id">{{ section.title }}</option>
                     </template>
                 </select>
               </div>
             </div>
             <div class="col-2">
-              <div v-if="sectionStatus != 0" class="btn btn-outline-warning">Редактировать выбраную секцию</div>
+              <div v-if="sectionStatus.id != 0" @click="changeSection(false)" class="btn btn-outline-warning">Редактировать выбраную секцию</div>
             </div>
           </div>
             <div class="col-12">
@@ -1739,41 +1739,41 @@
                 </div>
               </div>
               <div v-if="createStructureBlock === 2" class="row">
-                <div class="new_product_controls">
+                <div class="new_product_controls col-12">
                   <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                       <div class="col-4" style="padding-left: 0">
                           <div class="input-group mb-3">
                               <div class="input-group-prepend">
                                   <label class="input-group-text" for="inputGroupSelect02">Секция</label>
                               </div>
-                              <select class="custom-select" v-model="newCategory.sectionId" @change="chooseSection">
+                              <select class="custom-select" v-model="newSection">
                                   <template v-for="section in sections">
-                                      <option  :value="section.id">{{ section.title }}</option>
+                                      <option @click="changeSection(section)"  :value="section">{{ section.title }}</option>
                                   </template>
                               </select>
                           </div>
                       </div>
                     <div class="col-7" >
 
-                      <div v-if="newCategory.id != 0" class="btn-group mr-2 offset-1" role="group"
+                      <div v-if="newSection.id != 0" class="btn-group mr-2 offset-1" role="group"
                            aria-label="Second group">
                         <button type="button" class="btn btn-info">Посмотреть</button>
-                        <button @click="newCategory.published = !newCategory.published"
-                                v-if="!newCategory.published" type="button"
+                        <button @click="newSection.published = !newSection.published"
+                                v-if="!newSection.published" type="button"
                                 class="btn btn-success">
                           Публиковать
                         </button>
-                        <button @click="newCategory.published = !newCategory.published"
-                                v-if="newCategory.published" type="button"
+                        <button @click="newSection.published = !newSection.published"
+                                v-if="newSection.published" type="button"
                                 class="btn btn-secondary">
                           Скрыть
                         </button>
-                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
-                                v-if="!newCategory.deleted" class="btn btn-outline-danger">
+                        <button @click="newSection.deleted = !newSection.deleted" type="button"
+                                v-if="!newSection.deleted" class="btn btn-outline-danger">
                           Удалить
                         </button>
-                        <button @click="newCategory.deleted = !newCategory.deleted" type="button"
-                                v-if="newCategory.deleted" class="btn btn-outline-success">
+                        <button @click="newSection.deleted = !newSection.deleted" type="button"
+                                v-if="newSection.deleted" class="btn btn-outline-success">
                           Востановить
                         </button>
                       </div>
@@ -1786,16 +1786,17 @@
                       </div>
                     </div>
                   </div>
-                  <div class="product_section_wrapper">
+                </div>
+                  <div class="product_section_wrapper col-12">
                     <form class="create_product_form" enctype="multipart/form-data" method="post">
                       <div class="row">
-                        <div class="col-12">
+                        <div class="col-8">
                           <div class="input-group mb-3">
                             <div class="input-group-prepend">
                               <span class="input-group-text" id="article_name">Название</span>
                             </div>
                             <input name="article_name" type="text" class="form-control"
-                                   v-model="newCategory.title"
+                                   v-model="newSection.title"
                                    placeholder="Название"
                                    aria-label="Название"
                                    aria-describedby="basic-addon1">
@@ -1803,32 +1804,12 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-4">
-                          <figure class="figure new_product_ilu">
-                            <img v-show="newCategory.illustration" alt="Основное фото товара"
-                                 class="img-thumbnail" :src="newCategory.illustration">
-                            <img v-show="!newCategory.illustration" src="/static/iconic/svg/aperture.svg"
-                                 alt="Загрузите фото" class="img-thumbnail">
-                            <figcaption class="figure-caption">Илюстрация</figcaption>
-                          </figure>
-                          <div class="input-group mb-3 product_upload_image">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">Загрузить</span>
-                            </div>
-                            <div class="custom-file">
-                              <input @change="previewCategoryImg" type="file"
-                                     class="custom-file-input" id="inputGroupFile001">
-                              <label class="custom-file-label" for="inputGroupFile001">
-                                Выбрать файл </label>
-                            </div>
-                          </div>
-                        </div>
                         <div class="col-8">
                           <div class="row">
 
                             <div class="input-group col-12">
                               Описание:
-                              <ckeditor type="classic" v-model="newCategory.description"></ckeditor>
+                              <ckeditor type="classic" v-model="newSection.description"></ckeditor>
                             </div>
                           </div>
                         </div>
@@ -1837,7 +1818,7 @@
                       <!--</div>-->
                     </form>
                   </div>
-                </div>
+
               </div>
               <table v-if="createStructureBlock === 0" class="table  table-striped table-hover structure_table">
                 <thead class="thead-dark">
@@ -1853,7 +1834,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="structure" v-for="category in categories" v-if="sectionStatus === 0 || sectionStatus === category.sectionId">
+                <tr class="structure" v-for="category in categories" v-if="sectionStatus.id === 0 || sectionStatus.id === category.sectionId">
                   <th scope="row">{{ category.id }}</th>
                   <td>
                     <div class="custom-control mr-sm-2 dark">
