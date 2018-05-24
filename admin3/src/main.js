@@ -35,7 +35,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#section',
     data: {
-        status : 7,
+        status : 8,
         filter: 0,
         activeSection: 1,
         createProductBlock: false,
@@ -50,6 +50,7 @@ new Vue({
         newCommentStatus: 1,
         sectionStatus: { id: 0 },
         createStructureBlock: 0,
+        createFilterBlock: 0,
         newProduct: {
             id: 0, img: false, price: 0, name: '', shop: '', brand:'', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 0, like: 0, published: false, deleted: false,
             colors: [3,4,5], sizes: [1,2,3], activeOptions: [1,2,3], description: '', categoryId: 22,
@@ -94,6 +95,10 @@ new Vue({
         categoryTemplate: {id: 0, published: false, illustration: '', sectionId: 0, title: '', description: '', deleted: false},
         newSection: { id: 0, published: false, description:'', title: '', deleted: false},
         sectionTemplate: { id: 0, published: false, description:'', title: '', deleted: false},
+        newColor: { id: 0, name: '', code: '', published: false , deleted: false },
+        colorTemplate: { id: 0, name: '', code: '', published: false , deleted: false },
+        newSize: { id: 1, name: 'S', description: 'описание/пояснение размера', published: false, deleted: false },
+        sizeTemplate: { id: 0, name: '', description: 'описание/пояснение размера', published: false, deleted: false },
         products : [
             { id: 1, img: '/static/img/goods/1.jpg', price: 600, sizePrices: [100, 200, 345,,200], colorPrices: [0, 120,222], optionPrices: [0, 220,223, 543], name: 'Комплект "ковбой"', description: '', categoryId: 6, brand:'Dolge Gabana', shop: 'Техас и джинсы', optionsName: 'Материал', options: ['100% шерсть', '50/50 шерсть/синтетика', '100% синтетика', 'Кожа', 'Эко-кожа'], rating: 3, like: 223, published: true, colors: [2,3,4], sizes: [1,2,3,4], activeOptions: [0, 2, 3], images: [
                     { id: 0, url: '/static/img/newProduct/black.jpg', colors: [3], sizes: [1,2,3,4], options: [1], published: true, deleted: false},
@@ -258,23 +263,23 @@ new Vue({
 
         ],
         colors: [
-            { id: 1, name: 'Red', code: 'red', categories: '', published: true },
-            { id: 2, name: 'Green', code: 'green', published: true },
-            { id: 3, name: 'Black', code: 'black', published: false },
-            { id: 4, name: 'Purple', code: 'purple', published: false },
-            { id: 5, name: 'Gray', code: 'grey', published: false },
-            { id: 6, name: 'White', code: 'white', published: false },
-            { id: 7, name: 'Blue', code: 'blue', published: false },
-            { id: 8, name: 'Yellow', code: 'yellow', published: true },
-            { id: 9, name: 'Brown', code: 'brown', published: true },
+            { id: 1, name: 'Red', code: 'red', published: true, deleted: false},
+            { id: 2, name: 'Green', code: 'green', published: true, deleted: false },
+            { id: 3, name: 'Black', code: 'black', published: false, deleted: false },
+            { id: 4, name: 'Purple', code: 'purple', published: false, deleted: false },
+            { id: 5, name: 'Gray', code: 'grey', published: false, deleted: false },
+            { id: 6, name: 'White', code: 'white', published: false, deleted: false },
+            { id: 7, name: 'Blue', code: 'blue', published: false, deleted: false },
+            { id: 8, name: 'Yellow', code: 'yellow', published: true, deleted: false },
+            { id: 9, name: 'Brown', code: 'brown', published: true, deleted: false },
         ],
         sizes: [
-            { id: 1, name: 'S', description: 'description for size', published: true },
-            { id: 2, name: 'L', description: 'some description', published: true },
-            { id: 3, name: 'XS', description: 'description' },
-            { id: 4, name: 'SL', description: 'some description', published: true },
-            { id: 5, name: 'XL', description: 'description for size', published: true },
-            { id: 6, name: 'XXL', description: 'description', published: true }
+            { id: 1, name: 'S', description: 'description for size', published: true, deleted: false },
+            { id: 2, name: 'L', description: 'some description', published: true, deleted: false },
+            { id: 3, name: 'XS', description: 'description', published: false, deleted: false },
+            { id: 4, name: 'SL', description: 'some description', published: true, deleted: false },
+            { id: 5, name: 'XL', description: 'description for size', published: true, deleted: false },
+            { id: 6, name: 'XXL', description: 'description', published: true, deleted: false }
         ],
 
     },
@@ -425,6 +430,14 @@ new Vue({
             category = this.newCategory;
             console.log('send category data to server');
         },
+        updateColor: function(color){
+            color = this.newColor;
+            console.log('send category data to server');
+        },
+        updateSize: function(size){
+            size = this.newSize;
+            console.log('send size data to server');
+        },
         deleteProduct: function(product){
             product.deleted = !product.deleted;
             this.updateProduct(product);
@@ -440,6 +453,14 @@ new Vue({
         deleteSection: function(section){
             section.deleted = !section.deleted;
             this.updateCategory(section);
+        },
+        deleteColor: function(color){
+            color.deleted = !color.deleted;
+            this.updateColor(color);
+        },
+        deleteSize: function(size){
+            size.deleted = !size.deleted;
+            this.updateSize(size);
         },
         publishProduct: function(product){
             product.published = !product.published;
@@ -469,6 +490,14 @@ new Vue({
             section.published = !section.published;
             this.updateSection(section);
         },
+        publishColor: function(color){
+            color.published = !color.published;
+            this.updateColor(color);
+        },
+        publishSize: function(size){
+            size.published = !size.published;
+            this.updateSize(size);
+        },
         createProduct: function(){
             this.newProduct = this.productTemplate;
             this.createProductBlock = true;
@@ -488,6 +517,14 @@ new Vue({
         createSection: function(){
             this.newSection = this.sectionTemplate;
             this.createStructureBlock = 2;
+        },
+        createColor: function(){
+            this.newColor = this.colorTemplate;
+            this.createFilterBlock = 1;
+        },
+        createSize: function(){
+            this.newSize = this.sizeTemplate;
+            this.createFilterBlock = 2;
         },
         changeProduct: function(product){
             this.newProduct = product;
@@ -518,6 +555,14 @@ new Vue({
             }
             this.createStructureBlock = 2;
         },
+        changeColor: function(color){
+            this.newColor = color;
+            this.createFilterBlock = 1;
+        },
+        changeSize: function(size){
+            this.newSize = size;
+            this.createFilterBlock = 2;
+        },
         saveProduct: function(){
             this.updateProduct(this.newProduct);
             this.getProducts();
@@ -543,6 +588,16 @@ new Vue({
             this.getSections();
             this.createStructureBlock = 0;
         },
+        saveColor: function(){
+            this.updateColor(this.newColor);
+            this.getColors();
+            this.createFilterBlock = 0;
+        },
+        saveSize: function(){
+            this.updateSize(this.newSize);
+            this.getSizes();
+            this.createFilterBlock = 0;
+        },
         getProducts: function(options){
             console.log('get product list');
         },
@@ -557,6 +612,12 @@ new Vue({
         },
         getSections: function(options){
             console.log('get sections list');
+        },
+        getColors: function(options){
+            console.log('get colors list');
+        },
+        getSizes: function(options){
+            console.log('get sizes list');
         },
         chooseSection: function(){
             var category = this.newCategory;

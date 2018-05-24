@@ -1875,7 +1875,22 @@
         </div>
         <!--todo Страницы-->
         <div v-if="status === 8" class="section_wrapper">
-          <h1>Pages</h1>
+          <h1>Страницы</h1>
+            <div class="row">
+                <div class="col-12">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-outline-primary">О нас</button>
+                        <button type="button" class="btn btn-outline-primary">Помощь покупателям</button>
+                        <button type="button" class="btn btn-outline-primary">Как продавать</button>
+                        <button type="button" class="btn btn-outline-primary">Участие в офлайн-маркете</button>
+                        <button type="button" class="btn btn-outline-dark">Требования к магазинам</button>
+                        <button type="button" class="btn btn-outline-dark">Политика конфиденциальности</button>
+                        <button type="button" class="btn btn-outline-dark">Правила сайта</button>
+                        <button type="button" class="btn btn-outline-info">Контакты</button>
+                        <button type="button" class="btn btn-outline-info">Социальные сети</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <!--todo Заказы-->
         <div v-if="status === 9" class="section_wrapper">
@@ -1897,8 +1912,8 @@
               </div>
             </div>
             <div class="col-1">
-              <div v-if="filter == 0" class="btn btn-primary">Добавить Цвет</div>
-              <div v-if="filter == 1" class="btn btn-primary">Добавить Размер</div>
+              <div v-if="filter == 0" @click="createColor" class="btn btn-primary">Добавить Цвет</div>
+              <div v-if="filter == 1" @click="createSize" class="btn btn-primary">Добавить Размер</div>
             </div>
             <div class="col-3 offset-1">
               <div class="input-group mb-3">
@@ -1916,7 +1931,143 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-12">
+            <div v-if="createFilterBlock == 1" class="col-12">
+                  <div class="new_product_controls">
+                          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                              <div class="col-7" >
+                                  <div v-if="newColor.id != 0" class="btn-group mr-2 offset-1" role="group"
+                                       aria-label="Second group">
+                                      <button type="button" class="btn btn-info">Посмотреть</button>
+                                      <button @click="newColor.published = !newColor.published"
+                                              v-if="!newColor.published" type="button"
+                                              class="btn btn-success">
+                                          Публиковать
+                                      </button>
+                                      <button @click="newColor.published = !newColor.published"
+                                              v-if="newColor.published" type="button"
+                                              class="btn btn-secondary">
+                                          Скрыть
+                                      </button>
+                                      <button @click="newColor.deleted = !newColor.deleted" type="button"
+                                              v-if="!newColor.deleted" class="btn btn-outline-danger">
+                                          Удалить
+                                      </button>
+                                      <button @click="newColor.deleted = !newColor.deleted" type="button"
+                                              v-if="newColor.deleted" class="btn btn-outline-success">
+                                          Востановить
+                                      </button>
+                                  </div>
+                              </div>
+                              <div class="col-1">
+                                  <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                      <button type="button" @click="saveColor" class="btn btn-primary">
+                                          Сохранить
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="product_section_wrapper">
+                              <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                  <div class="row">
+                                      <div class="col-4">
+                                          <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="color_name">Название</span>
+                                              </div>
+                                              <input name="color_name" type="text" class="form-control"
+                                                     v-model="newColor.name"
+                                                     placeholder="Название"
+                                                     aria-label="Название"
+                                                     aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                      <div class="col-4">
+                                          <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="color_code">web код</span>
+                                              </div>
+                                              <input name="color_code" type="text" class="form-control"
+                                                     v-model="newColor.code"
+                                                     placeholder="Название"
+                                                     aria-label="Название"
+                                                     aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                  </div>
+
+              </div>
+            <div v-if="createFilterBlock == 2" class="col-12">
+                  <div class="new_product_controls">
+                          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                              <div class="col-7" >
+                                  <div v-if="newSize.id != 0" class="btn-group mr-2 offset-1" role="group"
+                                       aria-label="Second group">
+                                      <button type="button" class="btn btn-info">Посмотреть</button>
+                                      <button @click="newSize.published = !newSize.published"
+                                              v-if="!newSize.published" type="button"
+                                              class="btn btn-success">
+                                          Публиковать
+                                      </button>
+                                      <button @click="newSize.published = !newSize.published"
+                                              v-if="newSize.published" type="button"
+                                              class="btn btn-secondary">
+                                          Скрыть
+                                      </button>
+                                      <button @click="newSize.deleted = !newSize.deleted" type="button"
+                                              v-if="!newSize.deleted" class="btn btn-outline-danger">
+                                          Удалить
+                                      </button>
+                                      <button @click="newSize.deleted = !newSize.deleted" type="button"
+                                              v-if="newSize.deleted" class="btn btn-outline-success">
+                                          Востановить
+                                      </button>
+                                  </div>
+                              </div>
+                              <div class="col-1">
+                                  <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                      <button type="button" @click="saveSize" class="btn btn-primary">
+                                          Сохранить
+                                      </button>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="product_section_wrapper">
+                              <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                  <div class="row">
+                                      <div class="col-4">
+                                          <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="size_name">Название</span>
+                                              </div>
+                                              <input name="size_name" type="text" class="form-control"
+                                                     v-model="newSize.name"
+                                                     placeholder="Название"
+                                                     aria-label="Название"
+                                                     aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                      <div class="col-8">
+                                          <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                  <span class="input-group-text" id="size_description">Описание</span>
+                                              </div>
+                                              <input name="size_description" type="text" class="form-control"
+                                                     v-model="newSize.description"
+                                                     placeholder="Название"
+                                                     aria-label="Название"
+                                                     aria-describedby="basic-addon1">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                  </div>
+
+              </div>
+            <div v-if="createFilterBlock == 0" class="col-12">
               <table v-if="filter == 0" class="table  table-striped table-hover structure_table">
                 <thead class="thead-dark">
                 <tr class="structure_table_header">
@@ -1945,14 +2096,15 @@
                   <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info">Смотреть</button>
-                      <button type="button" class="btn btn-warning">Редактировать</button>
-                      <button v-if="!color.published" type="button" class="btn btn-success">
+                      <button @click="changeColor(color)" type="button" class="btn btn-warning">Редактировать</button>
+                      <button @click="color.published = !color.published"  v-if="!color.published" type="button" class="btn btn-success">
                         Публиковать
                       </button>
-                      <button v-if="color.published" type="button" class="btn btn-secondary">
+                      <button @click="color.published = !color.published" v-if="color.published" type="button" class="btn btn-secondary">
                         Скрыть
                       </button>
-                      <button type="button" class="btn btn-danger">Удалить</button>
+                      <button @click="color.deleted = !color.deleted" v-if="!color.deleted" type="button" class="btn btn-danger">Удалить</button>
+                      <button @click="color.deleted = !color.deleted" v-if="color.deleted" type="button" class="btn btn-outline-success">Востановить</button>
                     </div>
                   </td>
                 </tr>
@@ -1984,14 +2136,15 @@
                   <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-info">Смотреть</button>
-                      <button type="button" class="btn btn-warning">Редактировать</button>
-                      <button v-if="!size.published" type="button" class="btn btn-success">
+                      <button @click="changeSize(size)" type="button" class="btn btn-warning">Редактировать</button>
+                      <button @click="size.published = !size.published" v-if="!size.published" type="button" class="btn btn-success">
                         Публиковать
                       </button>
-                      <button v-if="size.published" type="button" class="btn btn-secondary">
+                      <button @click="size.published = !size.published" v-if="size.published" type="button" class="btn btn-secondary">
                         Скрыть
                       </button>
-                      <button type="button" class="btn btn-danger">Удалить</button>
+                      <button @click="size.deleted = !size.deleted" v-if="!size.deleted" type="button" class="btn btn-danger">Удалить</button>
+                      <button @click="size.deleted = !size.deleted" v-if="size.deleted" type="button" class="btn btn-outline-success">Востановить</button>
                     </div>
                   </td>
                 </tr>
