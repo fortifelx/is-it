@@ -877,7 +877,8 @@
                     </div>
 
                   </td>
-                  <td><img v-for="n in product.rating" src="/static/iconic/svg/star.svg" alt=""><br>
+                  <td class="product_likes_and_rating">
+                      <img v-for="n in product.rating" src="/static/iconic/svg/star.svg" alt=""><br>
                     {{ product.like }}<img src="/static/iconic/svg/thumb-up.svg" alt=""></td>
                   <td>
                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
@@ -1879,16 +1880,90 @@
             <div class="row">
                 <div class="col-12">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-outline-primary">О нас</button>
-                        <button type="button" class="btn btn-outline-primary">Помощь покупателям</button>
-                        <button type="button" class="btn btn-outline-primary">Как продавать</button>
-                        <button type="button" class="btn btn-outline-primary">Участие в офлайн-маркете</button>
-                        <button type="button" class="btn btn-outline-dark">Требования к магазинам</button>
-                        <button type="button" class="btn btn-outline-dark">Политика конфиденциальности</button>
-                        <button type="button" class="btn btn-outline-dark">Правила сайта</button>
-                        <button type="button" class="btn btn-outline-info">Контакты</button>
-                        <button type="button" class="btn btn-outline-info">Социальные сети</button>
+                        <button type="button" @click="pageStatus = 1" :class="[ {'btn-primary' : pageStatus == 1} , {'btn-outline-primary' : pageStatus != 1}  ]" class="btn " >О нас</button>
+                        <button type="button" @click="pageStatus = 2" :class="[ {'btn-primary' : pageStatus == 2} , {'btn-outline-primary' : pageStatus != 2}  ]" class="btn">Помощь покупателям</button>
+                        <button type="button" @click="pageStatus = 3" :class="[ {'btn-primary' : pageStatus == 3} , {'btn-outline-primary' : pageStatus != 3}  ]" class="btn">Требования к магазинам</button>
+                        <button type="button" @click="pageStatus = 4" :class="[ {'btn-primary' : pageStatus == 4} , {'btn-outline-primary' : pageStatus != 4}  ]" class="btn">Участие в офлайн-маркете</button>
+                        <button type="button" @click="pageStatus = 5" :class="[ {'btn-dark' : pageStatus == 5} , {'btn-outline-dark' : pageStatus != 5}  ]" class="btn">Как продавать</button>
+                        <button type="button" @click="pageStatus = 6" :class="[ {'btn-dark' : pageStatus == 6} , {'btn-outline-dark' : pageStatus != 6}  ]" class="btn">Политика конфиденциальности</button>
+                        <button type="button" @click="pageStatus = 7" :class="[ {'btn-dark' : pageStatus == 7} , {'btn-outline-dark' : pageStatus != 7}  ]" class="btn">Правила сайта</button>
+                        <button type="button" @click="pageStatus = 8" :class="[ {'btn-info' : pageStatus == 8} , {'btn-outline-info' : pageStatus != 8}  ]" class="btn">Контакты</button>
+                        <button type="button" @click="pageStatus = 9" :class="[ {'btn-info' : pageStatus == 9} , {'btn-outline-info' : pageStatus != 9}  ]" class="btn">Социальные сети</button>
                     </div>
+                </div>
+                <div class="col-12">
+                    <div v-if="pageStatus === 1" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[0].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[0].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[0].image">
+                                                    <img v-show="!pages[0].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[0].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <h5 style="margin: 20px 0;">S E O</h5>
+                                            <div @click="showInLog(pages[0].seo.title)" class="btn btn-outline-warning">LOG</div>
+                                            <seo v-model="pages[0].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
