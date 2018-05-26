@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2">
+            <div class="col-3">
                 <figure class="figure new_product_ilu">
                     <img v-show="value.image" alt="Основное фото товара"
                          class="img-thumbnail" :src="value.image">
@@ -63,8 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-10">
-                <div class="row">
+            <div class="col-9">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addonvideo">og.video</span>
@@ -77,7 +76,6 @@
                         </div>
                         <textarea ref="seoDescription" :value="value.description" @input="getData()" class="form-control" aria-label="With textarea"></textarea>
                     </div>
-                </div>
             </div>
             </div>
         </div>

@@ -811,7 +811,7 @@
 
                     </div>
                     <div v-show="newProductStatus === 4" class="product_section_wrapper">Отзывы</div>
-                    <div v-show="newProductStatus === 5" class="product_section_wrapper">SEO</div>
+                    <div v-show="newProductStatus === 5" class="product_section_wrapper"><seo v-model="newProduct.seo"></seo></div>
                   </div>
                 </form>
               </div>
@@ -1136,8 +1136,7 @@
                       </div>
                     </div>
                     <div v-show="newShopStatus === 4" class="product_section_wrapper">
-                      SEO
-                    </div>
+                        <seo v-model="newShop.seo"></seo>                    </div>
                     <div v-show="newShopStatus === 5" class="product_section_wrapper">Товары</div>
                   </div>
                 </form>
@@ -1453,7 +1452,7 @@
                       </div>
                     </div>
                     <div v-show="newArticleStatus === 3" class="product_section_wrapper">
-                      <h5>SEO</h5>
+                        <seo v-model="newArticle.seo"></seo>
                     </div>
                   </div>
                 </form>
@@ -1951,10 +1950,569 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12">
-                                            <h5 style="margin: 20px 0;">S E O</h5>
-                                            <div @click="showInLog(pages[0].seo.title)" class="btn btn-outline-warning">LOG</div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
                                             <seo v-model="pages[0].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 2" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[1].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[1].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[1].image">
+                                                    <img v-show="!pages[1].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[1].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[1].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 3" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[2].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[2].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[2].image">
+                                                    <img v-show="!pages[2].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[2].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[2].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 4" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[3].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[3].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[3].image">
+                                                    <img v-show="!pages[3].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[3].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[3].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 5" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[4].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[4].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[4].image">
+                                                    <img v-show="!pages[4].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[4].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[4].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 6" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[5].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[5].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[5].image">
+                                                    <img v-show="!pages[5].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[5].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[5].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 7" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[6].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[6].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[6].image">
+                                                    <img v-show="!pages[6].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[6].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[6].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 8" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[7].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[7].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[7].image">
+                                                    <img v-show="!pages[7].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[7].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[7].seo"></seo>
+                                        </div>
+
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div v-if="pageStatus === 9" class="create_product_wrapper">
+                        <form action="" method="post">
+                            <div class="new_product_controls">
+                                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-1">
+                                        <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                                Сохранить
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product_section_wrapper">
+                                    <form class="create_product_form" enctype="multipart/form-data" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                    </div>
+                                                    <input name="article_name" type="text" class="form-control"
+                                                           v-model="pages[8].title"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <figure class="figure new_product_ilu">
+                                                    <img v-show="pages[8].image" alt="Основное фото товара"
+                                                         class="img-thumbnail" :src="pages[8].image">
+                                                    <img v-show="!pages[8].image" src="/static/iconic/svg/aperture.svg"
+                                                         alt="Загрузите фото" class="img-thumbnail">
+                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
+                                                </figure>
+                                                <div class="input-group mb-3 product_upload_image">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">Загрузить</span>
+                                                    </div>
+                                                    <div class="custom-file">
+                                                        <input @change="previewAboutPageImg" type="file"
+                                                               class="custom-file-input" id="inputGroupFile987">
+                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                            Выбрать файл </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+
+                                                    <div class="input-group col-12">
+                                                        Контент:
+                                                        <ckeditor type="classic" v-model="pages[8].content"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                            <seo v-model="pages[8].seo"></seo>
                                         </div>
 
                                         <!--</div>-->
