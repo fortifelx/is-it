@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="2477" column="90" lean-forward="false" selection-start-line="2477" selection-start-column="90" selection-end-line="2477" selection-end-column="90" />
+            <state relative-caret-position="423">
+              <caret line="2829" column="29" lean-forward="false" selection-start-line="2829" selection-start-column="29" selection-end-line="2829" selection-end-column="29" />
               <folding>
                 <element signature="n#div#4;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#5;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -147,11 +147,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preview.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preview.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/preview.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="264">
-              <caret line="36" column="51" lean-forward="true" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+              <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
               <folding>
                 <marker date="1527507627468" expanded="true" signature="747:853" ph="..." />
               </folding>
@@ -213,8 +213,8 @@
         <option value="$PROJECT_DIR$/css/style.module.scss" />
         <option value="$PROJECT_DIR$/src/components/seo.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/components/preview.vue" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -260,13 +260,7 @@
             <path>
               <item name="admin3" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin3" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="admin3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin3" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="build" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -319,12 +313,12 @@
       <workItem from="1527143235414" duration="11595000" />
       <workItem from="1527234425822" duration="7530000" />
       <workItem from="1527327179270" duration="3987000" />
-      <workItem from="1527495127358" duration="11485000" />
+      <workItem from="1527495127358" duration="12186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82560000" />
+    <option name="totallyTimeSpent" value="83261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1296,10 +1290,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/preview.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="36" column="51" lean-forward="false" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+          <folding>
+            <marker date="1527507627468" expanded="true" signature="747:853" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="2477" column="90" lean-forward="false" selection-start-line="2477" selection-start-column="90" selection-end-line="2477" selection-end-column="90" />
+        <state relative-caret-position="423">
+          <caret line="2829" column="29" lean-forward="false" selection-start-line="2829" selection-start-column="29" selection-end-line="2829" selection-end-column="29" />
           <folding>
             <element signature="n#div#4;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#5;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1308,16 +1312,6 @@
             <element signature="n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#form#0;n#div#7;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#form#0;n#div#7;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#0;n#form#0;n#div#8;n#div#1;n#div#0;n#div#7;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/preview.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="36" column="51" lean-forward="true" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
-          <folding>
-            <marker date="1527507627468" expanded="true" signature="747:853" ph="..." />
           </folding>
         </state>
       </provider>
