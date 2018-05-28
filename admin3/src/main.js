@@ -10,6 +10,7 @@ import Vue from 'vue'
 import comment from './components/comment.vue'
 import articletable from './components/article.vue'
 import seo from './components/seo.vue'
+import preview from './components/preview.vue'
 import DatePicker from 'vue2-datepicker'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import BalloonEditor from '@ckeditor/ckeditor5-build-balloon'
@@ -50,7 +51,7 @@ new Vue({
         newArticleStatus: 1,
         newCommentStatus: 1,
         sectionStatus: { id: 0 },
-        pageStatus: 1,
+        pageStatus: 9,
         createStructureBlock: 0,
         createFilterBlock: 0,
         newProduct: {
@@ -299,9 +300,13 @@ new Vue({
             { id: 7, image: '', title: '', content: '',
                 seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}},
             { id: 8, image: '', title: '', content: '',
-                seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}},
+                seo: {title: '', type: '', image: '/static/img/newProduct/black.jpg', url: '', description: '', video: '', locale:'', site_name: ''}},
             { id: 9, image: '', title: '', content: '',
-                seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}},
+                facebook: { link: 'Facebook link', icon: ''},
+                instagram: { link: '', icon: ''},
+                telegram: { link: '', icon: ''},
+                vkontakte: { link: '', icon: ''},
+                watsup: { link: '', icon: ''}},
         ]
 
     },
@@ -400,14 +405,15 @@ new Vue({
                 reader.readAsDataURL(input.files[0]);
             }
         },
-        previewAboutPageImg: function(event) {
+        previewAboutPageImg: function(num, event) {
             var input = event.target;
+            console.log(num);
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 var vm = this;
                 reader.onload = function(e) {
-                    vm.pages[0].image = e.target.result;
+                    vm.pages[num].image = e.target.result;
                 }
 
                 reader.readAsDataURL(input.files[0]);
@@ -673,5 +679,5 @@ new Vue({
     computed: {
 
     },
-    components: { DatePicker, comment, articletable, seo },
+    components: { DatePicker, comment, articletable, seo, preview },
 })

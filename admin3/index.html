@@ -1933,9 +1933,9 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
-                                                               class="custom-file-input" id="inputGroupFile987">
-                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                        <input @change="previewAboutPageImg(0, $event)" type="file"
+                                                               class="custom-file-input" id="inputGroupFile9387">
+                                                        <label class="custom-file-label" for="inputGroupFile9387">
                                                             Выбрать файл </label>
                                                     </div>
                                                 </div>
@@ -2003,9 +2003,9 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
-                                                               class="custom-file-input" id="inputGroupFile987">
-                                                        <label class="custom-file-label" for="inputGroupFile987">
+                                                        <input @change="previewAboutPageImg(1, $event)" type="file"
+                                                               class="custom-file-input" id="inputGroupFile92872">
+                                                        <label class="custom-file-label" for="inputGroupFile92872">
                                                             Выбрать файл </label>
                                                     </div>
                                                 </div>
@@ -2073,7 +2073,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(2, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2143,7 +2143,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(3, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2213,7 +2213,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(4, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2283,7 +2283,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(5, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2353,7 +2353,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(6, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2423,7 +2423,7 @@
                                                         <span class="input-group-text">Загрузить</span>
                                                     </div>
                                                     <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
+                                                        <input @change="previewAboutPageImg(7, $event)" type="file"
                                                                class="custom-file-input" id="inputGroupFile987">
                                                         <label class="custom-file-label" for="inputGroupFile987">
                                                             Выбрать файл </label>
@@ -2466,13 +2466,16 @@
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
                                         <div class="row">
-                                            <div class="col-12">
+                                            <div class="col-2">
+                                                <preview v-model="pages[8].facebook.icon"></preview>
+                                            </div>
+                                            <div class="col-6">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="article_name">Название</span>
+                                                        <span class="input-group-text" id="network_name">Facebook</span>
                                                     </div>
-                                                    <input name="article_name" type="text" class="form-control"
-                                                           v-model="pages[8].title"
+                                                    <input name="network_name" type="text" class="form-control"
+                                                           v-model="pages[8].facebook.link"
                                                            placeholder="Название"
                                                            aria-label="Название"
                                                            aria-describedby="basic-addon1">
@@ -2480,41 +2483,73 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-4">
-                                                <figure class="figure new_product_ilu">
-                                                    <img v-show="pages[8].image" alt="Основное фото товара"
-                                                         class="img-thumbnail" :src="pages[8].image">
-                                                    <img v-show="!pages[8].image" src="/static/iconic/svg/aperture.svg"
-                                                         alt="Загрузите фото" class="img-thumbnail">
-                                                    <figcaption class="figure-caption">Основное изображение</figcaption>
-                                                </figure>
-                                                <div class="input-group mb-3 product_upload_image">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">Загрузить</span>
-                                                    </div>
-                                                    <div class="custom-file">
-                                                        <input @change="previewAboutPageImg" type="file"
-                                                               class="custom-file-input" id="inputGroupFile987">
-                                                        <label class="custom-file-label" for="inputGroupFile987">
-                                                            Выбрать файл </label>
-                                                    </div>
-                                                </div>
+                                            <div class="col-2">
+                                                <preview v-model="pages[8].instagram.icon"></preview>
                                             </div>
-                                            <div class="col-8">
-                                                <div class="row">
-
-                                                    <div class="input-group col-12">
-                                                        Контент:
-                                                        <ckeditor type="classic" v-model="pages[8].content"></ckeditor>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="network_name">Instagram</span>
                                                     </div>
+                                                    <input name="network_name" type="text" class="form-control"
+                                                           v-model="pages[8].instagram.link"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
-                                            <seo v-model="pages[8].seo"></seo>
+                                            <div class="col-2">
+                                                <preview v-model="pages[8].telegram.icon"></preview>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="network_name">Telegram</span>
+                                                    </div>
+                                                    <input name="network_name" type="text" class="form-control"
+                                                           v-model="pages[8].telegram.link"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <preview v-model="pages[8].vkontakte.icon"></preview>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="network_name">Vkontakte</span>
+                                                    </div>
+                                                    <input name="network_name" type="text" class="form-control"
+                                                           v-model="pages[8].vkontakte.link"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <preview v-model="pages[8].watsup.icon"></preview>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="network_name">Watsup</span>
+                                                    </div>
+                                                    <input name="network_name" type="text" class="form-control"
+                                                           v-model="pages[8].watsup.link"
+                                                           placeholder="Название"
+                                                           aria-label="Название"
+                                                           aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!--</div>-->
                                     </form>
                                 </div>
