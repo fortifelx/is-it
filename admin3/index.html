@@ -362,7 +362,10 @@
                       </div>
                       <div class="col-1">
                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                          <button type="button" @click="saveProduct" class="btn btn-primary">
+                            <button type="button" @click="cancelProduct" class="btn btn-outline-warning">
+                                Отмена
+                            </button>
+                            <button type="button" @click="saveProduct" class="btn btn-primary">
                             Сохранить
                           </button>
                         </div>
@@ -1004,7 +1007,10 @@
                       </div>
                       <div class="col-1">
                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                          <button type="button" @click="saveShop" class="btn btn-primary">
+                            <button type="button" @click="cancelShop" class="btn btn-outline-warning">
+                                Отмена
+                            </button>
+                            <button type="button" @click="saveShop" class="btn btn-primary">
                             Сохранить
                           </button>
                         </div>
@@ -1366,7 +1372,10 @@
                       </div>
                       <div class="col-1">
                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                          <button type="button" @click="saveArticle" class="btn btn-primary">
+                            <button type="button" @click="cancelArticle" class="btn btn-outline-warning">
+                                Отмена
+                            </button>
+                            <button type="button" @click="saveArticle" class="btn btn-primary">
                             Сохранить
                           </button>
                         </div>
@@ -1679,7 +1688,10 @@
                     </div>
                     <div class="col-1">
                       <div class="btn-group offset-1" role="group" aria-label="Third group">
-                        <button type="button" @click="saveCategory" class="btn btn-primary">
+                          <button type="button" @click="cancelCategory" class="btn btn-outline-warning">
+                              Отмена
+                          </button>
+                          <button type="button" @click="saveCategory" class="btn btn-primary">
                           Сохранить
                         </button>
                       </div>
@@ -1780,7 +1792,10 @@
                     </div>
                     <div class="col-1">
                       <div class="btn-group offset-1" role="group" aria-label="Third group">
-                        <button type="button" @click="saveCategory" class="btn btn-primary">
+                          <button type="button" @click="cancelSection" class="btn btn-outline-warning">
+                              Отмена
+                          </button>
+                          <button type="button" @click="saveSection" class="btn btn-primary">
                           Сохранить
                         </button>
                       </div>
@@ -1903,6 +1918,9 @@
                                     </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
                                             <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
@@ -1978,6 +1996,9 @@
                                     </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
                                             <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
@@ -2053,6 +2074,9 @@
                                     </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
                                             <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
@@ -2128,6 +2152,9 @@
                                     </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
                                             <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
@@ -2203,6 +2230,9 @@
                                     </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
                                             <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
@@ -2270,9 +2300,18 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2280,7 +2319,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2294,7 +2333,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[5].image" alt="Основное фото товара"
@@ -2325,8 +2364,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[5].seo"></seo>
                                         </div>
 
@@ -2340,9 +2378,18 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2350,7 +2397,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2364,7 +2411,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[6].image" alt="Основное фото товара"
@@ -2395,8 +2442,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[6].seo"></seo>
                                         </div>
 
@@ -2410,9 +2456,19 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 3" :class="[ {'btn-dark' : pagesStatus == 3} , {'btn-secondary' : pagesStatus != 3}  ]" class="btn">Наши магазины</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2420,7 +2476,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2434,7 +2490,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[7].image" alt="Основное фото товара"
@@ -2465,7 +2521,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 3">
                                                 <div class="col-8">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
@@ -2485,12 +2541,9 @@
                                                 <ourshops :value ="elem" :key="num" @delete="removeOurShop(num)"></ourshops>
                                             </template>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[7].seo"></seo>
                                         </div>
-
-                                        <!--</div>-->
                                     </form>
                                 </div>
                             </div>
@@ -2502,7 +2555,10 @@
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="cancelPage" class="btn btn-outline-warning">
+                                                Отмена
+                                            </button>
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2673,6 +2729,9 @@
                               </div>
                               <div class="col-1">
                                   <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                      <button type="button" @click="cancelColor" class="btn btn-outline-warning">
+                                          Отмена
+                                      </button>
                                       <button type="button" @click="saveColor" class="btn btn-primary">
                                           Сохранить
                                       </button>
@@ -2741,6 +2800,9 @@
                               </div>
                               <div class="col-1">
                                   <div class="btn-group offset-1" role="group" aria-label="Third group">
+                                      <button type="button" @click="cancelSize" class="btn btn-outline-warning">
+                                          Отмена
+                                      </button>
                                       <button type="button" @click="saveSize" class="btn btn-primary">
                                           Сохранить
                                       </button>

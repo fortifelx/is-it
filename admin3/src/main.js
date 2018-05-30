@@ -337,7 +337,6 @@ new Vue({
           //       el.id = i;
           // })
         },
-
         removeOurShop: function(i){
            this.pages[7].shops.splice(i, 1);
         },
@@ -667,6 +666,9 @@ new Vue({
         getProducts: function(options){
             console.log('get product list');
         },
+        getPage: function(options){
+            console.log('get page data');
+        },
         getShops: function(options){
             console.log('get shop list');
         },
@@ -684,6 +686,30 @@ new Vue({
         },
         getSizes: function(options){
             console.log('get sizes list');
+        },
+        cancelShop: function(options){
+            console.log('get shop list');
+        },
+        cancelArticles: function(options){
+            console.log('get article list');
+        },
+        cancelCategorys: function(options){
+            console.log('get category list');
+        },
+        cancelSections: function(options){
+            console.log('get sections list');
+        },
+        cancelProduct: function(){
+            this.getProducts();
+        },
+        cancelSize: function(){
+            this.getSizes();
+        },
+        cancelColor: function(){
+            this.getColors();
+        },
+        cancelPage: function(){
+            this.getPage();
         },
         chooseSection: function(){
             var category = this.newCategory;
