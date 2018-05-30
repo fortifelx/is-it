@@ -11,6 +11,7 @@ import comment from './components/comment.vue'
 import articletable from './components/article.vue'
 import seo from './components/seo.vue'
 import preview from './components/preview.vue'
+ import ourshops from './components/shops.vue'
 import DatePicker from 'vue2-datepicker'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import BalloonEditor from '@ckeditor/ckeditor5-build-balloon'
@@ -51,7 +52,8 @@ new Vue({
         newArticleStatus: 1,
         newCommentStatus: 1,
         sectionStatus: { id: 0 },
-        pageStatus: 9,
+        pageStatus: 8,
+        pagesStatus: 1,
         createStructureBlock: 0,
         createFilterBlock: 0,
         newProduct: {
@@ -86,6 +88,10 @@ new Vue({
             goods: 222, allow_goods: 250, discounts: 25, allow_discounts: 25, stock: 10, allow_stocks: 15,
             sales: 112, published: false, deleted: false, seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}
         },
+        newOurShop: {
+            id: 0, published: true, img: '', name: '', description: '', address: ''
+        },
+        //newOurShopCount: pages[7].shops.length,
         shopTemplate: {
             id: 0, name: '', description: '', email: '', emails: [], delivery: '', take_back: '',
             instagram: '', phones: [], addresses: '', stock_description: '', published: false,
@@ -299,7 +305,9 @@ new Vue({
                 seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}},
             { id: 7, image: '', title: '', content: '',
                 seo: {title: '', type: '', image: '', url: '', description: '', video: '', locale:'', site_name: ''}},
-            { id: 8, image: '', title: '', content: '',
+            { id: 8, image: '', title: '', phoneTitle: '', phones: '', workTimeTitle: '', workTime: '', shopsTitle: 'Также приглашаем посетить наши магазины',
+                shops: [{ id: 0, published: true, img: '/static/img/shops/shop1.jpg', name: 'Техас и копыта', description: '', address: 'г. Москвы, ул.Тверская 8'},
+                    { id: 1, published: true, img: '/static/img/shops/shop2.jpg', name: 'Чувайчик', description: '', address: 'г. Казань, ул.Толстого 8'},],
                 seo: {title: '', type: '', image: '/static/img/newProduct/black.jpg', url: '', description: '', video: '', locale:'', site_name: ''}},
             { id: 9, image: '', title: '', content: '',
                 facebook: { link: 'Facebook link', icon: ''},
@@ -321,6 +329,17 @@ new Vue({
         addPhone: function(){
             this.newShop.phones.push(this.newPhone);
             this.newPhone = '';
+        },
+        addOurShop: function(){
+          var newShops = this.pages[7].shops;
+          newShops.push(this.newOurShop);
+          //   this.pages[7].shops.forEach(function(el, i){
+          //       el.id = i;
+          // })
+        },
+
+        removeOurShop: function(i){
+           this.pages[7].shops.splice(i, 1);
         },
         addEmail: function(){
             this.newShop.emails.push(this.newEmail);
@@ -642,6 +661,9 @@ new Vue({
             this.getSizes();
             this.createFilterBlock = 0;
         },
+        savePage: function(){
+            console.log('send page data');
+        },
         getProducts: function(options){
             console.log('get product list');
         },
@@ -679,5 +701,5 @@ new Vue({
     computed: {
 
     },
-    components: { DatePicker, comment, articletable, seo, preview },
+    components: { DatePicker, comment, articletable, seo, preview, ourshops },
 })

@@ -1895,9 +1895,15 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -1905,7 +1911,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -1919,7 +1925,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[0].image" alt="Основное фото товара"
@@ -1950,8 +1956,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[0].seo"></seo>
                                         </div>
 
@@ -1965,9 +1970,15 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -1975,7 +1986,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -1989,7 +2000,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[1].image" alt="Основное фото товара"
@@ -2020,8 +2031,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[1].seo"></seo>
                                         </div>
 
@@ -2035,9 +2045,15 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2045,7 +2061,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2059,7 +2075,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[2].image" alt="Основное фото товара"
@@ -2090,8 +2106,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[2].seo"></seo>
                                         </div>
 
@@ -2105,9 +2120,15 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2115,7 +2136,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2129,7 +2150,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[3].image" alt="Основное фото товара"
@@ -2160,8 +2181,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[3].seo"></seo>
                                         </div>
 
@@ -2175,9 +2195,15 @@
                         <form action="" method="post">
                             <div class="new_product_controls">
                                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="col-8">
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" @click="pagesStatus = 1" :class="[ {'btn-dark' : pagesStatus == 1} , {'btn-secondary' : pagesStatus != 1}  ]" class="btn " >Контент</button>
+                                            <button type="button" @click="pagesStatus = 2" :class="[ {'btn-dark' : pagesStatus == 2} , {'btn-secondary' : pagesStatus != 2}  ]" class="btn">SEO</button>
+                                        </div>
+                                    </div>
                                     <div class="col-1">
                                         <div class="btn-group offset-1" role="group" aria-label="Third group">
-                                            <button type="button" @click="saveArticle" class="btn btn-primary">
+                                            <button type="button" @click="savePage" class="btn btn-primary">
                                                 Сохранить
                                             </button>
                                         </div>
@@ -2185,7 +2211,7 @@
                                 </div>
                                 <div class="product_section_wrapper">
                                     <form class="create_product_form" enctype="multipart/form-data" method="post">
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-12">
                                                 <div class="input-group mb-3">
                                                     <div class="input-group-prepend">
@@ -2199,7 +2225,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" v-show="pagesStatus == 1">
                                             <div class="col-4">
                                                 <figure class="figure new_product_ilu">
                                                     <img v-show="pages[4].image" alt="Основное фото товара"
@@ -2230,8 +2256,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
+                                        <div class="row" v-show="pagesStatus == 2">
                                             <seo v-model="pages[4].seo"></seo>
                                         </div>
 
@@ -2439,6 +2464,26 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col-8">
+                                                    <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="article_name">Заголовок</span>
+                                                        </div>
+                                                        <input name="article_name" type="text" class="form-control"
+                                                               v-model="pages[7].shopsTitle"
+                                                               placeholder="Название"
+                                                               aria-label="Название"
+                                                               aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div @click="addOurShop" class="btn btn-outline-success">Добавить магазин</div>
+                                                </div>
+                                             <template v-for="(elem, num) in pages[7].shops">
+                                                <ourshops :value ="elem" :key="num" @delete="removeOurShop(num)"></ourshops>
+                                            </template>
                                         </div>
                                         <div class="row">
                                             <h5 style="margin: 20px 0; padding-left: 100px;">S E O</h5>
@@ -2827,7 +2872,7 @@
       </div>
     </div>
   </div>
-  <script src="build/build.js"></script>
+  <!--<script src="build/build.js"></script>-->
     <!-- built files will be auto injected -->
   </body>
 </html>
